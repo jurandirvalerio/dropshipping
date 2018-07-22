@@ -4,20 +4,14 @@ namespace WebApplication.Areas.Loja
 {
     public class LojaAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
-        {
-            get 
-            {
-                return "Loja";
-            }
-        }
+        public override string AreaName => "Loja";
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+	    public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
                 "Loja_default",
                 "Loja/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller= "Vitrine", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

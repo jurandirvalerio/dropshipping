@@ -16,7 +16,7 @@
     <AssemblyName>WebApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -207,7 +207,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Loja\Controllers\ClienteController.cs" />
-    <Compile Include="Areas\Loja\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Loja\Controllers\VitrineController.cs" />
     <Compile Include="Areas\Loja\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Loja\LojaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -223,6 +223,168 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Loja\Content\css\bootstrap.css" />
+    <Content Include="Areas\Loja\Content\css\breadcrumb.css" />
+    <Content Include="Areas\Loja\Content\css\font-awesome.min.css" />
+    <Content Include="Areas\Loja\Content\css\responsive.css" />
+    <Content Include="Areas\Loja\Content\css\style.css" />
+    <Content Include="Areas\Loja\Content\css\_about.css" />
+    <Content Include="Areas\Loja\Content\css\_client.css" />
+    <Content Include="Areas\Loja\Content\css\_feature.css" />
+    <Content Include="Areas\Loja\Content\css\_gallery.css" />
+    <Content Include="Areas\Loja\Content\css\_product.css" />
+    <Content Include="Areas\Loja\Content\css\_team.css" />
+    <Content Include="Areas\Loja\Content\css\_timer.css" />
+    <Content Include="Areas\Loja\Content\css\_variables.css" />
+    <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Loja\Content\img\banner\banner-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\banner\banner.jpg" />
+    <Content Include="Areas\Loja\Content\img\banner\helmat.png" />
+    <Content Include="Areas\Loja\Content\img\banner\home-banner.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\add.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\author.png" />
+    <Content Include="Areas\Loja\Content\img\blog\c1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\c2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\c3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\c4.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\c5.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\c6.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\causes\causes-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\causes\causes-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\causes\causes-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\feature-img1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\latest-post\l-post-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\latest-post\l-post-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\latest-post\l-post-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\latest-post\l-post-4.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\next.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\popular-post\post1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\popular-post\post2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\popular-post\post3.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\popular-post\post4.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\post-img1.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\post-img2.jpg" />
+    <Content Include="Areas\Loja\Content\img\blog\prev.jpg" />
+    <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-1.png" />
+    <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-2.png" />
+    <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-3.png" />
+    <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-4.png" />
+    <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-5.png" />
+    <Content Include="Areas\Loja\Content\img\elements\a.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\a2.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\d.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\disabled-check.png" />
+    <Content Include="Areas\Loja\Content\img\elements\disabled-radio.png" />
+    <Content Include="Areas\Loja\Content\img\elements\f1.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f2.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f3.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f4.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f5.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f6.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f7.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\f8.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g1.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g2.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g3.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g4.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g5.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g6.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g7.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\g8.jpg" />
+    <Content Include="Areas\Loja\Content\img\elements\primary-check.png" />
+    <Content Include="Areas\Loja\Content\img\elements\primary-radio.png" />
+    <Content Include="Areas\Loja\Content\img\elements\success-check.png" />
+    <Content Include="Areas\Loja\Content\img\elements\success-radio.png" />
+    <Content Include="Areas\Loja\Content\img\elements\user1.png" />
+    <Content Include="Areas\Loja\Content\img\elements\user2.png" />
+    <Content Include="Areas\Loja\Content\img\favicon.png" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-01.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-02.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-03.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-04.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-05.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-06.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-07.jpg" />
+    <Content Include="Areas\Loja\Content\img\instagram\Image-08.jpg" />
+    <Content Include="Areas\Loja\Content\img\login.jpg" />
+    <Content Include="Areas\Loja\Content\img\logo.png" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-4.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-5.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-6.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-7.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\feature-product\f-p-8.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\hot-product\hot-p-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\hot-product\hot-p-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-10.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-11.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-12.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-4.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-5.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-6.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-7.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-8.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\most-product\m-product-9.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\card.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\cart-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\review-1.png" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\review-2.png" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\review-3.png" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\s-product-1.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\s-product-s-2.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\s-product-s-3.jpg" />
+    <Content Include="Areas\Loja\Content\img\product\single-product\s-product-s-4.jpg" />
+    <Content Include="Areas\Loja\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\Loja\Content\js\contact.js" />
+    <Content Include="Areas\Loja\Content\js\custom.js" />
+    <Content Include="Areas\Loja\Content\js\gmaps.min.js" />
+    <Content Include="Areas\Loja\Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Loja\Content\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Areas\Loja\Content\js\jquery.form.js" />
+    <Content Include="Areas\Loja\Content\js\jquery.validate.min.js" />
+    <Content Include="Areas\Loja\Content\js\mail-script.js" />
+    <Content Include="Areas\Loja\Content\js\popper.js" />
+    <Content Include="Areas\Loja\Content\js\stellar.js" />
+    <Content Include="Areas\Loja\Content\js\theme.js" />
+    <Content Include="Areas\Loja\Content\vendors\animate-css\animate.css" />
+    <Content Include="Areas\Loja\Content\vendors\animate-css\wow.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Areas\Loja\Content\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="Areas\Loja\Content\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="Areas\Loja\Content\vendors\counter-up\jquery.counterup.js" />
+    <Content Include="Areas\Loja\Content\vendors\counter-up\jquery.waypoints.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\flipclock\timer.js" />
+    <Content Include="Areas\Loja\Content\vendors\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\isotope\isotope-min.js" />
+    <Content Include="Areas\Loja\Content\vendors\jquery-ui\jquery-ui.css" />
+    <Content Include="Areas\Loja\Content\vendors\jquery-ui\jquery-ui.js" />
+    <Content Include="Areas\Loja\Content\vendors\lightbox\simpleLightbox.css" />
+    <Content Include="Areas\Loja\Content\vendors\lightbox\simpleLightbox.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\style.css" />
+    <Content Include="Areas\Loja\Content\vendors\nice-select\css\nice-select.css" />
+    <Content Include="Areas\Loja\Content\vendors\nice-select\css\style.css" />
+    <Content Include="Areas\Loja\Content\vendors\nice-select\js\jquery.nice-select.js" />
+    <Content Include="Areas\Loja\Content\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <Content Include="Areas\Loja\Content\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="Areas\Loja\Content\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="Areas\Loja\Content\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="Areas\Loja\Content\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="Areas\Loja\Content\vendors\owl-carousel\owl.carousel.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -239,6 +401,26 @@
     <Content Include="Connected Services\Key Vault\ConnectedService.json" />
     <Content Include="Areas\Loja\Views\web.config" />
     <Content Include="Areas\Loja\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Loja\Content\css\breadcrumb.css.map" />
+    <Content Include="Areas\Loja\Content\css\style.css.map" />
+    <Content Include="Areas\Loja\Content\css\_about.css.map" />
+    <Content Include="Areas\Loja\Content\css\_client.css.map" />
+    <Content Include="Areas\Loja\Content\css\_feature.css.map" />
+    <Content Include="Areas\Loja\Content\css\_gallery.css.map" />
+    <Content Include="Areas\Loja\Content\css\_product.css.map" />
+    <Content Include="Areas\Loja\Content\css\_team.css.map" />
+    <Content Include="Areas\Loja\Content\css\_timer.css.map" />
+    <Content Include="Areas\Loja\Content\css\_variables.css.map" />
+    <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Loja\Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Loja\Content\img\elements\_DS_Store" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.eot" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.ttf" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.woff" />
+    <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -263,7 +445,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Loja\Views\Vitrine\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -284,12 +466,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Loja\Models\" />
     <Folder Include="Areas\Loja\Views\Cliente\" />
-    <Folder Include="Areas\Loja\Views\Home\" />
     <Folder Include="Areas\Loja\Views\Produto\" />
   </ItemGroup>
   <ItemGroup>
@@ -326,7 +508,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53945</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53945/</IISUrl>
+          <IISUrl>http://localhost/dropshipping</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
