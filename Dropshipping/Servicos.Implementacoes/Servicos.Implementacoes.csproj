@@ -48,6 +48,10 @@
       <Project>{6feb46f3-f859-49ed-81b6-2f08629068ad}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Repositorios.Contratos\Repositorios.Contratos.csproj">
+      <Project>{FE9B92FB-AFEC-411C-9D06-3D44FB88C924}</Project>
+      <Name>Repositorios.Contratos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicos.Contratos\Servicos.Contratos.csproj">
       <Project>{A74DA7CC-4930-45C6-BE0E-6BD29C071266}</Project>
       <Name>Servicos.Contratos</Name>

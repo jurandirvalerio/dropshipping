@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Repositorio.Contratos
+namespace Repositorios.Contratos
 {
 	public interface IBaseRepository<TEntity>
 		where TEntity : class

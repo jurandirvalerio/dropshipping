@@ -1,6 +1,6 @@
 ﻿using Entidades;
 
-namespace Repositorio.Contratos
+namespace Repositorios.Contratos
 {
 	public interface IProdutoRepository : IBaseRepository<Produto>
 	{

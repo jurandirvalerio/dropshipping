@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicos.Implementacoes", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicos.Contratos", "Servicos.Contratos\Servicos.Contratos.csproj", "{A74DA7CC-4930-45C6-BE0E-6BD29C071266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio.Implementacoes", "Repositorio.Implementacoes\Repositorio.Implementacoes.csproj", "{5D8338B8-338A-41D1-878E-2DC6E50DB109}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorios.Implementacoes", "Repositorios.Implementacoes\Repositorios.Implementacoes.csproj", "{5D8338B8-338A-41D1-878E-2DC6E50DB109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio.Contratos", "Repositorio.Contratos\Repositorio.Contratos.csproj", "{FE9B92FB-AFEC-411C-9D06-3D44FB88C924}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorios.Contratos", "Repositorios.Contratos\Repositorios.Contratos.csproj", "{FE9B92FB-AFEC-411C-9D06-3D44FB88C924}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

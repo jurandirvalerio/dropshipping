@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using Repositorio.Contratos;
+using Repositorios.Contratos;
 
-namespace Repositorio.Implementacoes
+namespace Repositorios.Implementacoes
 {
 	public abstract class BaseRepository<TEntity, TContext> : IBaseRepository<TEntity> 
 		where TEntity : class 
