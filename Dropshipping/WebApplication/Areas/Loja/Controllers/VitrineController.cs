@@ -7,7 +7,8 @@ namespace WebApplication.Areas.Loja.Controllers
         // GET: Loja/Home
         public ActionResult Index()
         {
-            return View();
+	        ViewBag.Title = "Chef`s - Tudo para sua cozinha";
+	        return View();
         }
     }
 }

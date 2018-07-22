@@ -210,6 +210,7 @@
     <Compile Include="Areas\Loja\Controllers\VitrineController.cs" />
     <Compile Include="Areas\Loja\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Loja\LojaAreaRegistration.cs" />
+    <Compile Include="Areas\Loja\Models\ProdutoViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -273,11 +274,13 @@
     <Content Include="Areas\Loja\Content\img\blog\post-img1.jpg" />
     <Content Include="Areas\Loja\Content\img\blog\post-img2.jpg" />
     <Content Include="Areas\Loja\Content\img\blog\prev.jpg" />
+    <Content Include="Areas\Loja\Content\img\chef.png" />
     <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-1.png" />
     <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-2.png" />
     <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-3.png" />
     <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-4.png" />
     <Content Include="Areas\Loja\Content\img\clients-logo\c-logo-5.png" />
+    <Content Include="Areas\Loja\Content\img\banner\cooktop.png" />
     <Content Include="Areas\Loja\Content\img\elements\a.jpg" />
     <Content Include="Areas\Loja\Content\img\elements\a2.jpg" />
     <Content Include="Areas\Loja\Content\img\elements\d.jpg" />
@@ -421,6 +424,10 @@
     <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.ttf" />
     <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <Content Include="Areas\Loja\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Loja\Views\Vitrine\_Banner.cshtml" />
+    <Content Include="Areas\Loja\Views\Vitrine\_ItemProduto.cshtml" />
+    <Content Include="Areas\Loja\Views\Produto\Detalhe.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -470,9 +477,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Loja\Models\" />
     <Folder Include="Areas\Loja\Views\Cliente\" />
-    <Folder Include="Areas\Loja\Views\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
