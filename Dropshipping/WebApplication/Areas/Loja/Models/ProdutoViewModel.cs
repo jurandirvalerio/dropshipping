@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace WebApplication.Areas.Loja.Models
+﻿namespace WebApplication.Areas.Loja.Models
 {
 	public class ProdutoViewModel
 	{
@@ -12,10 +8,8 @@ namespace WebApplication.Areas.Loja.Models
 
 		public string Descricao { get; set; }
 
-		public decimal Valor { get; set; }
+		public decimal Valor { get; set; } = 100M;
 
-		public string UrlImagemPrincipal => UrlImagemSet.FirstOrDefault();
-
-		public List<string> UrlImagemSet { get; set; }
+		public string UrlImagem { get; set; }
 	}
 }

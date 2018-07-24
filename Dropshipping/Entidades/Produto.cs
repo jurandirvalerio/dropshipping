@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace Entidades
+﻿namespace Entidades
 {
-	public class Produto
+	public class Produto : Entidade
 	{
-		public int Codigo { get; set; }
 		public string Nome { get; set; }
 		public string Descricao { get; set; }
-		public bool Visivel { get; set; }
-		public ICollection<UrlImagem> UrlImagemSet { get; set; }
+		public string UrlImagem { get; set; }
 	}
 }

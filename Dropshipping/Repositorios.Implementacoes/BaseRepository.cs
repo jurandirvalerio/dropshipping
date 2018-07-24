@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using Entidades;
 using Repositorios.Contratos;
 
 namespace Repositorios.Implementacoes
 {
 	public abstract class BaseRepository<TEntity, TContext> : IBaseRepository<TEntity> 
-		where TEntity : class 
+		where TEntity : Entidade 
 		where TContext : DbContext, new()
 	{
 		public TContext Context { get; set; } = new TContext();
 
 		public virtual IQueryable<TEntity> GetAll()
 		{
-
 			IQueryable<TEntity> query = Context.Set<TEntity>();
 			return query;
 		}
@@ -27,6 +27,7 @@ namespace Repositorios.Implementacoes
 
 		public virtual void Add(TEntity entity)
 		{
+			entity.DataCriacao = DateTime.Now;
 			Context.Set<TEntity>().Add(entity);
 		}
 
@@ -37,6 +38,7 @@ namespace Repositorios.Implementacoes
 
 		public virtual void Edit(TEntity entity)
 		{
+			entity.DataAtualizacao = DateTime.Now;
 			Context.Entry(entity).State = EntityState.Modified;
 		}
 

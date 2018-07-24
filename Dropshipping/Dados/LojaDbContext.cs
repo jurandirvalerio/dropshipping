@@ -11,6 +11,7 @@ namespace Dados
 		public LojaDbContext()
 			: base("name=LojaDbContext")
 		{
+
 		}
 
 		public DbSet<Produto> ProdutoSet { get; set; }
