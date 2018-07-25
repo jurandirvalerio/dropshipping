@@ -1,0 +1,72 @@
+﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+@{
+	ViewBag.Title = "Detalhe";
+	Layout = "~/Areas/Loja/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="container">
+			<div class="banner_content text-center">
+				<h2>Single Product Page</h2>
+				<div class="page_link">
+					@Html.ActionLink("Home", "Index", new { area = "loja", controller = "Vitrine" })
+					@Html.ActionLink("Produtos", "Index", new { area = "loja" })
+					<a href="#">Detalhes do produto</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Single Product Area =================-->
+<div class="product_image_area">
+	<div class="container">
+		<div class="row s_product_inner">
+			<div class="col-lg-6">
+				<div class="s_product_img">
+					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							@for (int i = 0; i < Model.UrlImagemDetalheSet.Count; i++)
+							{
+								<li data-target="#carouselExampleIndicators" data-slide-to="@i" class="active">
+									<img src="@Url.Content($"~/{Model.UrlImagemDetalheSet[i].Url}")" alt="">
+								</li>
+							}
+						</ol>
+						<div class="carousel-inner">
+							@foreach (var imagem in Model.UrlImagemDetalheSet)
+							{
+								<div class="carousel-item active">
+									<img class="d-block w-100" src="@Url.Content($"~/{imagem.Url}")" alt="Detalhe">
+								</div>
+							}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="s_product_text">
+					<h3>@Model.Nome</h3>
+					<h2>@Model.Valor</h2>
+					<ul class="list">
+						<li><a href="#"><span>Disponível</span> em estoque</a></li>
+					</ul>
+					<p>@Model.Descricao</p>
+					<div class="product_count">
+						<label for="qty">Quantidade:</label>
+						<input type="text" name="qty" id="sst" maxlength="4" value="1" title="Quantity:" class="input-text qty">
+						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+					</div>
+					<div class="card_area">
+						<a class="main_btn" href="#">Adicionar ao carrinho</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--================End Single Product Area =================-->

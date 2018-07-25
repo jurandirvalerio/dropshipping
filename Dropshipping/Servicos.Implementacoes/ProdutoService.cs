@@ -16,7 +16,7 @@ namespace Servicos.Implementacoes
 
 		public Produto Obter(int codigo)
 		{
-			return _produtoRepository.FindBy(p => p.Codigo == codigo).FirstOrDefault();
+			return _produtoRepository.FindBy(p => p.Codigo == codigo, p => p.UrlImagemDetalheSet).FirstOrDefault();
 		}
 	}
 }

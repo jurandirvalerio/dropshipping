@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Repositorios.Contratos
 {
@@ -8,7 +9,7 @@ namespace Repositorios.Contratos
 	{
 		IQueryable<TEntity> GetAll();
 
-		IQueryable<TEntity> FindBy(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate);
+		IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeSet);
 
 		void Add(TEntity entity);
 

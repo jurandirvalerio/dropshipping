@@ -8,7 +8,8 @@ namespace WebApplication.Mappers
 	{
 		public AutoMapperProfile()
 		{
-			CreateMap<Produto, ProdutoViewModel>();
+			CreateMap<Produto, ProdutoViewModel>().ForMember(s => s.UrlImagemDetalheSet, c => c.MapFrom(m => m.UrlImagemDetalheSet));
+			CreateMap<UrlImagem, UrlImagemViewModel>();
 		}
 	}
 }

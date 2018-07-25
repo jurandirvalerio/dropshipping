@@ -6,12 +6,12 @@ using WebApplication.Areas.Loja.Models;
 
 namespace WebApplication.Areas.Loja.Controllers
 {
-    public class ProdutoController : Controller
+    public class ProdutosController : Controller
     {
 
 	    private readonly IProdutoService _produtoService;
 
-	    public ProdutoController(IProdutoService produtoService)
+	    public ProdutosController(IProdutoService produtoService)
 	    {
 		    _produtoService = produtoService;
 	    }

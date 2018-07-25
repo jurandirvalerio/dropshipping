@@ -1,4 +1,7 @@
-﻿namespace WebApplication.Areas.Loja.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace WebApplication.Areas.Loja.Models
 {
 	public class ProdutoViewModel
 	{
@@ -10,6 +13,8 @@
 
 		public decimal Valor { get; set; } = 100M;
 
-		public string UrlImagem { get; set; }
+		public string UrlImagem => UrlImagemDetalheSet.Select(s => s.Url).FirstOrDefault();
+
+		public List<UrlImagemViewModel> UrlImagemDetalheSet { get; set; }
 	}
 }

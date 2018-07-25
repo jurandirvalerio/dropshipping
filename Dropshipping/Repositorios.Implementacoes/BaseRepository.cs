@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using Entidades;
 using Repositorios.Contratos;
 
@@ -14,15 +15,13 @@ namespace Repositorios.Implementacoes
 
 		public virtual IQueryable<TEntity> GetAll()
 		{
-			IQueryable<TEntity> query = Context.Set<TEntity>();
-			return query;
+			return Context.Set<TEntity>();
 		}
 
-		public IQueryable<TEntity> FindBy(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
+		public virtual IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeSet)
 		{
-
-			IQueryable<TEntity> query = Context.Set<TEntity>().Where(predicate);
-			return query;
+			var query = Context.Set<TEntity>().Where(predicate);
+			return includeSet.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 		}
 
 		public virtual void Add(TEntity entity)

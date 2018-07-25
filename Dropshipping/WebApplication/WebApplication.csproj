@@ -234,9 +234,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Loja\Controllers\ClienteController.cs" />
     <Compile Include="Areas\Loja\Controllers\VitrineController.cs" />
-    <Compile Include="Areas\Loja\Controllers\ProdutoController.cs" />
+    <Compile Include="Areas\Loja\Controllers\ProdutosController.cs" />
     <Compile Include="Areas\Loja\LojaAreaRegistration.cs" />
     <Compile Include="Areas\Loja\Models\ProdutoViewModel.cs" />
+    <Compile Include="Areas\Loja\Models\UrlImagemViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Areas\Loja\Content\css\_team.css" />
     <Content Include="Areas\Loja\Content\css\_timer.css" />
     <Content Include="Areas\Loja\Content\css\_variables.css" />
+    <Content Include="Areas\Loja\Content\Custom.css" />
     <Content Include="Areas\Loja\Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\Loja\Content\img\banner\banner-2.jpg" />
     <Content Include="Areas\Loja\Content\img\banner\banner.jpg" />
@@ -420,6 +422,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagem\ic60_2.png" />
+    <Content Include="Content\Imagem\ic60_3.png" />
+    <Content Include="Content\Imagem\ic60_1.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -455,7 +460,8 @@
     <Content Include="Areas\Loja\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Loja\Views\Vitrine\_Banner.cshtml" />
     <Content Include="Areas\Loja\Views\Vitrine\_ItemProduto.cshtml" />
-    <Content Include="Areas\Loja\Views\Produto\Detalhe.cshtml" />
+    <Content Include="Areas\Loja\Views\Produtos\Detalhe.cshtml" />
+    <Content Include="Areas\Loja\Views\Produtos\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

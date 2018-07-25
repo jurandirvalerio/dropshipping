@@ -15,6 +15,7 @@ namespace Dados
 		}
 
 		public DbSet<Produto> ProdutoSet { get; set; }
+		public DbSet<UrlImagem> UrlImagemSet { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
