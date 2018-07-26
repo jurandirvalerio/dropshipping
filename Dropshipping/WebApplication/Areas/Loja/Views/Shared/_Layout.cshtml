@@ -4,7 +4,6 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
 	<title>@ViewBag.Title</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="~/Areas/Loja/Content/css/bootstrap.css">
@@ -19,6 +18,25 @@
 	<link rel="stylesheet" href="~/Areas/Loja/Content/css/style.css">
 	<link rel="stylesheet" href="~/Areas/Loja/Content/css/responsive.css">
 	<link rel="stylesheet" href="~/Areas/Loja/Content/Custom.css">
+	<!--Favicon-->
+	<link rel="apple-touch-icon" sizes="57x57" href="~/Areas/Loja/Content/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="~/Areas/Loja/Content/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="~/Areas/Loja/Content/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="~/Areas/Loja/Content/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="~/Areas/Loja/Content/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="~/Areas/Loja/Content/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="~/Areas/Loja/Content/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="~/Areas/Loja/Content/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="~/Areas/Loja/Content/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="~/Areas/Loja/Content/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="~/Areas/Loja/Content/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="~/Areas/Loja/Content/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="~/Areas/Loja/Content/favicon/favicon-16x16.png">
+	<link rel="manifest" href="~/Areas/Loja/Content/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="~/Areas/Loja/Content/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 </head>
 <body>
 
@@ -39,7 +57,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="~/Areas/Loja/Content/img/CHEF.png" alt=""></a>
+					<a class="navbar-brand logo_h" href="@Url.Action("Index", "Vitrine", new { area = "loja"})"><img src="~/Areas/Loja/Content/img/CHEF.png" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>

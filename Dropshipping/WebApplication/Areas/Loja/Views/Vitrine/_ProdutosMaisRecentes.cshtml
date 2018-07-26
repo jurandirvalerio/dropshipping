@@ -1,0 +1,21 @@
+﻿@model List<WebApplication.Areas.Loja.Models.ProdutoViewModel>
+<!--================Latest Product Area =================-->
+<section class="feature_product_area latest_product_area">
+	<div class="main_box">
+		<div class="container">
+			<div class="feature_product_inner">
+				<div class="main_title">
+					<h2>Novidades</h2>
+					<p>Produtos novos na nossa loja</p>
+				</div>
+				<div class="latest_product_inner row">
+					@foreach (var produto in Model)
+					{
+						@Html.Partial("_ItemProdutoMaisRecente", produto)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Latest Product Area =================-->

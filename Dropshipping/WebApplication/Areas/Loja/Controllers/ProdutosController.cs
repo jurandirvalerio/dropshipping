@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using AutoMapper;
 using Entidades;
 using Servicos.Contratos;
@@ -18,8 +19,8 @@ namespace WebApplication.Areas.Loja.Controllers
 
 	    // GET: Loja/Produtos
         public ActionResult Index()
-        {
-            return View();
+        {       
+			return View();
         }
 
 	    public ActionResult Detalhe(int id)

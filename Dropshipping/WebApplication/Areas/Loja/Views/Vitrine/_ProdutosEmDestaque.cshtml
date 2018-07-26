@@ -1,0 +1,21 @@
+﻿@model List<WebApplication.Areas.Loja.Models.ProdutoViewModel>
+<!--================Feature Product Area =================-->
+<section class="feature_product_area">
+	<div class="main_box">
+		<div class="container">
+			<div class="feature_product_inner">
+				<div class="main_title">
+					<h2>Produtos em destaque</h2>
+					<p>Itens especiais para sua cozinha</p>
+				</div>
+				<div class="feature_p_slider owl-carousel">
+					@foreach (var produto in Model)
+					{
+						@Html.Partial("_ItemProdutoEmDestaque", produto)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Feature Product Area =================-->

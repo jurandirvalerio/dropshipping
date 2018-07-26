@@ -1,16 +1,17 @@
-﻿<!--================Home Banner Area =================-->
+﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+<!--================Home Banner Area =================-->
 <section class="home_banner_area">
 	<div class="banner_inner d-flex align-items-center">
 		<div class="container">
 			<div class="banner_content row">
 				<div class="col-lg-5">
-					<h3>Cooktop de indução<br />Electrolux</h3>
-					<p>Se para você cozinhar é uma arte, então sabe que precisa das ferramentas certas para produzir a melhor obra. É aí  que entra o cooktop IC60. Moderníssimo, ele traz o que há de mais atual para a sua cozinha.</p>
-					<a class="white_bg_btn" href="@Url.Action("detalhe", "produtos", new { area = "loja", id = 1})">Veja mais</a>
+					<h3>@Model.Nome</h3>
+					<p>@Model.Descricao.</p>
+					<a class="white_bg_btn" href="@Url.Action("detalhe", "produtos", new { area = "loja", id = Model.Codigo})">Veja mais</a>
 				</div>
 				<div class="col-lg-7">
 					<div class="halemet_img">
-						<img src="~/Areas/Loja/Content/img/banner/cooktop.png" alt="">
+						<img src="@Url.Content(Model.UrlImagem)" alt="">
 					</div>
 				</div>
 			</div>
