@@ -12,11 +12,11 @@ namespace WebApplication.Areas.Loja.Models
 
 		public string Descricao { get; set; }
 
-		public decimal Valor { get; set; } = 100M;
+		public decimal Preco { get; set; }
 
-		public string UrlImagem => UrlImagemDetalheSet.Select(s => s.Url).FirstOrDefault();
+		public string UrlImagem => UrlImagemSet.FirstOrDefault();
 
-		public List<UrlImagemViewModel> UrlImagemDetalheSet { get; set; }
-		public string ValorExibicao => Valor.ToString("C2", CultureInfo.CreateSpecificCulture("pt-Br"));
+		public List<string> UrlImagemSet { get; set; }
+		public string ValorExibicao => Preco.ToString("C2", CultureInfo.CreateSpecificCulture("pt-Br"));
 	}
 }

@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Dados.Migrations;
 using Entidades;
+using Fornecedor = Entidades.Fornecedor;
 
 namespace Dados
 {
@@ -11,7 +13,6 @@ namespace Dados
 		public LojaDbContext()
 			: base("name=LojaDbContext")
 		{
-
 		}
 
 		public DbSet<Produto> ProdutoSet { get; set; }

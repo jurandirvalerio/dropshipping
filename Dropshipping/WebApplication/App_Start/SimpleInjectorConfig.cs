@@ -18,6 +18,7 @@ namespace WebApplication
 
 			container.Register<IProdutoRepository, ProdutoRepository>();
 			container.Register<IProdutoService, ProdutoService>();
+			container.Register<IProdutoMapper, ProdutoMapper>();
 
 			//container.RegisterWebApiControllers(GlobalConfiguration.Configuration); //web api
 			container.Verify();

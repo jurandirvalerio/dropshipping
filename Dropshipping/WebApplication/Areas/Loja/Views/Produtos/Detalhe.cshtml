@@ -27,22 +27,22 @@
 				<div class="s_product_img">
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
-							@for (int i = 0; i < Model.UrlImagemDetalheSet.Count; i++)
+							@for (int i = 0; i < Model.UrlImagemSet.Count; i++)
 							{
-								var imagem = Model.UrlImagemDetalheSet[i];
+								var imagem = Model.UrlImagemSet[i];
 								var classe = i == 0 ? "active" : "";
 								<li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@classe">
-									<img class="thumbcarrossel" src="@Url.Content($"~/{imagem.Url}")" alt="">
+									<img class="thumbcarrossel" src="@Url.Content($"~/{imagem}")" alt="">
 								</li>
 							}
 						</ol>
 						<div class="carousel-inner">
-							@for (var i = 0; i < Model.UrlImagemDetalheSet.Count; i++)
+							@for (var i = 0; i < Model.UrlImagemSet.Count; i++)
 							{
-								var imagem = Model.UrlImagemDetalheSet[i];
+								var imagem = Model.UrlImagemSet[i];
 								var classe = i == 0 ? "active" : "";
 								<div class="carousel-item @classe">
-									<img class="d-block w-100" src="@Url.Content($"~/{imagem.Url}")" alt="Third slide">
+									<img class="d-block w-100" src="@Url.Content($"~/{imagem}")" alt="Third slide">
 								</div>
 							}
 						</div>
@@ -52,7 +52,7 @@
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
 					<h3>@Model.Nome</h3>
-					<h2>@Model.Valor</h2>
+					<h2>@Model.Preco</h2>
 					<ul class="list">
 						<li><a href="#"><span>Disponível</span> em estoque</a></li>
 					</ul>

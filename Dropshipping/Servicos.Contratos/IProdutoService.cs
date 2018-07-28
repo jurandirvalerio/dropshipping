@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using DTOs;
 using Entidades;
 
 namespace Servicos.Contratos
 {
 	public interface IProdutoService
 	{
-		Produto Obter(int codigo);
-		List<Produto> ListarProdutosEmDestaque();
-		List<Produto> ListarTodosProdutos();
+		ProdutoDTO Obter(int codigo);
+		List<ProdutoDTO> ListarProdutosEmDestaque();
+		List<ProdutoDTO> ListarTodosProdutos();
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Entidades;
+using DTOs;
 using WebApplication.Areas.Loja.Models;
 
 namespace WebApplication.Mappers
@@ -8,8 +8,7 @@ namespace WebApplication.Mappers
 	{
 		public AutoMapperProfile()
 		{
-			CreateMap<Produto, ProdutoViewModel>().ForMember(s => s.UrlImagemDetalheSet, c => c.MapFrom(m => m.UrlImagemDetalheSet));
-			CreateMap<UrlImagem, UrlImagemViewModel>();
+			CreateMap<ProdutoDTO, ProdutoViewModel>().ForMember(s => s.UrlImagemSet, c => c.MapFrom(m => m.UrlSet));
 		}
 	}
 }

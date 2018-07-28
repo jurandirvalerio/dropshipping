@@ -11,7 +11,7 @@ namespace Dados.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
 		// SEED para aplicar carga inicial a base de dados
@@ -34,14 +34,14 @@ namespace Dados.Migrations
 		{
 			return new List<PrecoProdutoFornecedor>
 			{
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 1, Preco = 2245.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 2, Preco = 9999.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 3, Preco = 2889.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 4, Preco = 1139.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 5, Preco = 349.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 6, Preco = 799.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 7, Preco = 1399.00m},
-				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 8, Preco = 399.00m}
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 1, Quantidade = 100, Preco = 2245.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 2, Quantidade = 100, Preco = 9999.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 3, Quantidade = 100, Preco = 2889.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 4, Quantidade = 100, Preco = 1139.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 5, Quantidade = 100, Preco = 349.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 6, Quantidade = 100, Preco = 799.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 7, Quantidade = 100, Preco = 1399.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 8, Quantidade = 100, Preco = 399.00m}
 			};
 		}
 
@@ -61,7 +61,7 @@ namespace Dados.Migrations
 	    {
 			return ProdutoFactory(8,
 				"Mini processador em aço escovado Cuisinart - dlc1ss - 127V",
-				"erfeito ajudante na cozinha. Produzido pela Americana Cuisinart em aço escovado de alta qualidade, compacto e portátil mini processador com diversas funções programáveis. Excelente para picar, moer ou liquidificar com grande desempenho, o Mini Processador Cuisinart facilita o preparo de diversas receitas. Ainda conta com potência de 180W. Copo em Lexan com capacidade de 600ml.",
+				"Perfeito ajudante na cozinha. Produzido pela Americana Cuisinart em aço escovado de alta qualidade, compacto e portátil mini processador com diversas funções programáveis. Excelente para picar, moer ou liquidificar com grande desempenho, o Mini Processador Cuisinart facilita o preparo de diversas receitas. Ainda conta com potência de 180W. Copo em Lexan com capacidade de 600ml.",
 				19, 20, 21, 22
 			);
 		}
