@@ -505,7 +505,7 @@
     <Content Include="Areas\Loja\Content\vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Areas\Loja\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Loja\Views\Vitrine\_Banner.cshtml" />
-    <Content Include="Areas\Loja\Views\Vitrine\_ItemProdutoMaisRecente.cshtml" />
+    <Content Include="Areas\Loja\Views\Shared\_ItemProduto.cshtml" />
     <Content Include="Areas\Loja\Views\Produtos\Detalhe.cshtml" />
     <Content Include="Areas\Loja\Views\Produtos\Index.cshtml" />
     <Content Include="Areas\Loja\Content\favicon\manifest.json" />

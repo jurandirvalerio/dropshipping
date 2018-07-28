@@ -11,11 +11,41 @@ namespace Dados.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
 		// SEED para aplicar carga inicial a base de dados
         protected override void Seed(LojaDbContext context)
+		{
+			CadastrarProdutos(context);
+			CadastrarFornecedor(context);
+		}
+
+	    private void CadastrarFornecedor(LojaDbContext context)
+		{
+			context.FornecedorSet.AddOrUpdate(new Entidades.Fornecedor()
+			{
+				Nome = "B2D Fornecedora",
+				ProdutoSet = ProdutosFornecedor()
+			});
+		}
+
+		private static List<PrecoProdutoFornecedor> ProdutosFornecedor()
+		{
+			return new List<PrecoProdutoFornecedor>
+			{
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 1, Preco = 2245.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 2, Preco = 9999.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 3, Preco = 2889.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 4, Preco = 1139.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 5, Preco = 349.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 6, Preco = 799.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 7, Preco = 1399.00m},
+				new PrecoProdutoFornecedor {CodigoFornecedor = 1, CodigoProduto = 8, Preco = 399.00m}
+			};
+		}
+
+		private static void CadastrarProdutos(LojaDbContext context)
 		{
 			context.ProdutoSet.AddOrUpdate(x => x.Codigo, Produto1());
 			context.ProdutoSet.AddOrUpdate(x => x.Codigo, Produto2());
@@ -27,7 +57,7 @@ namespace Dados.Migrations
 			context.ProdutoSet.AddOrUpdate(x => x.Codigo, Produto8());
 		}
 
-	    private static Produto Produto8()
+		private static Produto Produto8()
 	    {
 			return ProdutoFactory(8,
 				"Mini processador em aço escovado Cuisinart - dlc1ss - 127V",

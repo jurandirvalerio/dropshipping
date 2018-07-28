@@ -9,7 +9,6 @@ namespace WebApplication.Areas.Loja.Controllers
 {
     public class ProdutosController : Controller
     {
-
 	    private readonly IProdutoService _produtoService;
 
 	    public ProdutosController(IProdutoService produtoService)
@@ -19,8 +18,8 @@ namespace WebApplication.Areas.Loja.Controllers
 
 	    // GET: Loja/Produtos
         public ActionResult Index()
-        {       
-			return View();
+		{
+			return View(Mapper.Map<List<Produto>, List<ProdutoViewModel>>(_produtoService.ListarTodosProdutos()));
         }
 
 	    public ActionResult Detalhe(int id)

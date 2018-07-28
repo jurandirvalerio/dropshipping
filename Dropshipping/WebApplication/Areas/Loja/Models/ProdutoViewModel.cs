@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace WebApplication.Areas.Loja.Models
@@ -16,5 +17,6 @@ namespace WebApplication.Areas.Loja.Models
 		public string UrlImagem => UrlImagemDetalheSet.Select(s => s.Url).FirstOrDefault();
 
 		public List<UrlImagemViewModel> UrlImagemDetalheSet { get; set; }
+		public string ValorExibicao => Valor.ToString("C2", CultureInfo.CreateSpecificCulture("pt-Br"));
 	}
 }

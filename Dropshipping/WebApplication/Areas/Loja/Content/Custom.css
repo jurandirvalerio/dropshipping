@@ -11,3 +11,13 @@
 	height: 60px;
 	width: 60px;
 }
+
+.f_p_item .f_p_img .p_icon a {
+	color: #fff;
+	background: #c5322d;
+}
+
+.p_30 {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}

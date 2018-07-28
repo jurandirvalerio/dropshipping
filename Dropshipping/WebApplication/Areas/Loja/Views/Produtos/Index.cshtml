@@ -1,8 +1,38 @@
 ﻿@model IEnumerable<WebApplication.Areas.Loja.Models.ProdutoViewModel>
 
 @{
-    ViewBag.Title = "Produtos";
-    Layout = "~/Areas/Loja/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Produtos";
+	Layout = "~/Areas/Loja/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Produtos</h2>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="container">
+			<div class="banner_content text-center">
+				<h2>Listagem de produtos</h2>
+				<div class="page_link">
+					@Html.ActionLink("Home", "Index", new { area = "loja", controller = "Vitrine" })
+					<a href="#">Produtos</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Category Product Area =================-->
+<section class="cat_product_area p_30">
+	<div class="container">
+		<div class="row flex-row-reverse">
+			<div class="col-lg-12">
+				<div class="latest_product_inner row">
+					@foreach (var produto in Model)
+					{
+						@Html.Partial("_ItemProduto", produto)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Category Product Area =================-->

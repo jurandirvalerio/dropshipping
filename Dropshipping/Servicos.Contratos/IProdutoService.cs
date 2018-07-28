@@ -7,5 +7,6 @@ namespace Servicos.Contratos
 	{
 		Produto Obter(int codigo);
 		List<Produto> ListarProdutosEmDestaque();
+		List<Produto> ListarTodosProdutos();
 	}
 }

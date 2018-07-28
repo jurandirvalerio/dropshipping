@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Entidades;
@@ -23,7 +24,17 @@ namespace Servicos.Implementacoes
 
 		public List<Produto> ListarProdutosEmDestaque()
 		{
-			return _produtoRepository.GetAll().Include(p => p.UrlImagemDetalheSet).Take(8).OrderByDescending(p => p.DataCriacao).ToList();
+			return QueryProdutosVisiveis().Take(8).OrderByDescending(p => p.DataCriacao).ToList();
+		}
+
+		public List<Produto> ListarTodosProdutos()
+		{
+			return QueryProdutosVisiveis().ToList();
+		}
+
+		private IQueryable<Produto> QueryProdutosVisiveis()
+		{
+			return _produtoRepository.GetAll().Where(p => p.Visivel).Include(p => p.UrlImagemDetalheSet);
 		}
 	}
 }

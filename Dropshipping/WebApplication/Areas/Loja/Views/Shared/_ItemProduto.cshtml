@@ -1,14 +1,13 @@
-﻿@using System.Globalization
-@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
 <div class="col-lg-3 col-md-4 col-sm-6">
 	<div class="f_p_item">
 		<div class="f_p_img">
-			<img class="img-fluid" src="@Model.UrlImagem" alt="">
+			<img class="img-fluid" src="@Url.Content("~/" + Model.UrlImagem)" alt="">
 			<div class="p_icon">
 				<a href="@Url.Action("detalhe", "produtos", new {area = "loja", id = Model.Codigo })"><i class="lnr lnr-cart"></i></a>
 			</div>
 		</div>
 		<a href="#"><h4>@Model.Nome</h4></a>
-		<h5>@Model.Valor.ToString("C2", CultureInfo.CreateSpecificCulture("pt-Br"))</h5>
+		<h5>@Model.ValorExibicao</h5>
 	</div>
 </div>

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidade.cs" />
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="PrecoProdutoFornecedor.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrlImagem.cs" />
