@@ -1,5 +1,4 @@
-﻿@using System.Globalization
-@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
 <div class="item">
 	<div class="f_p_item">
 		<div class="f_p_img">
@@ -9,6 +8,6 @@
 			</div>
 		</div>
 		<a href="@Url.Action("detalhe", "produtos", new {area = "loja", id = Model.Codigo })"><h4>@Model.Nome</h4></a>
-		<h5>@Model.Preco.ToString("C2", CultureInfo.CreateSpecificCulture("pt-Br"))</h5>
+		<h5>@Model.ValorExibicao</h5>
 	</div>
 </div>
