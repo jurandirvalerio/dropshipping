@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using WebApplication.Infrastructure.Authentication;
 
 [assembly: OwinStartupAttribute(typeof(WebApplication.Startup))]
 namespace WebApplication
@@ -8,7 +9,8 @@ namespace WebApplication
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+	        app.CreatePerOwinContext(AuthenticationContext.Create);
+	        app.CreatePerOwinContext<UsuarioManager>(UsuarioManager.Create);
         }
     }
 }
