@@ -237,11 +237,14 @@
     <Compile Include="Areas\Loja\Models\ProdutoViewModel.cs" />
     <Compile Include="Areas\Loja\Models\UrlImagemViewModel.cs" />
     <Compile Include="Areas\Loja\Models\VitrineViewModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Authentication\AuthenticationContext.cs" />
-    <Compile Include="Infrastructure\Authentication\LojaUserManager.cs" />
+    <Compile Include="Infrastructure\Authentication\LoginManager.cs" />
+    <Compile Include="Infrastructure\Authentication\RoleManager.cs" />
     <Compile Include="Infrastructure\Authentication\UsuarioManager.cs" />
     <Compile Include="Mappers\AutoMapperConfig.cs" />
     <Compile Include="Mappers\AutoMapperProfile.cs" />
@@ -537,11 +540,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Loja\Views\Vitrine\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Loja\Views\Cliente\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
