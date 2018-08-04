@@ -3,9 +3,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using DTOs;
 using Servicos.Contratos;
-using WebApplication.Areas.Loja.Models;
+using WebApplication.Models;
 
-namespace WebApplication.Areas.Loja.Controllers
+namespace WebApplication.Controllers
 {
     public class ProdutosController : Controller
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DTOs;
-using WebApplication.Areas.Loja.Models;
+using WebApplication.Models;
 
 namespace WebApplication.Mappers
 {

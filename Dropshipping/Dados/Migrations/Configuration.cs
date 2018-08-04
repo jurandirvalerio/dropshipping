@@ -144,7 +144,7 @@ namespace Dados.Migrations
 
 		private static List<UrlImagem> ImagemSetFactory(IEnumerable<int> ids)
 		{
-			return ids.Select(t => new UrlImagem($"Areas/Loja/Content/Produtos/{t}.png")).ToList();
+			return ids.Select(t => new UrlImagem($"Content/Produtos/{t}.png")).ToList();
 		}
 	}
 }

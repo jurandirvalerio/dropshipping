@@ -1,4 +1,4 @@
-﻿namespace WebApplication.Areas.Loja.Models
+﻿namespace WebApplication.Models
 {
 	public class UrlImagemViewModel
 	{

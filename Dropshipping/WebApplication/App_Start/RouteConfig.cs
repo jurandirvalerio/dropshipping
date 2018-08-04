@@ -12,10 +12,8 @@ namespace WebApplication
 			routes.MapRoute(
 				"Default",
 				"{controller}/{action}/{id}",
-				new {controller = "vitrine", action = "Index", id = UrlParameter.Optional},
-				null,
-				new[] { "MWebApplication.Areas.Loja.Controllers" }
-			).DataTokens.Add("area", "Loja");
+				new {controller = "vitrine", action = "Index", id = UrlParameter.Optional}
+			);
 		}
 	}
 }

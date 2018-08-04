@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace WebApplication.Areas.Loja.Models
+namespace WebApplication.Models
 {
 	public class ProdutoViewModel
 	{

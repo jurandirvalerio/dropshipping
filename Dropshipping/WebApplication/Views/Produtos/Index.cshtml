@@ -1,8 +1,8 @@
-﻿@model IEnumerable<WebApplication.Areas.Loja.Models.ProdutoViewModel>
+﻿@model IEnumerable<WebApplication.Models.ProdutoViewModel>
 
 @{
 	ViewBag.Title = "Produtos";
-	Layout = "~/Areas/Loja/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!--================Home Banner Area =================-->
@@ -12,7 +12,7 @@
 			<div class="banner_content text-center">
 				<h2>Listagem de produtos</h2>
 				<div class="page_link">
-					@Html.ActionLink("Home", "Index", new { area = "loja", controller = "Vitrine" })
+					@Html.ActionLink("Home", "Index", new { controller = "Vitrine" })
 					<a href="#">Produtos</a>
 				</div>
 			</div>

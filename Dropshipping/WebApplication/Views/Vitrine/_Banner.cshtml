@@ -1,4 +1,4 @@
-﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+﻿@model WebApplication.Models.ProdutoViewModel
 <!--================Home Banner Area =================-->
 <section class="home_banner_area">
 	<div class="banner_inner d-flex align-items-center">
@@ -7,7 +7,7 @@
 				<div class="col-lg-5">
 					<h3>@Model.Nome</h3>
 					<p>@Model.Descricao.</p>
-					<a class="white_bg_btn" href="@Url.Action("detalhe", "produtos", new { area = "loja", id = Model.Codigo})">Veja mais</a>
+					<a class="white_bg_btn" href="@Url.Action("detalhe", "produtos", new { id = Model.Codigo})">Veja mais</a>
 				</div>
 				<div class="col-lg-7">
 					<div class="halemet_img">

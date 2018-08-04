@@ -1,7 +1,7 @@
-﻿@model WebApplication.Areas.Loja.Models.ProdutoViewModel
+﻿@model WebApplication.Models.ProdutoViewModel
 @{
 	ViewBag.Title = "Detalhe";
-	Layout = "~/Areas/Loja/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!--================Home Banner Area =================-->
@@ -11,8 +11,8 @@
 			<div class="banner_content text-center">
 				<h2>@Model.Nome</h2>
 				<div class="page_link">
-					@Html.ActionLink("Home", "Index", new { area = "loja", controller = "Vitrine" })
-					@Html.ActionLink("Produtos", "Index", new { area = "loja" })
+					@Html.ActionLink("Home", "Index", new { controller = "Vitrine" })
+					@Html.ActionLink("Produtos", "Index")
 					<a href="#">Detalhes do produto</a>
 				</div>
 			</div>

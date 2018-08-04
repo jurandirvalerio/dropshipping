@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication.Areas.Loja.Controllers
+namespace WebApplication.Controllers
 {
     public class ClienteController : Controller
     {
