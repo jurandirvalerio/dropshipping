@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorios.Contratos", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FornecedorAPI", "FornecedorAPI\FornecedorAPI.csproj", "{3903AEF5-51F9-4CA4-BF93-12C7DACCFBBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3903AEF5-51F9-4CA4-BF93-12C7DACCFBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3903AEF5-51F9-4CA4-BF93-12C7DACCFBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3903AEF5-51F9-4CA4-BF93-12C7DACCFBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3903AEF5-51F9-4CA4-BF93-12C7DACCFBBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
