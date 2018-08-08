@@ -1,27 +1,33 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using WebApplication.Infrastructure.Authentication;
+using WebApplication.Models;
 
 [assembly: OwinStartupAttribute(typeof(WebApplication.Startup))]
 namespace WebApplication
 {
-    public partial class Startup
+    public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-	        app.CreatePerOwinContext(AuthenticationContext.Create);
-	        app.CreatePerOwinContext<UsuarioManager>(UsuarioManager.Create);
-	        app.CreatePerOwinContext<LoginManager>(LoginManager.Create);
-	        app.CreatePerOwinContext<RoleManager>(RoleManager.Create);
+	        app.CreatePerOwinContext(ApplicationDbContext.Create);
+	        app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+	        app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
-			app.UseCookieAuthentication(new CookieAuthenticationOptions
+	        app.UseCookieAuthentication(new CookieAuthenticationOptions
 	        {
 		        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-		        LoginPath = new PathString("/Login"),
-		        CookieName = "LojaDropshipping",
-		        CookiePath = "/"
+		        LoginPath = new PathString("/Login/Login"),
+		        Provider = new CookieAuthenticationProvider
+		        {
+			        OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+				        validateInterval: TimeSpan.FromMinutes(30),
+				        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+		        }
 	        });
 		}
     }

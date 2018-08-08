@@ -233,26 +233,21 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Infrastructure\Authentication\ApplicationDbContext.cs" />
+    <Compile Include="Infrastructure\Authentication\ApplicationSignInManager.cs" />
+    <Compile Include="Infrastructure\Authentication\ApplicationUserManager.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ProdutoViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\UrlImagemViewModel.cs" />
     <Compile Include="Models\VitrineViewModel.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Authentication\AuthenticationContext.cs" />
-    <Compile Include="Infrastructure\Authentication\LoginManager.cs" />
-    <Compile Include="Infrastructure\Authentication\RoleManager.cs" />
-    <Compile Include="Infrastructure\Authentication\UsuarioManager.cs" />
     <Compile Include="Mappers\AutoMapperConfig.cs" />
     <Compile Include="Mappers\AutoMapperProfile.cs" />
-    <Compile Include="Migrations\201808010018556_Inicio.cs" />
-    <Compile Include="Migrations\201808010018556_Inicio.Designer.cs">
-      <DependentUpon>201808010018556_Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -537,7 +532,9 @@
     <Content Include="Views\Vitrine\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -564,6 +561,10 @@
       <Project>{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}</Project>
       <Name>DTOs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{6FEB46F3-F859-49ED-81B6-2F08629068AD}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repositorios.Contratos\Repositorios.Contratos.csproj">
       <Project>{FE9B92FB-AFEC-411C-9D06-3D44FB88C924}</Project>
       <Name>Repositorios.Contratos</Name>
@@ -580,11 +581,6 @@
       <Project>{7743153D-5419-43A3-AC24-87238BA8D13D}</Project>
       <Name>Servicos.Implementacoes</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808010018556_Inicio.resx">
-      <DependentUpon>201808010018556_Inicio.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

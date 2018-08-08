@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Dados.Migrations;
 using Entidades;
 using Fornecedor = Entidades.Fornecedor;
 
