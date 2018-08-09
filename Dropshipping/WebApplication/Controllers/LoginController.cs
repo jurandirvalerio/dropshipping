@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Servicos.Contratos;
 using WebApplication.Infrastructure.Authentication;
 using WebApplication.Models;
 
@@ -17,6 +18,13 @@ namespace WebApplication.Controllers
 		public ApplicationSignInManager SignInManager => _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
 
 	    public ApplicationUserManager UserManager => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+	    private readonly IClienteService _clienteService;
+
+	    public LoginController(IClienteService clienteService)
+	    {
+		    _clienteService = clienteService;
+	    }
 
 	    //
 		// GET: /Account/Login
@@ -56,33 +64,31 @@ namespace WebApplication.Controllers
 		}
 
 		//
-		// GET: /Account/Register
 		[AllowAnonymous]
-		public ActionResult Register()
+		public ActionResult Registrar()
 		{
 			return View();
 		}
 
-		//
-		// POST: /Account/Register
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Register(RegisterViewModel model)
+		public async Task<ActionResult> Registrar(RegistroViewModel registroViewModel)
 		{
 			if (ModelState.IsValid)
 			{
-				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-				var result = await UserManager.CreateAsync(user, model.Password);
+				var user = new ApplicationUser { UserName = registroViewModel.Email, Email = registroViewModel.Email };
+				var result = await UserManager.CreateAsync(user, registroViewModel.Password);
 				if (result.Succeeded)
 				{
+					//_clienteService.Cadastrar();
 					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 					return RedirectToAction("Index", "vitrine");
 				}
 				AddErrors(result);
 			}
 
-			return View(model);
+			return View(registroViewModel);
 		}
 
 		//

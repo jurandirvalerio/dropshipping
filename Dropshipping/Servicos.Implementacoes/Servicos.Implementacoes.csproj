@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteService.cs" />
     <Compile Include="ProdutoMapper.cs" />
     <Compile Include="ProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,11 +1,8 @@
 ﻿using System.Web.Mvc;
-using Repositorios.Contratos;
-using Repositorios.Implementacoes;
-using Servicos.Contratos;
-using Servicos.Implementacoes;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
+using SimpleInjectorBootstrapPackage;
 
 namespace WebApplication
 {
@@ -16,9 +13,7 @@ namespace WebApplication
 			var container = new Container();
 			container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-			container.Register<IProdutoRepository, ProdutoRepository>();
-			container.Register<IProdutoService, ProdutoService>();
-			container.Register<IProdutoMapper, ProdutoMapper>();
+			BootstrapperPackage.RegisterServices(container);
 
 			//container.RegisterWebApiControllers(GlobalConfiguration.Configuration); //web api
 			container.Verify();

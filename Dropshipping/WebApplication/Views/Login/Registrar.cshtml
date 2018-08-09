@@ -1,4 +1,4 @@
-﻿@model WebApplication.Models.LoginViewModel
+﻿@model WebApplication.Models.RegistroViewModel
 @{
 	ViewBag.Title = "Login";
 }
@@ -17,19 +17,27 @@
 				<div class="login_box_img">
 					<img class="img-fluid" src="@Url.Content("~/Content/img/login.jpg")" alt="">
 					<div class="hover">
-						<h4>Novo no site?</h4>
-						<p>Se cadastre para aproveitar o melhor para sua cozinha</p>
-						<a class="main_btn" href="@Url.Action("Registrar", "Login")">Criar uma conta</a>
+						<h4>Já tem uma conta?</h4>
+						<p>Então você já pode aproveitar o melhor para sua cozinha</p>
+						<a class="main_btn" href="@Url.Action("Login", "Login")">Fazer login</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<div class="login_form_inner">
-					<h3>Se identifique para continuar</h3>
-					<form class="row login_form" action="@Url.Action("Login", "Login")" method="post" id="contactForm" novalidate="novalidate">
+				<div class="login_form_inner login_form_inner_custom">
+					<h3>Cadastro de cliente</h3>
+					<form class="row login_form" action="@Url.Action("Registrar", "Login")" method="post" id="contactForm" novalidate="novalidate">
 						@Html.AntiForgeryToken()
 						<div class="col-md-12 form-group">
 							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="Nome" name="Nome" placeholder="Nome">
+							@Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF">
+							@Html.ValidationMessageFor(m => m.CPF, "", new { @class = "text-danger" })
 						</div>
 						<div class="col-md-12 form-group">
 							<input type="text" class="form-control" id="Email" name="Email" placeholder="E-mail">
@@ -38,6 +46,10 @@
 						<div class="col-md-12 form-group">
 							<input type="password" class="form-control" id="Password" name="Password" placeholder="Senha">
 							@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirme sua senha">
+							@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 						</div>
 						<div class="col-md-12 form-group">
 							<div class="creat_account">

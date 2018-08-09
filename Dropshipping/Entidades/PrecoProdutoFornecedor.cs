@@ -4,6 +4,7 @@ namespace Entidades
 {
 	public class PrecoProdutoFornecedor : Entidade
 	{
+		public int Codigo { get; set; }
 		[ForeignKey("Produto")]
 		public int CodigoProduto { get; set; }
 		public Produto Produto { get; set; }

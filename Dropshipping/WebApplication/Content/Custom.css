@@ -21,3 +21,16 @@
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
+
+.mh_200 {
+	min-height: 200px !important;
+}
+
+.login_form_inner_custom {
+	padding-top: 60px;
+}
+
+
+	.login_form_inner_custom > h3 {
+		margin-bottom: 40px;
+	}
