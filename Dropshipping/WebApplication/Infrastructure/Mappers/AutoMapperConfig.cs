@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace WebApplication.Mappers
+namespace WebApplication.Infrastructure.Mappers
 {
 	public class AutoMapperConfig
 	{

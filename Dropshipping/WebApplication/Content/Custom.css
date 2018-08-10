@@ -34,3 +34,15 @@
 	.login_form_inner_custom > h3 {
 		margin-bottom: 40px;
 	}
+
+.fa-user {
+	padding-right: 5px;
+}
+
+.sair {
+	color: #202020 !important;
+}
+
+.custom_header_social {
+	margin-right: 8px !important;
+}

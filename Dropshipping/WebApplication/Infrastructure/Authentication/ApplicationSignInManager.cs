@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using WebApplication.Models;
+using WebApplication.Models.Login;
 
 namespace WebApplication.Infrastructure.Authentication
 {

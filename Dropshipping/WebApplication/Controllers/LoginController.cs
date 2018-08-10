@@ -1,12 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using Entidades;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Servicos.Contratos;
 using WebApplication.Infrastructure.Authentication;
-using WebApplication.Models;
+using WebApplication.Models.Login;
 
 namespace WebApplication.Controllers
 {
@@ -14,20 +17,17 @@ namespace WebApplication.Controllers
     {
 		private ApplicationSignInManager _signInManager;
 		private ApplicationUserManager _userManager;
-
+		private readonly IClienteService _clienteService;
+	    public const string CLIENTE = "cliente";
+		private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 		public ApplicationSignInManager SignInManager => _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-
 	    public ApplicationUserManager UserManager => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-	    private readonly IClienteService _clienteService;
 
 	    public LoginController(IClienteService clienteService)
 	    {
 		    _clienteService = clienteService;
 	    }
 
-	    //
-		// GET: /Account/Login
 		[AllowAnonymous]
 		public ActionResult Login(string returnUrl)
 		{
@@ -35,8 +35,6 @@ namespace WebApplication.Controllers
 			return View();
 		}
 
-		//
-		// POST: /Account/Login
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
@@ -47,13 +45,13 @@ namespace WebApplication.Controllers
 				return View(model);
 			}
 
-			// This doesn't count login failures towards account lockout
-			// To enable password failures to trigger account lockout, change to shouldLockout: true
 			var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, false, shouldLockout: false);
 
 			switch (result)
 			{
 				case SignInStatus.Success:
+					var nome = _clienteService.ObterNomeCliente(model.Email);
+					Session.Add(CLIENTE, nome);
 					return RedirectToLocal(returnUrl);
 				case SignInStatus.LockedOut:
 					return View("Lockout");
@@ -63,7 +61,6 @@ namespace WebApplication.Controllers
 			}
 		}
 
-		//
 		[AllowAnonymous]
 		public ActionResult Registrar()
 		{
@@ -77,12 +74,17 @@ namespace WebApplication.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var user = new ApplicationUser { UserName = registroViewModel.Email, Email = registroViewModel.Email };
-				var result = await UserManager.CreateAsync(user, registroViewModel.Password);
+				var applicationUser = new ApplicationUser { UserName = registroViewModel.Email, Email = registroViewModel.Email };
+				var result = await UserManager.CreateAsync(applicationUser, registroViewModel.Password);
 				if (result.Succeeded)
 				{
-					//_clienteService.Cadastrar();
-					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+					var cliente = new Cliente {Guid = new Guid(applicationUser.Id)};
+					Mapper.Map(registroViewModel, cliente);
+					_clienteService.Cadastrar(cliente);
+
+					Session.Add(CLIENTE, cliente.Nome);
+
+					await SignInManager.SignInAsync(applicationUser, isPersistent: false, rememberBrowser: false);
 					return RedirectToAction("Index", "vitrine");
 				}
 				AddErrors(result);
@@ -91,25 +93,11 @@ namespace WebApplication.Controllers
 			return View(registroViewModel);
 		}
 
-		//
-		// GET: /Account/ConfirmEmail
-		[AllowAnonymous]
-		public async Task<ActionResult> ConfirmEmail(string userId, string code)
-		{
-			if (userId == null || code == null)
-			{
-				return View("Error");
-			}
-			var result = await UserManager.ConfirmEmailAsync(userId, code);
-			return View(result.Succeeded ? "ConfirmEmail" : "Error");
-		}
-
-		//
-		// POST: /Account/LogOff
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult LogOff()
 		{
+			Session.Remove(CLIENTE);
 			AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
 			return RedirectToAction("Index", "vitrine");
 		}
@@ -134,10 +122,6 @@ namespace WebApplication.Controllers
 			base.Dispose(disposing);
 		}
 
-		#region Helpers
-
-		private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
-
 	    private void AddErrors(IdentityResult result)
 		{
 			foreach (var error in result.Errors)
@@ -154,7 +138,5 @@ namespace WebApplication.Controllers
 			}
 			return RedirectToAction("Index", "vitrine");
 		}
-		
-		#endregion
 	}
 }

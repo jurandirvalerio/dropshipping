@@ -23,7 +23,7 @@ namespace Dados.Migrations
 
 	    private void CadastrarFornecedor(LojaDbContext context)
 		{
-			context.FornecedorSet.AddOrUpdate(new Entidades.Fornecedor()
+			context.FornecedorSet.AddOrUpdate(new Fornecedor
 			{
 				Nome = "B2D Fornecedora",
 				ProdutoSet = ProdutosFornecedor()

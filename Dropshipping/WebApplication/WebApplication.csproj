@@ -234,21 +234,26 @@
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Infrastructure\Attributes\CustomValidationCPFAttribute.cs" />
-    <Compile Include="Infrastructure\Authentication\ApplicationDbContext.cs" />
+    <Compile Include="Infrastructure\Authentication\AuthenticationDbContext.cs" />
     <Compile Include="Infrastructure\Authentication\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Authentication\ApplicationUserManager.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\ProdutoViewModel.cs" />
-    <Compile Include="Models\RegistroViewModel.cs" />
-    <Compile Include="Models\UrlImagemViewModel.cs" />
-    <Compile Include="Models\VitrineViewModel.cs" />
+    <Compile Include="Migrations\201808092340061_inicio.cs" />
+    <Compile Include="Migrations\201808092340061_inicio.Designer.cs">
+      <DependentUpon>201808092340061_inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Login\ApplicationUser.cs" />
+    <Compile Include="Models\Login\LoginViewModel.cs" />
+    <Compile Include="Models\Produtos\ProdutoViewModel.cs" />
+    <Compile Include="Models\Login\RegistroViewModel.cs" />
+    <Compile Include="Models\Produtos\UrlImagemViewModel.cs" />
+    <Compile Include="Models\Produtos\VitrineViewModel.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mappers\AutoMapperConfig.cs" />
-    <Compile Include="Mappers\AutoMapperProfile.cs" />
+    <Compile Include="Infrastructure\Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\Mappers\AutoMapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -578,6 +583,11 @@
       <Project>{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}</Project>
       <Name>SimpleInjectorBootstrapPackage</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808092340061_inicio.resx">
+      <DependentUpon>201808092340061_inicio.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using System.Linq;
+using Entidades;
 using Repositorios.Contratos;
 using Servicos.Contratos;
 
@@ -13,9 +14,17 @@ namespace Servicos.Implementacoes
 			_clienteRepository = clienteRepository;
 		}
 
+		public string ObterNomeCliente(string email)
+		{
+			return _clienteRepository
+				.FindBy(c => c.Email.ToUpper() == email.ToUpper()).Select(c => c.Nome)
+				.FirstOrDefault();
+		}
+
 		public void Cadastrar(Cliente cliente)
 		{
 			_clienteRepository.Add(cliente);
+			_clienteRepository.Save();
 		}
 	}
 }

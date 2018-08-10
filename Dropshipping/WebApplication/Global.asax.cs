@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using WebApplication.Mappers;
+using WebApplication.Infrastructure.Mappers;
 
 namespace WebApplication
 {

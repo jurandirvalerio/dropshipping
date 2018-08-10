@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using WebApplication.Controllers
 <ul class="header_social">
 	@if (Request.IsAuthenticated)
 	{
@@ -6,9 +6,8 @@
 		{
 			@Html.AntiForgeryToken()
 
-
-			<li><a href="@Url.Action("Index", "Cliente")"><i class="fa fa-user"></i>Bem vindo(a) @User.Identity.GetUserName()</a></li>
-			<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+			<li class="custom_header_social"><a href="@Url.Action("Index", "Cliente")"><i class="fa fa-user"></i> @Session[LoginController.CLIENTE] </a></li>
+			<li><a class="sair" href="javascript:document.getElementById('logoutForm').submit()">Sair</a></li>
 
 		}
 	}

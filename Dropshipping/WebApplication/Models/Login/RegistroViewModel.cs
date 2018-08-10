@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WebApplication.Infrastructure.Attributes;
 
-namespace WebApplication.Models
+namespace WebApplication.Models.Login
 {
 	public class RegistroViewModel
 	{
@@ -11,7 +11,7 @@ namespace WebApplication.Models
 		public string Email { get; set; }
 
 		[Required]
-		[StringLength(100, ErrorMessage = "A {0} p	recisa ter no mínimo {2} caracteres.", MinimumLength = 6)]
+		[StringLength(100, ErrorMessage = "A {0} precisa ter no mínimo {2} caracteres.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
 		[Display(Name = "Senha")]
 		public string Password { get; set; }
