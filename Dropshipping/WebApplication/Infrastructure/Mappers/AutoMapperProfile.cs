@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using DTOs;
 using Entidades;
-using WebApplication.Models.Login;
-using WebApplication.Models.Produtos;
+using Loja.Models.Login;
+using Loja.Models.Produtos;
 
-namespace WebApplication.Infrastructure.Mappers
+namespace Loja.Infrastructure.Mappers
 {
 	public class AutoMapperProfile : Profile
 	{

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
 
-namespace WebApplication.Infrastructure.Attributes
+namespace Loja.Infrastructure.Attributes
 {
 	public class CustomValidationCpfAttribute : ValidationAttribute, IClientValidatable
 	{

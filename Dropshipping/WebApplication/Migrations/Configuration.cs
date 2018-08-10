@@ -1,18 +1,16 @@
-namespace WebApplication.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+using System.Data.Entity.Migrations;
+using Loja.Infrastructure.Authentication;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication.Infrastructure.Authentication.AuthenticationDbContext>
+namespace Loja.Migrations
+{
+	internal sealed class Configuration : DbMigrationsConfiguration<AuthenticationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WebApplication.Infrastructure.Authentication.AuthenticationDbContext context)
+        protected override void Seed(AuthenticationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

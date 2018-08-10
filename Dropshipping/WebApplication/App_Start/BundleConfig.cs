@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace WebApplication
+namespace Loja
 {
 	public class BundleConfig
 	{

@@ -4,14 +4,14 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Entidades;
+using Loja.Infrastructure.Authentication;
+using Loja.Models.Login;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Servicos.Contratos;
-using WebApplication.Infrastructure.Authentication;
-using WebApplication.Models.Login;
 
-namespace WebApplication.Controllers
+namespace Loja.Controllers
 {
     public class LoginController : Controller
     {

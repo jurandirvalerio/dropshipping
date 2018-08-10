@@ -1,15 +1,15 @@
 ﻿using System;
+using Loja;
+using Loja.Infrastructure.Authentication;
+using Loja.Models.Login;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using WebApplication.Infrastructure.Authentication;
-using WebApplication.Models;
-using WebApplication.Models.Login;
 
-[assembly: OwinStartupAttribute(typeof(WebApplication.Startup))]
-namespace WebApplication
+[assembly: OwinStartup(typeof(Startup))]
+namespace Loja
 {
     public class Startup
     {

@@ -4,7 +4,7 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjectorBootstrapPackage;
 
-namespace WebApplication
+namespace Loja
 {
 	public static class SimpleInjectorConfig
 	{

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace WebApplication.Infrastructure.Mappers
+namespace Loja.Infrastructure.Mappers
 {
 	public class AutoMapperConfig
 	{

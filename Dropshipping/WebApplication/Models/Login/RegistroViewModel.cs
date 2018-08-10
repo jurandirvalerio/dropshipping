@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WebApplication.Infrastructure.Attributes;
+using Loja.Infrastructure.Attributes;
 
-namespace WebApplication.Models.Login
+namespace Loja.Models.Login
 {
 	public class RegistroViewModel
 	{

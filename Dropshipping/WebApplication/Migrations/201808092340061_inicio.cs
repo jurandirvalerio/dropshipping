@@ -1,9 +1,8 @@
-namespace WebApplication.Migrations
+using System.Data.Entity.Migrations;
+
+namespace Loja.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
-    public partial class inicio : DbMigration
+	public partial class inicio : DbMigration
     {
         public override void Up()
         {

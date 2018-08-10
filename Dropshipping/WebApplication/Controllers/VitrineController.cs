@@ -2,11 +2,10 @@
 using System.Web.Mvc;
 using AutoMapper;
 using DTOs;
+using Loja.Models.Produtos;
 using Servicos.Contratos;
-using WebApplication.Models;
-using WebApplication.Models.Produtos;
 
-namespace WebApplication.Controllers
+namespace Loja.Controllers
 {
     public class VitrineController : Controller
     {

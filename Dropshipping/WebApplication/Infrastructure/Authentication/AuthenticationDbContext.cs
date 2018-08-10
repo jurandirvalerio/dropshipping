@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using WebApplication.Models.Login;
+﻿using Loja.Models.Login;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace WebApplication.Infrastructure.Authentication
+namespace Loja.Infrastructure.Authentication
 {
 	public class AuthenticationDbContext : IdentityDbContext<ApplicationUser>
 	{

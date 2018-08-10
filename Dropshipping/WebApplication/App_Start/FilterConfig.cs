@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication
+namespace Loja
 {
 	public class FilterConfig
 	{

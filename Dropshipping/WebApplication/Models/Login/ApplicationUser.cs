@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace WebApplication.Models.Login
+namespace Loja.Models.Login
 {
 	public class ApplicationUser : IdentityUser
 	{

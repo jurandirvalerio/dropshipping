@@ -1,12 +1,11 @@
 ﻿using System;
+using Loja.Models.Login;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using WebApplication.Models;
-using WebApplication.Models.Login;
 
-namespace WebApplication.Infrastructure.Authentication
+namespace Loja.Infrastructure.Authentication
 {
 	public class ApplicationUserManager : UserManager<ApplicationUser>
 	{

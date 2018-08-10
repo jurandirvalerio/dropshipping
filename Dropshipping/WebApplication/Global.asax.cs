@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using WebApplication.Infrastructure.Mappers;
+using Loja.Infrastructure.Mappers;
 
-namespace WebApplication
+namespace Loja
 {
     public class MvcApplication : System.Web.HttpApplication
     {

@@ -1,11 +1,11 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using Loja.Models.Login;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using WebApplication.Models.Login;
 
-namespace WebApplication.Infrastructure.Authentication
+namespace Loja.Infrastructure.Authentication
 {
 	public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
 	{

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{9A8592C5-5CD8-4725-90CF-0AA3E18A4BEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja", "WebApplication\Loja.csproj", "{9A8592C5-5CD8-4725-90CF-0AA3E18A4BEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{6FEB46F3-F859-49ED-81B6-2F08629068AD}"
 EndProject

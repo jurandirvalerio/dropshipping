@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WebApplication.Models.Produtos
+namespace Loja.Models.Produtos
 {
 	public class VitrineViewModel
 	{
