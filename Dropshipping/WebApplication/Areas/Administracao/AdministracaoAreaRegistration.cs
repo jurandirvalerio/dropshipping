@@ -10,8 +10,8 @@ namespace Loja.Areas.Administracao
         {
             context.MapRoute(
                 "Administracao_default",
-                "Administracao/{controller}/{action}/{id}",
-                new { controller = "home", action = "Index", id = UrlParameter.Optional }
+                "Administracao/{controller}/{action}/{codigo}",
+                new { controller = "home", action = "Index", codigo = UrlParameter.Optional }
             );
         }
     }

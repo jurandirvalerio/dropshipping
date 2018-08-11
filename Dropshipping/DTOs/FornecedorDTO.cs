@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace Entidades
+namespace DTOs
 {
-	public class Fornecedor : Entidade
+	public class FornecedorDTO : EntidadeDTO
 	{
 		public string Nome { get; set; }
+		public List<ProdutoDTO> ProdutoSet { get; set; }
 		public string UrlEndpointApi { get; set; }
 		public string UsuarioApi { get; set; }
 		public string SenhaApi { get; set; }
-		public ICollection<PrecoProdutoFornecedor> ProdutoSet { get; set; }
 	}
 }

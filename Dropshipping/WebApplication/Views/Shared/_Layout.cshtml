@@ -142,8 +142,10 @@
 		</div>
 	</footer>
 	<!--================ End footer Area  =================-->
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script>
+		@{ var url = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/"; }
+		var serviceBaseUrl = '@url';
+	</script>
 	<script src="~/Content/js/jquery-3.2.1.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="~/Content/js/popper.js"></script>

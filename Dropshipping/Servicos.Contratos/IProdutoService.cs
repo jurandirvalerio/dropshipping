@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using DTOs;
-using Entidades;
 
 namespace Servicos.Contratos
 {

@@ -13,7 +13,7 @@ namespace Loja.Models.Login
 		[Required]
 		[StringLength(100, ErrorMessage = "A {0} precisa ter no mínimo {2} caracteres.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
-		[Display(Name = "Senha")]
+		[Display(Name = "SenhaApi")]
 		public string Password { get; set; }
 
 		[DataType(DataType.Password)]

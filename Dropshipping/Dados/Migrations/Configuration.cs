@@ -25,8 +25,12 @@ namespace Dados.Migrations
 		{
 			context.FornecedorSet.AddOrUpdate(new Fornecedor
 			{
+				Codigo = 1,
 				Nome = "B2D Fornecedora",
-				ProdutoSet = ProdutosFornecedor()
+				UsuarioApi = "chefsuser",
+				SenhaApi = "chefspassword",
+				ProdutoSet = ProdutosFornecedor(),
+				Visivel = true
 			});
 		}
 

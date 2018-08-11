@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Web.Mvc;
+using AutoMapper;
 using Loja.Areas.Administracao.Models.Fornecedores;
 using Loja.Infrastructure.Authentication;
+using Servicos.Contratos;
 
 namespace Loja.Areas.Administracao.Controllers
 {
 	[Authorize(Roles = Roles.ADMIN)]
 	public class FornecedoresController : Controller
-    {
-		public ActionResult Listar()
+	{
+		private readonly IFornecedorService _fornecedorService;
+
+		public FornecedoresController(IFornecedorService fornecedorService)
+		{
+			_fornecedorService = fornecedorService;
+		}
+
+		public ActionResult Index()
         {
 	        ViewBag.Title = "Fornecedores";
 			return View();
@@ -19,10 +28,16 @@ namespace Loja.Areas.Administracao.Controllers
 		    return View();
 	    }
 
-	    public ActionResult Alterar()
+	    public ActionResult Alterar(int codigo)
 	    {
-		    return View();
+		    return View(Mapper.Map<FornecedorViewModel>(_fornecedorService.Obter(codigo)));
 	    }
+
+		[HttpPost]
+		public JsonResult Listar()
+		{
+			return Json(_fornecedorService.Listar());
+		}
 
 		[HttpPost]
 	    public JsonResult Incluir(FornecedorViewModel fornecedorViewModel)

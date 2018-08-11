@@ -872,6 +872,7 @@
     <Content Include="Areas\Administracao\Content\js\lib\weather\weather-init.js" />
     <Content Include="Areas\Administracao\Content\js\scripts.js" />
     <Content Include="Areas\Administracao\Content\js\sidebarmenu.js" />
+    <Content Include="Areas\Administracao\Scripts\Fornecedores\listar.js" />
     <Content Include="Areas\Administracao\Scripts\Produtos\listar.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\breadcrumb.css" />
@@ -1252,9 +1253,10 @@
     <Content Include="Areas\Administracao\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Index.cshtml" />
     <Content Include="Areas\Administracao\Views\Produtos\Listar.cshtml" />
-    <Content Include="Areas\Administracao\Views\Fornecedores\Listar.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedores\Index.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedores\Incluir.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedores\Alterar.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedores\_Cadastro.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

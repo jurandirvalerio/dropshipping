@@ -1,0 +1,52 @@
+﻿@section scripts{
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/datatables.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+	<script src="~/Areas/Administracao/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+	<script src="~/Areas/Administracao/Scripts/Fornecedores/listar.js"></script>
+}
+
+<!-- Bread crumb -->
+<div class="row page-titles">
+	<div class="col-md-5 align-self-center">
+		<h3 class="text-primary">Fornecedores</h3>
+	</div>
+	<div class="col-md-7 align-self-center">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="@Url.Action("Index", "Home", new {area = "Administracao"})">Home</a></li>
+			<li class="breadcrumb-item active">Fornecedores</li>
+		</ol>
+	</div>
+</div>
+<!-- End Bread crumb -->
+<!-- Container fluid  -->
+<div class="container-fluid">
+	<!-- Start Page Content -->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Fornecedores</h4>
+					<h6 class="card-subtitle">Listagem de fornecedores</h6>
+					<div class="table-responsive m-t-40">
+						<table id="grid" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Url do endpoint</th>
+									<th> </th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End PAge Content -->
+</div>
+<!-- End Container fluid  -->

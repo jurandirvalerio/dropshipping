@@ -1,0 +1,60 @@
+﻿@model Loja.Areas.Administracao.Models.Fornecedores.FornecedorViewModel
+<!-- End Bread crumb -->
+<!-- Container fluid  -->
+<div class="container-fluid">
+	<!-- Start Page Content -->
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card card-outline-primary">
+				<div class="card-body">
+					@using (Html.BeginForm())
+					{
+						@Html.AntiForgeryToken()
+						@Html.HiddenFor(model => model.Codigo)
+						<div class="form-body">
+							<h4>Fornecedor</h4>
+							<hr />
+							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+							<div class="form-group">
+								@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<h4>API de integração</h4>
+							<hr />
+							<div class="form-group">
+								@Html.LabelFor(model => model.UsuarioApi, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.UsuarioApi, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.UsuarioApi, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.SenhaApi, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.SenhaApi, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+									@Html.ValidationMessageFor(model => model.SenhaApi, "", new { @class = "text-danger" })
+								</div>
+							</div>
+							<div class="form-group">
+								@Html.LabelFor(model => model.UrlEndpointApi, htmlAttributes: new { @class = "control-label col-md-3" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.UrlEndpointApi, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.UrlEndpointApi, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-actions">
+								<button type="submit" class="btn btn-success float-right"> <i class="fa fa-check"></i> Salvar</button>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

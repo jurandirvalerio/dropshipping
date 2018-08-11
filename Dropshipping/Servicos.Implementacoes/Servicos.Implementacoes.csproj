@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteService.cs" />
+    <Compile Include="FornecedorMapper.cs" />
+    <Compile Include="FornecedorService.cs" />
     <Compile Include="ProdutoMapper.cs" />
     <Compile Include="ProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

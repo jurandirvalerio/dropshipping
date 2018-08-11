@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Entidades
+namespace DTOs
 {
-	public class Entidade
+	public class EntidadeDTO
 	{
 		public int Codigo { get; set; }
 		public DateTime? DataCriacao { get; set; }
 		public DateTime? DataAtualizacao { get; set; }
-		public bool Visivel { get; set; } = true;
+		public bool Visivel { get; set; }
 	}
 }
