@@ -16,14 +16,14 @@ namespace Loja.Controllers
 		    _produtoService = produtoService;
 	    }
 
-        public ActionResult Index()
+		public ActionResult Index()
 		{
 			return View(Mapper.Map<List<ProdutoDTO>, List<ProdutoViewModel>>(_produtoService.ListarTodosProdutos()));
-        }
+		}
 
-	    public ActionResult Detalhe(int id)
-	    {
+		public ActionResult Detalhe(int id)
+		{
 			return View(Mapper.Map<ProdutoDTO, ProdutoViewModel>(_produtoService.Obter(id)));
-	    }
-    }
+		}
+	}
 }

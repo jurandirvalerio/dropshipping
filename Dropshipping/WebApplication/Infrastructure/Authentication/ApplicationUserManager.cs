@@ -16,16 +16,32 @@ namespace Loja.Infrastructure.Authentication
 
 		public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
 		{
-			var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<AuthenticationDbContext>()));
+			var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<AuthenticationDbContext>()));
+			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<AuthenticationDbContext>()));
+
+			const string roleAdmin = "Admin";
+
+			if (!roleManager.RoleExists(roleAdmin))
+			{
+				roleManager.Create(new IdentityRole { Name = roleAdmin });
+				var user = new ApplicationUser { UserName = "admin@dropshipping.com", Email = "admin@dropshipping.com" };
+				var identityResult = userManager.Create(user, "123456");
+
+				if (identityResult.Succeeded)
+				{
+					userManager.AddToRole(user.Id, roleAdmin);
+				}
+			}
+
 			// Configure validation logic for usernames
-			manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+			userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
 			{
 				AllowOnlyAlphanumericUserNames = false,
 				RequireUniqueEmail = true
 			};
 
 			// Configure validation logic for passwords
-			manager.PasswordValidator = new PasswordValidator
+			userManager.PasswordValidator = new PasswordValidator
 			{
 				RequiredLength = 6,
 				RequireNonLetterOrDigit = false,
@@ -35,17 +51,17 @@ namespace Loja.Infrastructure.Authentication
 			};
 
 			// Configure user lockout defaults
-			manager.UserLockoutEnabledByDefault = true;
-			manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-			manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+			userManager.UserLockoutEnabledByDefault = true;
+			userManager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+			userManager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
 			var dataProtectionProvider = options.DataProtectionProvider;
 			if (dataProtectionProvider != null)
 			{
-				manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+				userManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
 			}
 
-			return manager;
+			return userManager;
 		}
 	}
 }
