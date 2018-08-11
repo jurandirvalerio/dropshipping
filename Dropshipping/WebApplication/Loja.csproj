@@ -231,7 +231,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorConfig.cs" />
     <Compile Include="Areas\Administracao\AdministracaoAreaRegistration.cs" />
+    <Compile Include="Areas\Administracao\Controllers\FornecedoresController.cs" />
     <Compile Include="Areas\Administracao\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ProdutosController.cs" />
+    <Compile Include="Areas\Administracao\Models\Fornecedores\FornecedorViewModel.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -239,6 +242,7 @@
     <Compile Include="Infrastructure\Authentication\AuthenticationDbContext.cs" />
     <Compile Include="Infrastructure\Authentication\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Authentication\ApplicationUserManager.cs" />
+    <Compile Include="Infrastructure\Authentication\Roles.cs" />
     <Compile Include="Migrations\201808092340061_inicio.cs" />
     <Compile Include="Migrations\201808092340061_inicio.Designer.cs">
       <DependentUpon>201808092340061_inicio.cs</DependentUpon>
@@ -868,6 +872,7 @@
     <Content Include="Areas\Administracao\Content\js\lib\weather\weather-init.js" />
     <Content Include="Areas\Administracao\Content\js\scripts.js" />
     <Content Include="Areas\Administracao\Content\js\sidebarmenu.js" />
+    <Content Include="Areas\Administracao\Scripts\Produtos\listar.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\breadcrumb.css" />
     <Content Include="Content\css\font-awesome.min.css" />
@@ -1243,6 +1248,13 @@
     <Content Include="Areas\Administracao\Content\icons\weather-icons\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="Areas\Administracao\Content\icons\weather-icons\fonts\weathericons-regular-webfont.woff" />
     <Content Include="Areas\Administracao\Content\icons\weather-icons\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="Areas\Administracao\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administracao\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administracao\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Produtos\Listar.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedores\Listar.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedores\Incluir.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedores\Alterar.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1273,9 +1285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administracao\Models\" />
-    <Folder Include="Areas\Administracao\Views\Home\" />
-    <Folder Include="Areas\Administracao\Views\Shared\" />
     <Folder Include="Views\Cliente\" />
   </ItemGroup>
   <ItemGroup>

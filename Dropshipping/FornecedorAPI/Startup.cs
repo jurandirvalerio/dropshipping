@@ -37,7 +37,7 @@ namespace FornecedorAPI
 			var opcoesConfiguracaoToken = new OAuthAuthorizationServerOptions()
 			{
 				AllowInsecureHttp = true,
-				TokenEndpointPath = new PathString("/token"),
+				TokenEndpointPath = new PathString("/api/token"),
 				AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
 				Provider = new ProviderDeTokensDeAcesso()
 			};

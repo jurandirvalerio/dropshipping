@@ -19,17 +19,15 @@ namespace Loja.Infrastructure.Authentication
 			var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<AuthenticationDbContext>()));
 			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<AuthenticationDbContext>()));
 
-			const string roleAdmin = "Admin";
-
-			if (!roleManager.RoleExists(roleAdmin))
+			if (!roleManager.RoleExists(Roles.ADMIN))
 			{
-				roleManager.Create(new IdentityRole { Name = roleAdmin });
+				roleManager.Create(new IdentityRole { Name = Roles.ADMIN });
 				var user = new ApplicationUser { UserName = "admin@dropshipping.com", Email = "admin@dropshipping.com" };
 				var identityResult = userManager.Create(user, "123456");
 
 				if (identityResult.Succeeded)
 				{
-					userManager.AddToRole(user.Id, roleAdmin);
+					userManager.AddToRole(user.Id, Roles.ADMIN);
 				}
 			}
 
