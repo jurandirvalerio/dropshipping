@@ -873,6 +873,7 @@
     <Content Include="Areas\Administracao\Content\js\scripts.js" />
     <Content Include="Areas\Administracao\Content\js\sidebarmenu.js" />
     <Content Include="Areas\Administracao\Scripts\administracao.js" />
+    <Content Include="Areas\Administracao\Scripts\Fornecedor\produtos.js" />
     <Content Include="Areas\Administracao\Scripts\Fornecedor\listar.js" />
     <Content Include="Areas\Administracao\Scripts\Produto\listar.js" />
     <Content Include="Content\css\bootstrap.css" />
@@ -1258,6 +1259,7 @@
     <Content Include="Areas\Administracao\Views\Fornecedor\Incluir.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedor\Alterar.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedor\_Cadastro.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fornecedor\Produtos.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

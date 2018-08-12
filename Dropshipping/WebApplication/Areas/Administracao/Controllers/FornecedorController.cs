@@ -49,5 +49,17 @@ namespace Loja.Areas.Administracao.Controllers
 	    {
 		    throw new NotImplementedException();
 		}
+
+		public ActionResult Produtos(int codigo)
+		{
+			ViewBag.Fornecedor = _fornecedorService.Obter(codigo).Nome;
+			return View();
+		}
+
+		[HttpPost]
+		public JsonResult ListarProdutos(int codigo)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
