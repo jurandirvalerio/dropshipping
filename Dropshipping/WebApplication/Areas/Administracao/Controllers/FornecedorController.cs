@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Web.Mvc;
 using AutoMapper;
-using Loja.Areas.Administracao.Models.Fornecedores;
+using Loja.Areas.Administracao.Models.Fornecedor;
 using Loja.Infrastructure.Authentication;
 using Servicos.Contratos;
 
 namespace Loja.Areas.Administracao.Controllers
 {
 	[Authorize(Roles = Roles.ADMIN)]
-	public class FornecedoresController : Controller
+	public class FornecedorController : Controller
 	{
 		private readonly IFornecedorService _fornecedorService;
 
-		public FornecedoresController(IFornecedorService fornecedorService)
+		public FornecedorController(IFornecedorService fornecedorService)
 		{
 			_fornecedorService = fornecedorService;
 		}
 
 		public ActionResult Index()
         {
-	        ViewBag.Title = "Fornecedores";
 			return View();
         }
 

@@ -29,6 +29,8 @@ namespace Dados.Migrations
 				Nome = "B2D Fornecedora",
 				UsuarioApi = "chefsuser",
 				SenhaApi = "chefspassword",
+				DataCriacao = DateTime.Now,
+				UrlEndpointApi = "http://localhost/fornecedor/api",
 				ProdutoSet = ProdutosFornecedor(),
 				Visivel = true
 			});

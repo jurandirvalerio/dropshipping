@@ -4,7 +4,7 @@ using Loja.Infrastructure.Authentication;
 namespace Loja.Areas.Administracao.Controllers
 {
 	[Authorize(Roles = Roles.ADMIN)]
-    public class ProdutosController : Controller
+    public class ProdutoController : Controller
     {
 		public ActionResult Index()
 		{
@@ -13,7 +13,7 @@ namespace Loja.Areas.Administracao.Controllers
 
 	    public ActionResult Listar()
 	    {
-		    ViewBag.Title = "Produtos";
+		    
 		    return View();
 	    }
 	}

@@ -12,7 +12,7 @@ namespace Loja
 			routes.MapRoute(
 				"Default",
 				"{controller}/{action}/{id}",
-				new {controller = "vitrine", action = "Index", id = UrlParameter.Optional}
+				new { controller = "vitrine", action = "Index", id = UrlParameter.Optional }
 			);
 		}
 	}

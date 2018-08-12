@@ -19,9 +19,10 @@ namespace Loja.Controllers
 	    // GET: Loja/Home
         public ActionResult Index()
         {
-	        ViewBag.Title = "Chef`s - Tudo para sua cozinha";
-	        var x = _produtoService.ListarProdutosEmDestaque();
-			return View(new VitrineViewModel { Produtos = Mapper.Map<List<ProdutoDTO>, List<ProdutoViewModel>>(x) });
+	        return View(new VitrineViewModel
+	        {
+		        Produtos = Mapper.Map<List<ProdutoDTO>, List<ProdutoViewModel>>(_produtoService.ListarProdutosEmDestaque())
+	        });
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DTOs;
 using Entidades;
-using Loja.Areas.Administracao.Models.Fornecedores;
+using Loja.Areas.Administracao.Models.Fornecedor;
 using Loja.Models.Login;
 using Loja.Models.Produtos;
 

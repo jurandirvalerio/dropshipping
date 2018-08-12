@@ -24,7 +24,7 @@
 	<meta name="msapplication-TileImage" content="~/Content/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	<!-- Titulo -->
-	<title>@ViewBag.Title</title>
+	<title>Dropshipping - Administração</title>
 	<!-- Core CSS -->
 	<link href="~/Areas/Administracao/Content/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="~/Areas/Administracao/Content/css/lib/calendar2/semantic.ui.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 			<nav class="navbar top-navbar navbar-expand-md navbar-light">
 				<!-- Logo -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="@Url.Action("Index", "Home", new { area = "Administracao" })">
 						<!-- Logo icon -->
 						<b><img src="~/Content/img/CHEF.png" alt="homepage" class="dark-logo" /></b>
 						<!--End Logo icon -->
@@ -93,18 +93,10 @@
 						</li>
 						<li class="nav-label">Apps</li>
 						<li>
-							<a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Produtos</span></a>
-							<ul aria-expanded="false" class="collapse">
-								<li><a href="@Url.Action("Listar", "Produtos", new { area = "Administracao" })">Listagem</a></li>
-								<li><a href="email-read.html">Read</a></li>
-								<li><a href="email-inbox.html">Inbox</a></li>
-							</ul>
+							<a href="@Url.Action("Listar", "Produto", new { area = "Administracao" })" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Produtos</span></a>
 						</li>
 						<li>
-							<a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-truck"></i><span class="hide-menu">Fornecedores</span></a>
-							<ul aria-expanded="false" class="collapse">
-								<li><a href="@Url.Action("Index", "Fornecedores", new { area = "Administracao" })">Listagem</a></li>
-							</ul>
+							<a href="@Url.Action("Index", "Fornecedor", new { area = "Administracao" })" aria-expanded="false"><i class="fa fa-truck"></i><span class="hide-menu">Fornecedores</span></a>
 						</li>
 						<li class="nav-label">Features</li>
 						<li>
@@ -220,10 +212,11 @@
 
 	</div>
 	<!-- End Wrapper -->
-	<script>
-		@{ var url = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/"; }
-		var serviceBaseUrl = '@url';
-	</script>
+<script>
+	@{ var url = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/"; }
+	var serviceBaseUrl = '@url';
+</script>
+	<script src="~/Areas/Administracao/Scripts/administracao.js"></script>
 	<script src="~/Areas/Administracao/Content/js/lib/jquery/jquery.min.js"></script>
 	<script src="~/Areas/Administracao/Content/js/lib/bootstrap/js/popper.min.js"></script>
 	<script src="~/Areas/Administracao/Content/js/lib/bootstrap/js/bootstrap.min.js"></script>

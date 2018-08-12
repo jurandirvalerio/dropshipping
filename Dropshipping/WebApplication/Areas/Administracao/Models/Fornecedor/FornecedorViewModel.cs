@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Loja.Areas.Administracao.Models.Fornecedores
+namespace Loja.Areas.Administracao.Models.Fornecedor
 {
 	public class FornecedorViewModel
 	{
