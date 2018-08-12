@@ -14,6 +14,12 @@ namespace Loja.Infrastructure.Authentication
 		{
 		}
 
+		public override Task SignInAsync(ApplicationUser user, bool isPersistent, bool rememberBrowser)
+		{
+
+			return base.SignInAsync(user, isPersistent, rememberBrowser);
+		}
+
 		public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
 		{
 			return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);

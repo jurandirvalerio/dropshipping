@@ -1,9 +1,7 @@
-﻿using System;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using AutoMapper;
-using Entidades;
 using Loja.Infrastructure.Authentication;
 using Loja.Models.Login;
 using Microsoft.AspNet.Identity;
@@ -50,9 +48,12 @@ namespace Loja.Controllers
 			switch (result)
 			{
 				case SignInStatus.Success:
-					var nome = _clienteService.ObterNomeCliente(model.Email);
-					Session.Add(CLIENTE, nome);
-					return RedirectToLocal(returnUrl);
+					var user = await UserManager.FindAsync(model.Email, model.Password);
+					var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+					HttpContext.User = new ClaimsPrincipal(identity);
+					return User.IsInRole(Roles.ADMIN)
+						? RedirectToAction("Index", "Home", new {area = "Administracao"})
+						: RedirectToLocal(returnUrl);
 				case SignInStatus.LockedOut:
 					return View("Lockout");
 				default:
@@ -74,16 +75,10 @@ namespace Loja.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var applicationUser = new ApplicationUser { UserName = registroViewModel.Email, Email = registroViewModel.Email };
+				var applicationUser = new ApplicationUser { Name = registroViewModel.Nome, UserName = registroViewModel.Email, Email = registroViewModel.Email };
 				var result = await UserManager.CreateAsync(applicationUser, registroViewModel.Password);
 				if (result.Succeeded)
 				{
-					var cliente = new Cliente {Guid = new Guid(applicationUser.Id)};
-					Mapper.Map(registroViewModel, cliente);
-					_clienteService.Cadastrar(cliente);
-
-					Session.Add(CLIENTE, cliente.Nome);
-
 					await SignInManager.SignInAsync(applicationUser, isPersistent: false, rememberBrowser: false);
 					return RedirectToAction("Index", "vitrine");
 				}
@@ -136,6 +131,7 @@ namespace Loja.Controllers
 			{
 				return Redirect(returnUrl);
 			}
+			
 			return RedirectToAction("Index", "vitrine");
 		}
 	}

@@ -63,7 +63,20 @@
 					</a>
 				</div>
 				<!-- End Logo -->
-			</nav>
+				<div class="navbar-collapse">
+					<!-- toggle and nav items -->
+					<ul class="navbar-nav mr-auto mt-md-0"></ul>
+					<!-- User profile and search -->
+					<ul class="navbar-nav my-lg-0">
+						<li class="nav-item">
+							<form id="logoutForm" method="post" action="@Url.Content("~/login/logoff")" class="float-right">
+								@Html.AntiForgeryToken()
+								<a class="sair" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i>  Sair</a>
+							</form>
+						</li>
+					</ul>
+				</div>
+		</nav>
 		</div>
 		<!-- End header header -->
 		<!-- Left Sidebar  -->

@@ -31,14 +31,12 @@ namespace Loja.Infrastructure.Authentication
 				}
 			}
 
-			// Configure validation logic for usernames
 			userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
 			{
 				AllowOnlyAlphanumericUserNames = false,
 				RequireUniqueEmail = true
 			};
 
-			// Configure validation logic for passwords
 			userManager.PasswordValidator = new PasswordValidator
 			{
 				RequiredLength = 6,
@@ -48,7 +46,6 @@ namespace Loja.Infrastructure.Authentication
 				RequireUppercase = false
 			};
 
-			// Configure user lockout defaults
 			userManager.UserLockoutEnabledByDefault = true;
 			userManager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
 			userManager.MaxFailedAccessAttemptsBeforeLockout = 5;
