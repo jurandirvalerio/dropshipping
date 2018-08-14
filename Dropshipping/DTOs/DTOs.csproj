@@ -43,6 +43,7 @@
     <Compile Include="EntidadeDTO.cs" />
     <Compile Include="FornecedorDTO.cs" />
     <Compile Include="ProdutoDTO.cs" />
+    <Compile Include="ProdutoFornecedorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

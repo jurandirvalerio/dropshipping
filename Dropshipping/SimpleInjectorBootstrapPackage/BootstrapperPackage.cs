@@ -18,6 +18,7 @@ namespace SimpleInjectorBootstrapPackage
 		    container.Register<IFornecedorService, FornecedorService>();
 			container.Register<IFornecedorRepository, FornecedorRepository>();
 		    container.Register<IFornecedorMapper, FornecedorMapper>();
+			container.Register<IApiFornecedorRepository, ApiFornecedorRepository>();
 		}
 	}
 }

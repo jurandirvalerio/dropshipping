@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DTOs;
 
 namespace Servicos.Contratos
@@ -12,5 +13,7 @@ namespace Servicos.Contratos
 		void Alterar(FornecedorDTO fornecedorDto);
 
 		void Incluir(FornecedorDTO fornecedorDto);
+
+		List<ProdutoFornecedorDTO> ListarProdutos(int codigoFornecedor);
 	}
 }

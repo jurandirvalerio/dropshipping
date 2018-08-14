@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
 using Loja.Areas.Administracao.Models.Fornecedor;
@@ -59,7 +60,7 @@ namespace Loja.Areas.Administracao.Controllers
 		[HttpPost]
 		public JsonResult ListarProdutos(int codigo)
 		{
-			throw new NotImplementedException();
+			return Json(_fornecedorService.ListarProdutos(codigo));
 		}
 	}
 }

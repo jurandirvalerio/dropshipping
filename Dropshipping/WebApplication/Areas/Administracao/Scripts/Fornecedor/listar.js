@@ -13,7 +13,7 @@
 						"data": "Codigo", "width": "100",
 						"render": function (data, type, row, meta) {
 							if (type === 'display') {
-								data = '<a href="' + serviceBaseUrl + "administracao/fornecedor/produtos/" + data + '"><i class="fa fa-gift"></i>   Estoque</a>';
+								data = '<a href="' + serviceBaseUrl + "administracao/fornecedor/produtos?codigo=" + data + '"><i class="fa fa-gift"></i>   Estoque</a>';
 							}
 
 							return data;

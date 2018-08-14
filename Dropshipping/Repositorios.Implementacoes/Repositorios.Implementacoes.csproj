@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -47,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiFornecedorRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="FornecedorRepository.cs" />
@@ -57,6 +61,10 @@
     <ProjectReference Include="..\Dados\Dados.csproj">
       <Project>{29ED2EC0-5F1E-4143-8091-02175CF098AA}</Project>
       <Name>Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTOs\DTOs.csproj">
+      <Project>{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}</Project>
+      <Name>DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{6FEB46F3-F859-49ED-81B6-2F08629068AD}</Project>
