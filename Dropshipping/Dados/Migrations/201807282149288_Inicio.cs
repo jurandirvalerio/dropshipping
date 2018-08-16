@@ -20,7 +20,7 @@ namespace Dados.Migrations
                 .PrimaryKey(t => t.Codigo);
             
             CreateTable(
-                "dbo.PrecoProdutoFornecedor",
+                "dbo.ProdutoFornecedor",
                 c => new
                     {
                         Codigo = c.Int(nullable: false, identity: true),
@@ -67,15 +67,15 @@ namespace Dados.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.PrecoProdutoFornecedor", "CodigoProduto", "dbo.Produto");
+            DropForeignKey("dbo.ProdutoFornecedor", "CodigoProduto", "dbo.Produto");
             DropForeignKey("dbo.UrlImagem", "Produto_Codigo", "dbo.Produto");
-            DropForeignKey("dbo.PrecoProdutoFornecedor", "CodigoFornecedor", "dbo.Fornecedor");
+            DropForeignKey("dbo.ProdutoFornecedor", "CodigoFornecedor", "dbo.Fornecedor");
             DropIndex("dbo.UrlImagem", new[] { "Produto_Codigo" });
-            DropIndex("dbo.PrecoProdutoFornecedor", new[] { "CodigoFornecedor" });
-            DropIndex("dbo.PrecoProdutoFornecedor", new[] { "CodigoProduto" });
+            DropIndex("dbo.ProdutoFornecedor", new[] { "CodigoFornecedor" });
+            DropIndex("dbo.ProdutoFornecedor", new[] { "CodigoProduto" });
             DropTable("dbo.UrlImagem");
             DropTable("dbo.Produto");
-            DropTable("dbo.PrecoProdutoFornecedor");
+            DropTable("dbo.ProdutoFornecedor");
             DropTable("dbo.Fornecedor");
         }
     }

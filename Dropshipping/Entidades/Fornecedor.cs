@@ -8,6 +8,6 @@ namespace Entidades
 		public string UrlEndpointApi { get; set; }
 		public string UsuarioApi { get; set; }
 		public string SenhaApi { get; set; }
-		public ICollection<PrecoProdutoFornecedor> ProdutoSet { get; set; }
+		public ICollection<ProdutoFornecedor> ProdutoSet { get; set; }
 	}
 }

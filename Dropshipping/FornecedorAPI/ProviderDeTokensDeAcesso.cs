@@ -24,7 +24,7 @@ namespace FornecedorAPI
 
 		private static bool CredenciaisValidas(OAuthGrantResourceOwnerCredentialsContext context)
 		{
-			return context?.UserName == "chefslogin" && context.Password == "chefspassword";
+			return context?.UserName == "chefsuser" && context.Password == "chefspassword";
 		}
 	}
 }

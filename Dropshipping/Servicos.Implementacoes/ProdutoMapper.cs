@@ -16,7 +16,7 @@ namespace Servicos.Implementacoes
 				Nome = produto.Nome,
 				DataCriacao = produto.DataCriacao,
 				Descricao = produto.Descricao,
-				Preco = produto.PrecoProdutoFornecedorSet.Min(p => p.Preco),
+				Preco = produto.PrecoProdutoFornecedorSet.Min(p => p.PrecoVenda),
 				DataAtualizacao = produto.DataAtualizacao,
 				UrlSet = produto.UrlImagemDetalheSet.Select(u => u.Url).ToList()
 			};

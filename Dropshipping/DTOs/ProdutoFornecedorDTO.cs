@@ -11,6 +11,7 @@ namespace DTOs
 		public decimal Preco { get; set; }
 		public int Estoque { get; set; }
 		public decimal PrecoSugeridoVenda { get; set; }
+		public bool VendidoNaLoja { get; set; }
 		public List<string> Imagens { get; set; } = new List<string>();
 	}
 }

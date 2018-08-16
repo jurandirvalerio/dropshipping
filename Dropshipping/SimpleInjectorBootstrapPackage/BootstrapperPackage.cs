@@ -11,7 +11,7 @@ namespace SimpleInjectorBootstrapPackage
 	    public static void RegisterServices(Container container)
 	    {
 			container.Register<IProdutoRepository, ProdutoRepository>();
-		    container.Register<IProdutoService, ProdutoService>();
+			container.Register<IProdutoService, ProdutoService>();
 		    container.Register<IClienteRepository, ClienteRepository>();
 		    container.Register<IClienteService, ClienteService>();
 		    container.Register<IProdutoMapper, ProdutoMapper>();
@@ -19,6 +19,7 @@ namespace SimpleInjectorBootstrapPackage
 			container.Register<IFornecedorRepository, FornecedorRepository>();
 		    container.Register<IFornecedorMapper, FornecedorMapper>();
 			container.Register<IApiFornecedorRepository, ApiFornecedorRepository>();
+		    container.Register<IProdutoFornecedorRepository, ProdutoFornecedorRepository>();
 		}
 	}
 }

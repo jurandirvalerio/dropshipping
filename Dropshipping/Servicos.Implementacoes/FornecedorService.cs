@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using DTOs;
 using Entidades;
 using Repositorios.Contratos;
@@ -15,12 +14,14 @@ namespace Servicos.Implementacoes
 		private readonly IFornecedorRepository _fornecedorRepository;
 		private readonly IApiFornecedorRepository _apiFornecedorRepository;
 		private readonly IFornecedorMapper _fornecedorMapper;
+		private readonly IProdutoFornecedorRepository _produtoFornecedorRepository;
 
-		public FornecedorService(IFornecedorRepository fornecedorRepository, IFornecedorMapper fornecedorMapper, IApiFornecedorRepository apiFornecedorRepository)
+		public FornecedorService(IFornecedorRepository fornecedorRepository, IFornecedorMapper fornecedorMapper, IApiFornecedorRepository apiFornecedorRepository, IProdutoFornecedorRepository produtoFornecedorRepository)
 		{
 			_fornecedorRepository = fornecedorRepository;
 			_fornecedorMapper = fornecedorMapper;
 			_apiFornecedorRepository = apiFornecedorRepository;
+			_produtoFornecedorRepository = produtoFornecedorRepository;
 		}
 
 		public List<FornecedorDTO> Listar()
@@ -56,9 +57,22 @@ namespace Servicos.Implementacoes
 		public List<ProdutoFornecedorDTO> ListarProdutos(int codigoFornecedor)
 		{
 			var fornecedor = _fornecedorRepository.FindBy(f => f.Codigo == codigoFornecedor).FirstOrDefault();
-			return _apiFornecedorRepository.ListarProdutos(fornecedor).Result;
+			var produtos = _apiFornecedorRepository.ListarProdutos(fornecedor).Result;
+
+			var guidsProdutos = produtos.Select(p => p.Guid).ToList();
+			var guidsDosProdutosJaVendidos = ObterGuidsDosProdutosJaVendidos(fornecedor, guidsProdutos);
+
+			foreach (var produto in produtos)
+			{
+				produto.VendidoNaLoja = guidsDosProdutosJaVendidos.Contains(produto.Guid);
+			}
+
+			return produtos;
 		}
 
-
+		private IQueryable<Guid> ObterGuidsDosProdutosJaVendidos(Fornecedor fornecedor, List<Guid> guidsProdutos)
+		{
+			return _produtoFornecedorRepository.FindBy(pf => pf.CodigoFornecedor == fornecedor.Codigo && guidsProdutos.Contains(pf.GuidProdutoFornecedor)).Select(p => p.GuidProdutoFornecedor);
+		}
 	}
 }

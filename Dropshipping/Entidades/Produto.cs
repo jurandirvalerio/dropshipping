@@ -7,6 +7,6 @@ namespace Entidades
 		public string Nome { get; set; }
 		public string Descricao { get; set; }
 		public ICollection<UrlImagem> UrlImagemDetalheSet { get; set; }
-		public ICollection<PrecoProdutoFornecedor> PrecoProdutoFornecedorSet { get; set; }
+		public ICollection<ProdutoFornecedor> PrecoProdutoFornecedorSet { get; set; }
 	}
 }

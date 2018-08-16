@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entidades
 {
-	public class PrecoProdutoFornecedor : Entidade
+	public class ProdutoFornecedor : Entidade
 	{
 		[ForeignKey("Produto")]
 		public int CodigoProduto { get; set; }
@@ -10,7 +11,9 @@ namespace Entidades
 		[ForeignKey("Fornecedor")]
 		public int CodigoFornecedor { get; set; }
 		public Fornecedor Fornecedor { get; set; }
-		public decimal Preco { get; set; }
+		public decimal PrecoVenda { get; set; }
+		public decimal PrecoFornecedor { get; set; }
+		public Guid GuidProdutoFornecedor { get; set; }
 		public int Quantidade { get; set; }
 	}
 }
