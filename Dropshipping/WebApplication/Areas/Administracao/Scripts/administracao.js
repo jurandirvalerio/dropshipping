@@ -14,3 +14,9 @@ function getParameterByName(name, url) {
 	if (!results[2]) return '';
 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+function numberToReal(numero) {
+	numero = numero.toFixed(2).split('.');
+	numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
+	return numero.join(',');
+}

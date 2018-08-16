@@ -46,7 +46,23 @@ $(document).ready(function () {
 			$('#grid').DataTable({
 				"data": data,
 				"columns": [
-					{ "data": "Nome" }, { "data": "Estoque" }, { "data": "Preco" }, { "data": "PrecoSugeridoVenda" },
+					{ "data": "Nome" }, { "data": "Estoque" },
+					{
+						"data": "Preco", "render": function (data, type, row, meta) {
+							if (type === 'display') {
+								data = numberToReal(data);
+							}
+							return data;
+						}
+					},
+					{
+						"data": "PrecoSugeridoVenda", "render": function (data, type, row, meta) {
+							if (type === 'display') {
+								data = numberToReal(data);
+							}
+							return data;
+						}
+					},
 					{
 						"data": "VendidoNaLoja", "width": "150",
 						"render": function (data, type, row, meta) {
