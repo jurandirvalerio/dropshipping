@@ -58,8 +58,7 @@ namespace Repositorios.Implementacoes
 		public async Task<List<ProdutoFornecedorDTO>> ListarProdutos(Fornecedor fornecedor)
 		{
 			var produtos = await GetRequest(fornecedor);
-			var produtoDTOSet = JsonConvert.DeserializeObject<List<ProdutoFornecedorDTO>>(produtos);
-			return produtoDTOSet;
+			return JsonConvert.DeserializeObject<List<ProdutoFornecedorDTO>>(produtos);
 		}
 	}
 }

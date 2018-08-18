@@ -10,13 +10,15 @@ namespace Servicos.Implementacoes
 {
 	public class ProdutoService : IProdutoService
 	{
+		private readonly IProdutoFornecedorRepository _produtoFornecedorRepository;
 		private readonly IProdutoRepository _produtoRepository;
 		private readonly IProdutoMapper _produtoMapper;
 
-		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper)
+		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper, IProdutoFornecedorRepository produtoFornecedorRepository)
 		{
 			_produtoRepository = produtoRepository;
 			_produtoMapper = produtoMapper;
+			_produtoFornecedorRepository = produtoFornecedorRepository;
 		}
 
 		public ProdutoDTO Obter(int codigo)
@@ -32,6 +34,54 @@ namespace Servicos.Implementacoes
 		public List<ProdutoDTO> ListarTodosProdutos()
 		{
 			return _produtoMapper.Map(QueryProdutosVisiveis().ToList());
+		}
+
+		public void Incluir(ProdutoFornecedorDTO produtoFornecedorDto)
+		{
+			var produtoFornecedor = new ProdutoFornecedor
+			{
+				CodigoFornecedor = produtoFornecedorDto.CodigoFornecedor,
+				GuidProdutoFornecedor = produtoFornecedorDto.Guid,
+				PrecoFornecedor = produtoFornecedorDto.Preco,
+				PrecoVenda = produtoFornecedorDto.PrecoSugeridoVenda,
+				Quantidade = produtoFornecedorDto.Estoque,
+				CodigoProduto = ObterCodigoProduto(produtoFornecedorDto)
+			};
+			_produtoFornecedorRepository.Add(produtoFornecedor);
+			_produtoFornecedorRepository.Save();
+		}
+
+		private int ObterCodigoProduto(ProdutoFornecedorDTO produtoFornecedorDto)
+		{
+			var produto = _produtoRepository.FindBy(p => p.Nome == produtoFornecedorDto.Nome).FirstOrDefault();
+			return produto?.Codigo ?? CriarProduto(produtoFornecedorDto);
+		}
+
+		private int CriarProduto(ProdutoFornecedorDTO produtoFornecedorDto)
+		{
+			var produto = new Produto()
+			{
+				Nome = produtoFornecedorDto.Nome,
+				Descricao = produtoFornecedorDto.Descricao,
+				UrlImagemDetalheSet = MapearImagensProduto(produtoFornecedorDto)
+			};
+			
+			_produtoRepository.Add(produto);
+			_produtoRepository.Save();
+
+			return produto.Codigo;
+		}
+
+		private ICollection<UrlImagem> MapearImagensProduto(ProdutoFornecedorDTO produtoFornecedorDto)
+		{
+			if (produtoFornecedorDto.Imagens.Count == 0) return null;
+
+			var imagens = new List<UrlImagem>();
+			foreach (var imagen in produtoFornecedorDto.Imagens)
+			{
+				imagens.Add(new UrlImagem(imagen));
+			}
+			return imagens;
 		}
 
 		private IQueryable<Produto> QueryProdutosVisiveis()

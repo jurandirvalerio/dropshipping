@@ -8,5 +8,6 @@ namespace Servicos.Contratos
 		ProdutoDTO Obter(int codigo);
 		List<ProdutoDTO> ListarProdutosEmDestaque();
 		List<ProdutoDTO> ListarTodosProdutos();
+		void Incluir(ProdutoFornecedorDTO produtoFornecedorDto);
 	}
 }

@@ -305,6 +305,7 @@
     <Content Include="Areas\Administracao\Content\css\lib\vector-map\jqvmap.min.css" />
     <Content Include="Areas\Administracao\Content\css\spinners.css" />
     <Content Include="Areas\Administracao\Content\css\style.css" />
+    <Content Include="Areas\Administracao\Content\css\custom.css" />
     <Content Include="Areas\Administracao\Content\icons\flag-icon-css\flag-icon.min.css" />
     <Content Include="Areas\Administracao\Content\icons\flag-icon-css\flags\ad.svg" />
     <Content Include="Areas\Administracao\Content\icons\flag-icon-css\flags\ae.svg" />

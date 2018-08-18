@@ -13,5 +13,6 @@ namespace DTOs
 		public decimal PrecoSugeridoVenda { get; set; }
 		public bool VendidoNaLoja { get; set; }
 		public List<string> Imagens { get; set; } = new List<string>();
+		public int CodigoFornecedor { get; set; }
 	}
 }

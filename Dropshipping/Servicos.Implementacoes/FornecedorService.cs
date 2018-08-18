@@ -65,12 +65,13 @@ namespace Servicos.Implementacoes
 			foreach (var produto in produtos)
 			{
 				produto.VendidoNaLoja = guidsDosProdutosJaVendidos.Contains(produto.Guid);
+				produto.CodigoFornecedor = codigoFornecedor;
 			}
 
 			return produtos;
 		}
 
-		private IQueryable<Guid> ObterGuidsDosProdutosJaVendidos(Fornecedor fornecedor, List<Guid> guidsProdutos)
+		private IQueryable<Guid> ObterGuidsDosProdutosJaVendidos(Entidade fornecedor, ICollection<Guid> guidsProdutos)
 		{
 			return _produtoFornecedorRepository.FindBy(pf => pf.CodigoFornecedor == fornecedor.Codigo && guidsProdutos.Contains(pf.GuidProdutoFornecedor)).Select(p => p.GuidProdutoFornecedor);
 		}
