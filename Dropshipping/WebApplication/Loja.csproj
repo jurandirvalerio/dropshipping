@@ -235,6 +235,7 @@
     <Compile Include="Areas\Administracao\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administracao\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Administracao\Models\Fornecedor\FornecedorViewModel.cs" />
+    <Compile Include="Areas\Administracao\Models\Produto\ProdutoViewModel.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="Infrastructure\Authentication\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Authentication\ApplicationUserManager.cs" />
     <Compile Include="Infrastructure\Authentication\Roles.cs" />
+    <Compile Include="Infrastructure\ModelBinders\DecimalModelBinder.cs" />
     <Compile Include="Migrations\201808092340061_inicio.cs" />
     <Compile Include="Migrations\201808092340061_inicio.Designer.cs">
       <DependentUpon>201808092340061_inicio.cs</DependentUpon>
@@ -876,6 +878,7 @@
     <Content Include="Areas\Administracao\Scripts\administracao.js" />
     <Content Include="Areas\Administracao\Scripts\Fornecedor\produtos.js" />
     <Content Include="Areas\Administracao\Scripts\Fornecedor\listar.js" />
+    <Content Include="Areas\Administracao\Scripts\Produto\cadastro.js" />
     <Content Include="Areas\Administracao\Scripts\Produto\listar.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\breadcrumb.css" />
@@ -1261,6 +1264,8 @@
     <Content Include="Areas\Administracao\Views\Fornecedor\Alterar.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedor\_Cadastro.cshtml" />
     <Content Include="Areas\Administracao\Views\Fornecedor\Produtos.cshtml" />
+    <Content Include="Areas\Administracao\Views\Produto\Alterar.cshtml" />
+    <Content Include="Areas\Administracao\Views\Produto\_Cadastro.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

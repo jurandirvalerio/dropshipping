@@ -6,8 +6,11 @@ namespace Servicos.Contratos
 	public interface IProdutoService
 	{
 		ProdutoDTO Obter(int codigo);
+		ProdutoCadastroDTO ObterParaCadastro(int codigo);
 		List<ProdutoDTO> ListarProdutosEmDestaque();
-		List<ProdutoDTO> ListarTodosProdutos();
+		List<ProdutoDTO> ListarTodosProdutosParaVitrine();
 		void Incluir(ProdutoFornecedorDTO produtoFornecedorDto);
+		void Alterar(ProdutoCadastroDTO produtoCadastroDto);
+		List<ProdutoCadastroDTO> ListarTodosProdutos();
 	}
 }

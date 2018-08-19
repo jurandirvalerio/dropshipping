@@ -7,7 +7,7 @@
 		<div class="col-lg-6">
 			<div class="card card-outline-primary">
 				<div class="card-body">
-					@using (Html.BeginForm())
+					@using (Html.BeginForm("alterar", "Fornecedor", FormMethod.Post, new { area = "administracao" }))
 					{
 						@Html.AntiForgeryToken()
 						@Html.HiddenFor(model => model.Codigo)

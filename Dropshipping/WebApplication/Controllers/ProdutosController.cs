@@ -18,7 +18,7 @@ namespace Loja.Controllers
 
 		public ActionResult Index()
 		{
-			return View(Mapper.Map<List<ProdutoDTO>, List<ProdutoViewModel>>(_produtoService.ListarTodosProdutos()));
+			return View(Mapper.Map<List<ProdutoDTO>, List<ProdutoViewModel>>(_produtoService.ListarTodosProdutosParaVitrine()));
 		}
 
 		public ActionResult Detalhe(int id)

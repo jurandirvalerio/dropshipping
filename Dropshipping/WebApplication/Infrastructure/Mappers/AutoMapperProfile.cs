@@ -14,6 +14,7 @@ namespace Loja.Infrastructure.Mappers
 			CreateMap<ProdutoDTO, ProdutoViewModel>().ForMember(s => s.UrlImagemSet, c => c.MapFrom(m => m.UrlSet));
 			CreateMap<RegistroViewModel, Cliente>();
 			CreateMap<FornecedorDTO, FornecedorViewModel>();
+			CreateMap<ProdutoCadastroDTO, ProdutoViewModel>();
 		}
 	}
 }

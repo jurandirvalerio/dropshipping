@@ -26,14 +26,68 @@ namespace Servicos.Implementacoes
 			return _produtoMapper.Map(_produtoRepository.FindBy(p => p.Codigo == codigo, p => p.UrlImagemDetalheSet, p => p.PrecoProdutoFornecedorSet).FirstOrDefault());
 		}
 
+		public ProdutoCadastroDTO ObterParaCadastro(int codigo)
+		{
+			return _produtoFornecedorRepository
+				.FindBy(pf => pf.Codigo == codigo)
+				.Include(pf => pf.Produto)
+				.Include(pf => pf.Fornecedor)
+				.Select(pf =>
+					new ProdutoCadastroDTO()
+					{
+						Codigo = pf.Codigo,
+						Fornecedor = pf.Fornecedor.Nome,
+						Nome = pf.Produto.Nome,
+						Descricao = pf.Produto.Descricao,
+						PrecoCompra = pf.PrecoFornecedor,
+						PrecoVenda = pf.PrecoVenda,
+						Ativo = pf.Produto.Visivel
+					}
+				).FirstOrDefault();
+		}
+
 		public List<ProdutoDTO> ListarProdutosEmDestaque()
 		{
 			return _produtoMapper.Map(QueryProdutosVisiveis().Take(8).OrderByDescending(p => p.DataCriacao).ToList());
 		}
 
-		public List<ProdutoDTO> ListarTodosProdutos()
+		public List<ProdutoDTO> ListarTodosProdutosParaVitrine()
 		{
 			return _produtoMapper.Map(QueryProdutosVisiveis().ToList());
+		}
+
+		public void Alterar(ProdutoCadastroDTO produtoCadastroDto)
+		{
+			var produtoFornecedor = _produtoFornecedorRepository.FindBy(pf => pf.Codigo == produtoCadastroDto.Codigo).First();
+			produtoFornecedor.PrecoVenda = produtoCadastroDto.PrecoVenda;
+			_produtoFornecedorRepository.Edit(produtoFornecedor);
+			_produtoFornecedorRepository.Save();
+			var produto = _produtoRepository.FindBy(p => p.Codigo == produtoFornecedor.CodigoProduto).First();
+			produto.Nome = produtoCadastroDto.Nome;
+			produto.Descricao = produtoCadastroDto.Descricao;
+			produto.Visivel = produtoCadastroDto.Ativo;
+			_produtoRepository.Edit(produto);
+			_produtoRepository.Save();
+		}
+
+		public List<ProdutoCadastroDTO> ListarTodosProdutos()
+		{
+			return _produtoFornecedorRepository
+				.GetAll()
+				.Include(pf => pf.Produto)
+				.Include(pf => pf.Fornecedor)
+				.Select(pf =>
+					new ProdutoCadastroDTO()
+					{
+						Codigo = pf.Codigo,
+						Fornecedor = pf.Fornecedor.Nome,
+						Nome = pf.Produto.Nome,
+						Descricao = pf.Produto.Descricao,
+						PrecoCompra = pf.PrecoFornecedor,
+						PrecoVenda = pf.PrecoVenda,
+						Ativo = pf.Produto.Visivel
+					}
+				).ToList();
 		}
 
 		public void Incluir(ProdutoFornecedorDTO produtoFornecedorDto)
