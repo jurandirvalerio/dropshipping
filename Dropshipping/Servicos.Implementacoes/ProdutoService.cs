@@ -13,12 +13,14 @@ namespace Servicos.Implementacoes
 		private readonly IProdutoFornecedorRepository _produtoFornecedorRepository;
 		private readonly IProdutoRepository _produtoRepository;
 		private readonly IProdutoMapper _produtoMapper;
+		private readonly IApiFornecedorRepository _apiFornecedorRepository;
 
-		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper, IProdutoFornecedorRepository produtoFornecedorRepository)
+		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper, IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository)
 		{
 			_produtoRepository = produtoRepository;
 			_produtoMapper = produtoMapper;
 			_produtoFornecedorRepository = produtoFornecedorRepository;
+			_apiFornecedorRepository = apiFornecedorRepository;
 		}
 
 		public ProdutoDTO Obter(int codigo)
@@ -63,11 +65,28 @@ namespace Servicos.Implementacoes
 			_produtoFornecedorRepository.Edit(produtoFornecedor);
 			_produtoFornecedorRepository.Save();
 			var produto = _produtoRepository.FindBy(p => p.Codigo == produtoFornecedor.CodigoProduto).First();
+			var statusInicial = produto.Visivel;
 			produto.Nome = produtoCadastroDto.Nome;
 			produto.Descricao = produtoCadastroDto.Descricao;
 			produto.Visivel = produtoCadastroDto.Ativo;
 			_produtoRepository.Edit(produto);
 			_produtoRepository.Save();
+			VerificarStatusProduto(produtoCadastroDto, produtoFornecedor, statusInicial);
+		}
+
+		private void VerificarStatusProduto(ProdutoCadastroDTO produtoCadastroDto, ProdutoFornecedor produtoFornecedor, bool statusInicial)
+		{
+			if (statusInicial != produtoCadastroDto.Ativo)
+			{
+				if (produtoCadastroDto.Ativo)
+				{
+					_apiFornecedorRepository.Subscrever(produtoFornecedor);
+				}
+				else
+				{
+					_apiFornecedorRepository.CancelarSubscricao( produtoFornecedor);
+				}
+			}
 		}
 
 		public List<ProdutoCadastroDTO> ListarTodosProdutos()
@@ -103,6 +122,8 @@ namespace Servicos.Implementacoes
 			};
 			_produtoFornecedorRepository.Add(produtoFornecedor);
 			_produtoFornecedorRepository.Save();
+
+			_apiFornecedorRepository.Subscrever(produtoFornecedor);
 		}
 
 		private int ObterCodigoProduto(ProdutoFornecedorDTO produtoFornecedorDto)

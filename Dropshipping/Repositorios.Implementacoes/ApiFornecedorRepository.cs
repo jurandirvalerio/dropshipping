@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Configuration;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using DTOs;
 using Entidades;
@@ -14,6 +16,13 @@ namespace Repositorios.Implementacoes
 {
 	public class ApiFornecedorRepository : IApiFornecedorRepository
 	{
+		private readonly IFornecedorRepository _fornecedorRepository;
+
+		public ApiFornecedorRepository(IFornecedorRepository fornecedorRepository)
+		{
+			_fornecedorRepository = fornecedorRepository;
+		}
+
 		private async Task<string> GetAPIToken(Fornecedor fornecedor)
 		{
 			using (var client = new HttpClient())
@@ -39,20 +48,23 @@ namespace Repositorios.Implementacoes
 
 		public async Task<string> GetRequest(Fornecedor fornecedor)
 		{
-			var token = GetAPIToken(fornecedor).Result;
-
 			using (var client = new HttpClient())
 			{
-				var uri = new Uri(fornecedor.UrlEndpointApi);
-				client.BaseAddress = new Uri(fornecedor.UrlEndpointApi.Replace(uri.LocalPath, ""));
-				client.DefaultRequestHeaders.Accept.Clear();
-				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-				client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
-
+				var uri = ObterUri(fornecedor, client);
 				var response = client.GetAsync($"{uri.LocalPath}/produtos").GetAwaiter().GetResult();
-				Debug.WriteLine(54 + "");
 				return await response.Content.ReadAsStringAsync();
 			}
+		}
+
+		private Uri ObterUri(Fornecedor fornecedor, HttpClient client)
+		{
+			var token = GetAPIToken(fornecedor).Result;
+			var uri = new Uri(fornecedor.UrlEndpointApi);
+			client.BaseAddress = new Uri(fornecedor.UrlEndpointApi.Replace(uri.LocalPath, ""));
+			client.DefaultRequestHeaders.Accept.Clear();
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+			return uri;
 		}
 
 		public async Task<List<ProdutoFornecedorDTO>> ListarProdutos(Fornecedor fornecedor)
@@ -60,5 +72,54 @@ namespace Repositorios.Implementacoes
 			var produtos = await GetRequest(fornecedor);
 			return JsonConvert.DeserializeObject<List<ProdutoFornecedorDTO>>(produtos);
 		}
+
+		public void Subscrever(ProdutoFornecedor produtoFornecedor)
+		{
+			PublishSubscribe(produtoFornecedor, "/subscribe");
+		}
+
+		public void CancelarSubscricao(ProdutoFornecedor produtoFornecedor)
+		{
+			PublishSubscribe(produtoFornecedor, "/unsubscribe");
+		}
+
+		private Fornecedor ObterFornecedor(ProdutoFornecedor produtoFornecedor)
+		{
+			return _fornecedorRepository.FindBy(f => f.Codigo == produtoFornecedor.CodigoFornecedor).First();
+		}
+
+		private PublisherSubscriberDTO ObterDto(ProdutoFornecedor produtoFornecedor)
+		{
+			return new PublisherSubscriberDTO
+			{
+				Url = MontarUrl(produtoFornecedor),
+				Guid = produtoFornecedor.GuidProdutoFornecedor
+			};
+		}
+
+		private static string MontarUrl(ProdutoFornecedor produtoFornecedor)
+		{
+			return $"{ObterUrlPadrao()}/produto/{produtoFornecedor.CodigoProduto}";
+		}
+
+		private static string ObterUrlPadrao()
+		{
+			return ConfigurationManager.AppSettings["urlApi"];
+		}
+
+		public void PublishSubscribe(ProdutoFornecedor produtoFornecedor, string method)
+		{
+			using (var client = new HttpClient())
+			{
+				var fornecedor = ObterFornecedor(produtoFornecedor);
+				var uri = ObterUri(fornecedor, client);
+				var publisherSubscriberDTO = ObterDto(produtoFornecedor);
+				var json = JsonConvert.SerializeObject(publisherSubscriberDTO);
+				var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+				var response = client.PostAsync($"{uri.LocalPath}{method}", stringContent).GetAwaiter().GetResult();
+				response.EnsureSuccessStatusCode();
+			}
+		}
+
 	}
 }
