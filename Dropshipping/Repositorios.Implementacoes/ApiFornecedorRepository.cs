@@ -88,7 +88,7 @@ namespace Repositorios.Implementacoes
 			return _fornecedorRepository.FindBy(f => f.Codigo == produtoFornecedor.CodigoFornecedor).First();
 		}
 
-		private PublisherSubscriberDTO ObterDto(ProdutoFornecedor produtoFornecedor)
+		private static PublisherSubscriberDTO ObterDto(ProdutoFornecedor produtoFornecedor)
 		{
 			return new PublisherSubscriberDTO
 			{
@@ -113,13 +113,11 @@ namespace Repositorios.Implementacoes
 			{
 				var fornecedor = ObterFornecedor(produtoFornecedor);
 				var uri = ObterUri(fornecedor, client);
-				var publisherSubscriberDTO = ObterDto(produtoFornecedor);
-				var json = JsonConvert.SerializeObject(publisherSubscriberDTO);
+				var json = JsonConvert.SerializeObject(ObterDto(produtoFornecedor));
 				var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 				var response = client.PostAsync($"{uri.LocalPath}{method}", stringContent).GetAwaiter().GetResult();
 				response.EnsureSuccessStatusCode();
 			}
 		}
-
 	}
 }

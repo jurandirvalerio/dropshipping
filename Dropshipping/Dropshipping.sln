@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FornecedorAPI", "Fornecedor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInjectorBootstrapPackage", "SimpleInjectorBootstrapPackage\SimpleInjectorBootstrapPackage.csproj", "{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaAPI", "LojaAPI\LojaAPI.csproj", "{63EB96AE-1F78-4A66-978A-3E97180FA4B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63EB96AE-1F78-4A66-978A-3E97180FA4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EB96AE-1F78-4A66-978A-3E97180FA4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EB96AE-1F78-4A66-978A-3E97180FA4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EB96AE-1F78-4A66-978A-3E97180FA4B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
