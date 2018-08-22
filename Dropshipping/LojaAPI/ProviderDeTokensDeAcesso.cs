@@ -18,7 +18,6 @@ namespace LojaAPI
 				context.SetError("invalid_grant", "Identificação inválida.");
 				return;
 			}
-
 			context.Validated(new ClaimsIdentity(context.Options.AuthenticationType));
 		}
 

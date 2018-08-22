@@ -24,7 +24,7 @@ namespace LojaAPI
 
 			app.UseCors(CorsOptions.AllowAll);
 			AtivandoAccessToken(app);
-			app.UseWebApi(config);
+			//app.UseWebApi(config);
 		}
 
 		private void AtivandoAccessToken(IAppBuilder app)
