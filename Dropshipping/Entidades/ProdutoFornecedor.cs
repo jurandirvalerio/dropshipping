@@ -14,6 +14,6 @@ namespace Entidades
 		public decimal PrecoVenda { get; set; }
 		public decimal PrecoFornecedor { get; set; }
 		public Guid GuidProdutoFornecedor { get; set; }
-		public int Quantidade { get; set; }
+		public int Estoque { get; set; }
 	}
 }

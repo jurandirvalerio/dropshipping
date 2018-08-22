@@ -12,14 +12,9 @@ namespace Loja
 		{
 			var container = new Container();
 			container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-
 			BootstrapperPackage.RegisterServices(container);
-
-			//container.RegisterWebApiControllers(GlobalConfiguration.Configuration); //web api
 			container.Verify();
-
 			DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
-			//GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container); //web api
 		}
 	}
 }

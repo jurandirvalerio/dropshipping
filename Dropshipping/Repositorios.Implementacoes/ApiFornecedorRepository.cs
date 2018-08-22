@@ -92,14 +92,14 @@ namespace Repositorios.Implementacoes
 		{
 			return new PublisherSubscriberDTO
 			{
-				Url = MontarUrl(produtoFornecedor),
+				Url = UrlApi(),
 				Guid = produtoFornecedor.GuidProdutoFornecedor
 			};
 		}
 
-		private static string MontarUrl(ProdutoFornecedor produtoFornecedor)
+		private static string UrlApi()
 		{
-			return $"{ObterUrlPadrao()}/produto/{produtoFornecedor.CodigoProduto}";
+			return $"{ObterUrlPadrao()}/produto";
 		}
 
 		private static string ObterUrlPadrao()

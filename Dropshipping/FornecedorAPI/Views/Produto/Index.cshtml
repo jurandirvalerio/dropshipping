@@ -1,0 +1,16 @@
+﻿@model List<FornecedorAPI.Models.Produto>
+
+@using (Html.BeginForm("Index", "Produto", FormMethod.Post))
+{
+	@Html.AntiForgeryToken()
+	<div>
+		<h4>Atualizar preço/estoque</h4>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			@Html.DropDownList("guid", new SelectList(Model, "Guid", "Nome"), "Selecione um produto", new { @class = "form-control" })
+			<input type="text" name="estoque" placeholder="Estoque"/>
+			<input type="submit" value="Enviar" class="btn btn-default" />
+		</div>
+	</div>
+}

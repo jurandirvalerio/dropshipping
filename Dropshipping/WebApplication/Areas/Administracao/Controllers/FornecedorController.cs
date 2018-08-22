@@ -1,6 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMapper;
+using DTOs;
 using Loja.Areas.Administracao.Models.Fornecedor;
 using Loja.Infrastructure.Authentication;
 using Servicos.Contratos;
@@ -39,15 +39,18 @@ namespace Loja.Areas.Administracao.Controllers
 		}
 
 		[HttpPost]
-	    public JsonResult Incluir(FornecedorViewModel fornecedorViewModel)
+	    public ActionResult Incluir(FornecedorViewModel fornecedorViewModel)
 	    {
-			throw new NotImplementedException();
-	    }
+		    _fornecedorService.Incluir(Mapper.Map<FornecedorDTO>(fornecedorViewModel));
+		    return RedirectToAction("Index", "Fornecedor", new { area = "Administracao" });
+		}
 
 	    [HttpPost]
-		public JsonResult Alterar(FornecedorViewModel fornecedorViewModel)
+		public ActionResult Alterar(FornecedorViewModel fornecedorViewModel)
 	    {
-		    throw new NotImplementedException();
+		    _fornecedorService.Alterar(Mapper.Map<FornecedorDTO>(fornecedorViewModel));
+		    return RedirectToAction("Index", "Fornecedor", new { area = "Administracao" });
+
 		}
 
 		public ActionResult Produtos(int codigo)

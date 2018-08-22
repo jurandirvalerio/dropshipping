@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
@@ -6,7 +7,6 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 
 [assembly: OwinStartup(typeof(LojaAPI.Startup))]
-
 namespace LojaAPI
 {
 	public class Startup
@@ -15,7 +15,6 @@ namespace LojaAPI
 		{
 			var config = new HttpConfiguration();
 
-			// configurando rotas
 			config.MapHttpAttributeRoutes();
 			config.Routes.MapHttpRoute(
 				name: "DefaultApi",
@@ -23,12 +22,8 @@ namespace LojaAPI
 				defaults: new { guid = RouteParameter.Optional }
 			);
 
-			// ativando cors
 			app.UseCors(CorsOptions.AllowAll);
-
 			AtivandoAccessToken(app);
-
-			// ativando configuração WebApi
 			app.UseWebApi(config);
 		}
 

@@ -117,7 +117,7 @@ namespace Servicos.Implementacoes
 				GuidProdutoFornecedor = produtoFornecedorDto.Guid,
 				PrecoFornecedor = produtoFornecedorDto.Preco,
 				PrecoVenda = produtoFornecedorDto.PrecoSugeridoVenda,
-				Quantidade = produtoFornecedorDto.Estoque,
+				Estoque = produtoFornecedorDto.Estoque,
 				CodigoProduto = ObterCodigoProduto(produtoFornecedorDto)
 			};
 			_produtoFornecedorRepository.Add(produtoFornecedor);

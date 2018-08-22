@@ -16,5 +16,7 @@ namespace Loja.Areas.Administracao.Models.Fornecedor
 		[Required]
 		[Display(Name = "Endpoint")]
 		public string UrlEndpointApi { get; set; }
+
+		public bool Visivel { get; set; } = true;
 	}
 }

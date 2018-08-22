@@ -45,6 +45,7 @@ namespace Servicos.Implementacoes
 		{
 			var fornecedor = _fornecedorRepository.FindBy(f => f.Codigo == fornecedorDto.Codigo).FirstOrDefault();
 			_fornecedorRepository.Edit(_fornecedorMapper.Map(fornecedor, fornecedorDto));
+			_fornecedorRepository.Save();
 		}
 
 		public void Incluir(FornecedorDTO fornecedorDto)
@@ -52,6 +53,7 @@ namespace Servicos.Implementacoes
 			var fornecedor = new Fornecedor();
 			fornecedor = _fornecedorMapper.Map(fornecedor, fornecedorDto);
 			_fornecedorRepository.Add(fornecedor);
+			_fornecedorRepository.Save();
 		}
 
 		public List<ProdutoFornecedorDTO> ListarProdutos(int codigoFornecedor)

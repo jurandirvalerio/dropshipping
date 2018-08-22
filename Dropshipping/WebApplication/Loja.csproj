@@ -1359,7 +1359,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53945</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/dropshipping</IISUrl>
+          <IISUrl>http://localhost/loja</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
