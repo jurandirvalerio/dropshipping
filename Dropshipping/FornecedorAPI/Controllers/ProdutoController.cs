@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using DTOs;
 using FornecedorAPI.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,35 +23,41 @@ namespace FornecedorAPI.Controllers
         }
 
 	    [HttpPost]
-	    public ActionResult Index(string guid, string estoque)
+	    public ActionResult Index(string guid, string estoque, string preco, string precoSugeridoVenda, string nome)
 	    {
-		    if (guid != string.Empty && int.TryParse(estoque, out var numeroEstoque))
+		    if (guid != string.Empty && int.TryParse(estoque, out var numeroEstoque) && decimal.TryParse(preco, out var valorPreco) && 
+		        decimal.TryParse(precoSugeridoVenda, out var valorPrecoSugeridoVenda))
 		    {
-			    PostarAtualizacaoDeEstoque(guid, numeroEstoque);
+			    PostarAtualizacaoDeEstoque(guid, numeroEstoque, valorPreco, valorPrecoSugeridoVenda);
+			    ViewBag.Mensagem = $@"Produto: {nome} atualizado para: 
+									  Estoque: {estoque}
+									  Preço fonecedor: {preco}
+									  Preço final de venda {valorPrecoSugeridoVenda}";
 		    }
 
 		    return RedirectToAction("Index");
 	    }
 
-	    public void PostarAtualizacaoDeEstoque(string guid, int estoque)
+	    public void PostarAtualizacaoDeEstoque(string guid, int estoque, decimal preco, decimal precoSugeridoVenda)
 	    {
 		    using (var client = new HttpClient())
 		    {
 			    var uri = ObterUri(client);
-			    var json = JsonConvert.SerializeObject(ObterDto(estoque, guid));
+			    var json = JsonConvert.SerializeObject(ObterDto(estoque, guid, preco, precoSugeridoVenda));
 			    var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 			    var response = client.PostAsync($"{uri.LocalPath}/produtos/atualizar", stringContent).GetAwaiter().GetResult();
 			    response.EnsureSuccessStatusCode();
 		    }
 	    }
 
-	    private PublisherSubscriber ObterDto(int estoque, string guid)
+	    private ProdutoSubscritoDTO ObterDto(int estoque, string guid, decimal preco, decimal precoSugeridoVenda)
 	    {
-		    return new PublisherSubscriber
-		    {
+		    return new ProdutoSubscritoDTO
+			{
 			    Guid = new Guid(guid),
 			    Estoque = estoque,
-			    Preco = ObterPreco(guid)
+			    Preco = preco,
+				PrecoSugeridoVenda = precoSugeridoVenda
 		    };
 	    }
 

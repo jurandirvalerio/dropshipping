@@ -45,8 +45,9 @@
     <Compile Include="ProdutoCadastroDTO.cs" />
     <Compile Include="ProdutoDTO.cs" />
     <Compile Include="ProdutoFornecedorDTO.cs" />
+    <Compile Include="ProdutoSubscritoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublisherSubscriberDTO.cs" />
+    <Compile Include="SubscricaoDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -88,9 +88,9 @@ namespace Repositorios.Implementacoes
 			return _fornecedorRepository.FindBy(f => f.Codigo == produtoFornecedor.CodigoFornecedor).First();
 		}
 
-		private static PublisherSubscriberDTO ObterDto(ProdutoFornecedor produtoFornecedor)
+		private static SubscricaoDTO ObterDto(ProdutoFornecedor produtoFornecedor)
 		{
-			return new PublisherSubscriberDTO
+			return new SubscricaoDTO
 			{
 				Url = UrlApi(),
 				Guid = produtoFornecedor.GuidProdutoFornecedor

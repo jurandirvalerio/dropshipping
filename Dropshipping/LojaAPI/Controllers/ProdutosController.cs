@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using DTOs;
+﻿using DTOs;
 using System.Web.Http;
 using Servicos.Contratos;
 
@@ -16,11 +15,9 @@ namespace LojaAPI.Controllers
 		}
 
 		[HttpPost]
-		public void Atualizar(PublisherSubscriberDTO publisherSubscriberDto)
+		public void Atualizar(ProdutoSubscritoDTO produtoSubscritoDto)
 		{
-			Debug.WriteLine("Ok");
-			Debug.WriteLine(publisherSubscriberDto);
-			//_produtoFornecedorService.AtualizarProduto(publisherSubscriberDto);
+			_produtoFornecedorService.AtualizarProduto(produtoSubscritoDto);
 		}
 	}
 }

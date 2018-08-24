@@ -1,16 +1,23 @@
 ﻿@model List<FornecedorAPI.Models.Produto>
 
-@using (Html.BeginForm("Index", "Produto", FormMethod.Post))
+
+@Html.AntiForgeryToken()
+<div>
+	<h4>Atualizar preço/estoque</h4>
+</div>
+@foreach (var produto in Model)
 {
-	@Html.AntiForgeryToken()
-	<div>
-		<h4>Atualizar preço/estoque</h4>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			@Html.DropDownList("guid", new SelectList(Model, "Guid", "Nome"), "Selecione um produto", new { @class = "form-control" })
-			<input type="text" name="estoque" placeholder="Estoque"/>
-			<input type="submit" value="Enviar" class="btn btn-default" />
+	using (Html.BeginForm("Index", "Produto", FormMethod.Post))
+	{
+		<div class="row">
+			<div class="col-md-12">
+				<input type="hidden" name="guid" value="@produto.Guid"/>
+				<input type="text" name="nome" placeholder="Estoque" value="@produto.Nome" readonly="readonly" style="width: 200px" />
+				<input type="text" name="preco" placeholder="Estoque" value="@produto.Preco" />
+				<input type="text" name="precoSugeridoVenda" placeholder="Estoque" value="@produto.PrecoSugeridoVenda" />
+				<input type="text" name="estoque" placeholder="Estoque" value="@produto.Estoque" />
+				<input type="submit" value="Enviar" class="btn btn-default" />
+			</div>
 		</div>
-	</div>
+	}
 }

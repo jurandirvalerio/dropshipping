@@ -4,6 +4,6 @@ namespace Servicos.Contratos
 {
 	public interface IProdutoFornecedorService
 	{
-		void AtualizarProduto(PublisherSubscriberDTO publisherSubscriberDto);
+		void AtualizarProduto(ProdutoSubscritoDTO produtoSubscritoDto);
 	}
 }

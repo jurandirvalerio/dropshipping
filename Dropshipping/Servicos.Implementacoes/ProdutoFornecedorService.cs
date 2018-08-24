@@ -17,10 +17,10 @@ namespace Servicos.Implementacoes
 			_produtoRepository = produtoRepository;
 		}
 
-		public void AtualizarProduto(PublisherSubscriberDTO publisherSubscriberDto)
+		public void AtualizarProduto(ProdutoSubscritoDTO produtoSubscritoDto)
 		{
-			var produtoFornecedor = ObterProdutoFornecedor(publisherSubscriberDto);
-			Map(produtoFornecedor, publisherSubscriberDto);
+			var produtoFornecedor = ObterProdutoFornecedor(produtoSubscritoDto);
+			Map(produtoFornecedor, produtoSubscritoDto);
 			_produtoFornecedorRepository.Edit(produtoFornecedor);
 			_produtoFornecedorRepository.Save();
 
@@ -38,16 +38,17 @@ namespace Servicos.Implementacoes
 			}
 		}
 
-		private void Map(ProdutoFornecedor produtoFornecedor, PublisherSubscriberDTO publisherSubscriberDto)
+		private void Map(ProdutoFornecedor produtoFornecedor, ProdutoSubscritoDTO produtoSubscritoDto)
 		{
-			produtoFornecedor.Estoque = publisherSubscriberDto.Estoque;
-			produtoFornecedor.PrecoFornecedor = publisherSubscriberDto.Preco;
+			produtoFornecedor.Estoque = produtoSubscritoDto.Estoque;
+			produtoFornecedor.PrecoFornecedor = produtoSubscritoDto.Preco;
+			produtoFornecedor.PrecoVenda = produtoSubscritoDto.PrecoSugeridoVenda;
 		}
 
-		private ProdutoFornecedor ObterProdutoFornecedor(PublisherSubscriberDTO publisherSubscriberDto)
+		private ProdutoFornecedor ObterProdutoFornecedor(ProdutoSubscritoDTO produtoSubscritoDto)
 		{
 			return _produtoFornecedorRepository
-				.FindBy(pf => pf.GuidProdutoFornecedor == publisherSubscriberDto.Guid).FirstOrDefault();
+				.FindBy(pf => pf.GuidProdutoFornecedor == produtoSubscritoDto.Guid).FirstOrDefault();
 		}
 	}
 }
