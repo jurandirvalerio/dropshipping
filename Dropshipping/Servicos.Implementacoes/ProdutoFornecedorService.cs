@@ -29,13 +29,10 @@ namespace Servicos.Implementacoes
 
 		private void ValidarEstoque(ProdutoFornecedor produtoFornecedor)
 		{
-			if (produtoFornecedor.Estoque < 1)
-			{
-				var produto = _produtoRepository.FindBy(p => p.Codigo == produtoFornecedor.CodigoProduto).First();
-				produto.Visivel = false;
-				_produtoRepository.Edit(produto);
-				_produtoRepository.Save();
-			}
+			var produto = _produtoRepository.FindBy(p => p.Codigo == produtoFornecedor.CodigoProduto).First();
+			produto.Visivel = produtoFornecedor.Estoque >= 1;
+			_produtoRepository.Edit(produto);
+			_produtoRepository.Save();
 		}
 
 		private void Map(ProdutoFornecedor produtoFornecedor, ProdutoSubscritoDTO produtoSubscritoDto)

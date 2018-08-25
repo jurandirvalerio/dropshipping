@@ -4,11 +4,17 @@
 }
 
 <!--================Home Banner Area =================-->
-@Html.Partial("_Banner", Model.ProdutoEmDestaque)
+@if (Model.ProdutoEmDestaque != null) {
+	@Html.Partial("_Banner", Model.ProdutoEmDestaque)
+}
 <!--================End Home Banner Area =================-->
 <!--================Feature Product Area =================-->
-@Html.Partial("_ProdutosEmDestaque", Model.ProdutoEmDestaqueSet)
+@if(Model.ProdutoEmDestaqueSet != null){ 
+	@Html.Partial("_ProdutosEmDestaque", Model.ProdutoEmDestaqueSet)
+}
 <!--================End Feature Product Area =================-->
 <!--================Latest Product Area =================-->
-@Html.Partial("_ProdutosMaisRecentes", Model.ProdutoMaisRecenteSet)
+@if(Model.ProdutoMaisRecenteSet != null) { 
+	@Html.Partial("_ProdutosMaisRecentes", Model.ProdutoMaisRecenteSet)
+}
 <!--================End Latest Product Area =================-->

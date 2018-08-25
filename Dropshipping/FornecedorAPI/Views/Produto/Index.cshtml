@@ -5,6 +5,11 @@
 <div>
 	<h4>Atualizar preço/estoque</h4>
 </div>
+@if (TempData["Mensagem"] != null)
+{
+<label>@TempData["Mensagem"]</label>
+}
+
 @foreach (var produto in Model)
 {
 	using (Html.BeginForm("Index", "Produto", FormMethod.Post))

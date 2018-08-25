@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using DTOs;
-using FornecedorAPI.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -29,10 +28,10 @@ namespace FornecedorAPI.Controllers
 		        decimal.TryParse(precoSugeridoVenda, out var valorPrecoSugeridoVenda))
 		    {
 			    PostarAtualizacaoDeEstoque(guid, numeroEstoque, valorPreco, valorPrecoSugeridoVenda);
-			    ViewBag.Mensagem = $@"Produto: {nome} atualizado para: 
+			    TempData.Add("Mensagem",$@"Postado - Produto: {nome} atualizado para: 
 									  Estoque: {estoque}
 									  Preço fonecedor: {preco}
-									  Preço final de venda {valorPrecoSugeridoVenda}";
+									  Preço final de venda {valorPrecoSugeridoVenda}");
 		    }
 
 		    return RedirectToAction("Index");
