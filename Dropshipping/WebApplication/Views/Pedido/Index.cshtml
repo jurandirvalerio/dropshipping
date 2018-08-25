@@ -1,1 +1,77 @@
-﻿
+﻿<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="container">
+			<div class="banner_content text-center">
+				<h2>Confirmação de pedido</h2>
+				<div class="page_link">
+					@Html.ActionLink("Home", "Index", new { controller = "Vitrine" })
+					<a href="#">Pedido</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Checkout Area =================-->
+<section class="checkout_area p_120">
+	<div class="container">
+			<div class="billing_details">
+				<div class="row">
+					<div class="col-lg-8">
+						<h3>Detalhes do pedido</h3>
+						<form id="formPedido" class="row contact_form" action="#" method="post">
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="PrimeiroNome" name="PrimeiroNome" placeholder="Primeiro nome" required="required">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Sobrenome" required="required">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="CPF" name="cpf" placeholder="CPF">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="telefone" name="email" placeholder="telefone" required="required">
+							</div>
+
+							<div class="col-md-12 form-group p_star">
+								<input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" required="required">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" required="required">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" required="required">
+							</div>
+							<div class="col-md-6 form-group">
+								<input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" required="required">
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<select class="country_select">
+									<option value="1">Brasil</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-4">
+						<div class="order_box" style="display: none">
+							<h2>Seu pedido</h2>
+							<ul class="list" id="produtos">
+							</ul>
+							<ul class="list list_2" id="subtotal">
+								<li><a href="#">Frete <span>GRÁTIS: R$ 0,00</span></a></li>
+								
+							</ul>
+							<a class="main_btn" href="#">Confirmar pedido</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<!--================End Checkout Area =================-->
+
+@section scripts
+{
+<script src="~/Scripts/Pedido/index.js"></script>
+}

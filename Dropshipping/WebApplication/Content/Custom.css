@@ -91,3 +91,14 @@ a.excecao:hover {
 .removeCarrinho .fa-times {
 	color: #ff0000;
 }
+
+#produtos > li {
+	line-height: 24px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+#produtos > li > a {
+	line-height: 30px;
+}

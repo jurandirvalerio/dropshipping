@@ -1112,6 +1112,7 @@
     <Content Include="Scripts\carrinho.js" />
     <Content Include="Scripts\Carrinho\index.js" />
     <Content Include="Scripts\loja.js" />
+    <Content Include="Scripts\Pedido\index.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Content\css\breadcrumb.css.map" />
     <Content Include="Content\css\style.css.map" />
