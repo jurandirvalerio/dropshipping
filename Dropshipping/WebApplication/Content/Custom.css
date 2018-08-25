@@ -12,9 +12,17 @@
 	width: 60px;
 }
 
-.f_p_item .f_p_img .p_icon a {
+.f_p_item .f_p_img .p_icon a:not(.excecao) {
 	color: #fff;
 	background: #c5322d;
+}
+
+a.excecao {
+	color: #fff !important;
+}
+
+a.excecao:hover {
+	color: #c5322d !important;
 }
 
 .p_30 {
@@ -45,4 +53,23 @@
 
 .custom_header_social {
 	margin-right: 8px !important;
+}
+
+.lnr.lnr.lnr-cart {
+	font-size: 24px;
+	vertical-align: text-bottom;
+}
+
+.numeroCarrinho {
+	font-size: 12px;
+	color: #fff;
+	padding: 0 5px;
+	border-radius: 10px;
+	vertical-align: middle;
+	margin-bottom: 7px;
+	background-color: #ff0000;
+}
+
+#navbarSupportedContent {
+	overflow-y: hidden;
 }

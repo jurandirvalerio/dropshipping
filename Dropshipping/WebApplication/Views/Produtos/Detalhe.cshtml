@@ -57,14 +57,8 @@
 						<li><a href="#"><span>Disponível</span> em estoque</a></li>
 					</ul>
 					<p>@Model.Descricao</p>
-					<div class="product_count">
-						<label for="qty">Quantidade:</label>
-						<input type="text" name="qty" id="sst" maxlength="4" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-					</div>
-					<div class="card_area">
-						<a class="main_btn" href="#">Adicionar ao carrinho</a>
+					<div class="card_area pull-right">
+						<a class="main_btn excecao addCarrinho" data-codigo="@Model.Codigo">Adicionar ao carrinho</a>
 					</div>
 				</div>
 			</div>
