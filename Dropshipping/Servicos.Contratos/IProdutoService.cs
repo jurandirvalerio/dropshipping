@@ -9,6 +9,7 @@ namespace Servicos.Contratos
 		ProdutoCadastroDTO ObterParaCadastro(int codigo);
 		List<ProdutoDTO> ListarProdutosEmDestaque();
 		List<ProdutoDTO> ListarTodosProdutosParaVitrine();
+		List<ProdutoDTO> ListarProdutosParaVitrine(int[] codigoProdutoSet);
 		void Incluir(ProdutoFornecedorDTO produtoFornecedorDto);
 		void Alterar(ProdutoCadastroDTO produtoCadastroDto);
 		List<ProdutoCadastroDTO> ListarTodosProdutos();

@@ -236,6 +236,7 @@
     <Compile Include="Areas\Administracao\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Administracao\Models\Fornecedor\FornecedorViewModel.cs" />
     <Compile Include="Areas\Administracao\Models\Produto\ProdutoViewModel.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -1108,6 +1109,8 @@
     </Content>
     <Content Include="Connected Services\Key Vault\ConnectedService.json" />
     <Content Include="Scripts\carrinho.js" />
+    <Content Include="Scripts\Carrinho\index.js" />
+    <Content Include="Scripts\loja.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Content\css\breadcrumb.css.map" />
     <Content Include="Content\css\style.css.map" />
@@ -1294,6 +1297,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Registrar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

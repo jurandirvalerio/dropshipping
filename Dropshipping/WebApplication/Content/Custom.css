@@ -73,3 +73,21 @@ a.excecao:hover {
 #navbarSupportedContent {
 	overflow-y: hidden;
 }
+
+.addCarrinho {
+	cursor: pointer;
+}
+
+.imagemItemCarrinho {
+	height: 100px;
+}
+
+.removeCarrinho {
+	padding-left: 20px;
+	vertical-align: super;
+	cursor: pointer;
+}
+
+.removeCarrinho .fa-times {
+	color: #ff0000;
+}

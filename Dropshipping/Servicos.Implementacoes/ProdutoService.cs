@@ -58,6 +58,11 @@ namespace Servicos.Implementacoes
 			return _produtoMapper.Map(QueryProdutosVisiveis().ToList());
 		}
 
+		public List<ProdutoDTO> ListarProdutosParaVitrine(int[] codigoProdutoSet)
+		{
+			return _produtoMapper.Map(QueryProdutosVisiveis().Where(c => codigoProdutoSet.Contains(c.Codigo)).ToList());
+		}
+
 		public void Alterar(ProdutoCadastroDTO produtoCadastroDto)
 		{
 			var produtoFornecedor = _produtoFornecedorRepository.FindBy(pf => pf.Codigo == produtoCadastroDto.Codigo).First();
@@ -76,17 +81,12 @@ namespace Servicos.Implementacoes
 
 		private void VerificarStatusProduto(ProdutoCadastroDTO produtoCadastroDto, ProdutoFornecedor produtoFornecedor, bool statusInicial)
 		{
-			if (statusInicial != produtoCadastroDto.Ativo)
-			{
-				if (produtoCadastroDto.Ativo)
-				{
-					_apiFornecedorRepository.Subscrever(produtoFornecedor);
-				}
-				else
-				{
-					_apiFornecedorRepository.CancelarSubscricao( produtoFornecedor);
-				}
-			}
+			if (statusInicial == produtoCadastroDto.Ativo) return;
+			
+			if (produtoCadastroDto.Ativo)
+				_apiFornecedorRepository.Subscrever(produtoFornecedor);
+			else
+				_apiFornecedorRepository.CancelarSubscricao( produtoFornecedor);
 		}
 
 		public List<ProdutoCadastroDTO> ListarTodosProdutos()

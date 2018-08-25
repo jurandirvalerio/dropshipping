@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -94,7 +94,7 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="nav-item">
-								<a href="#" class="cart"><i class="lnr lnr lnr-cart"></i></a>
+								<a href="@Url.Action("Index", "Carrinho")" class="cart"><i class="lnr lnr lnr-cart"></i></a>
 								<label class="numeroCarrinho"></label>
 							</li>
 						</ul>
@@ -160,10 +160,10 @@
 	<script src="~/Content/vendors/owl-carousel/owl.carousel.min.js"></script>
 	<script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
 	<script src="~/Content/vendors/counter-up/jquery.waypoints.min.js"></script>
-	@*<script src="~/Content/vendors/flipclock/timer.js"></script>*@
 	<script src="~/Content/vendors/counter-up/jquery.counterup.js"></script>
 	<script src="~/Content/js/mail-script.js"></script>
 	<script src="~/Content/js/theme.js"></script>
+	<script src="~/Scripts/loja.js"></script>
 	<script src="~/Scripts/carrinho.js"></script>
 
 	@RenderSection("scripts", required: false)

@@ -1,0 +1,42 @@
+﻿<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="container">
+			<div class="banner_content text-center">
+				<h2>Meu carrinho de produtos</h2>
+				<div class="page_link">
+					@Html.ActionLink("Home", "Index", new { controller = "Vitrine" })
+					<a href="#">Carrinho</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Cart Area =================-->
+<section class="cart_area">
+	<div class="container">
+		<div class="cart_inner">
+			<div class="table-responsive">
+				<table class="table" style="display: none">
+					<thead>
+						<tr>
+							<th scope="col">Produto</th>
+							<th scope="col">Preço</th>
+							<th scope="col">Quantidade</th>
+							<th scope="col">Total</th>
+							<th scope="col">Remover</th>
+						</tr>
+					</thead>
+					<tbody class="corpoTabelaCarrinho">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Cart Area =================-->
+
+@section scripts {
+<script src="~/Scripts/Carrinho/index.js"></script>
+}

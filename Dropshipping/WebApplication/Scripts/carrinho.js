@@ -6,7 +6,7 @@ function setCarrinho(carrinho) {
 	localStorage.setItem("carrinho", JSON.stringify(carrinho));
 };
 
-var getProdutoDoCarrinho = function(codigoProduto, carrinho) {
+var popProdutoDoCarrinho = function(codigoProduto, carrinho) {
 	var busca = carrinho.filter(e => e.Codigo === codigoProduto);
 	if (busca.length === 1) {
 		carrinho.pop(busca);
@@ -15,19 +15,40 @@ var getProdutoDoCarrinho = function(codigoProduto, carrinho) {
 	return { Codigo: codigoProduto, Quantidade: 0 };
 };
 
+var getQuantidadePorProdutoDoCarrinho = function (codigoProduto, carrinho) {
+	var busca = carrinho.filter(e => e.Codigo === codigoProduto);
+	if (busca.length === 1) {
+		return busca[0].Quantidade;
+	}
+};
 
 var addProdutoNoCarrinho = function(codigoProduto) {
 	var carrinho = getCarrinho();
-	var produto = getProdutoDoCarrinho(codigoProduto, carrinho);
+	var produto = popProdutoDoCarrinho(codigoProduto, carrinho);
 	produto.Quantidade = produto.Quantidade + 1;
 	carrinho.push(produto);
 	setCarrinho(carrinho);
 	updateNumeroCarrinho();
 };
 
+var removeProdutoNoCarrinho = function (codigoProduto) {
+	var carrinho = getCarrinho();
+	popProdutoDoCarrinho(codigoProduto, carrinho);
+	setCarrinho(carrinho);
+	updateNumeroCarrinho();
+};
+
+var getCodigo = function(e) { return $(e.currentTarget).data('codigo'); };
+
 var addCarrinho = function (e) {
-	var codigoProduto = $(e.currentTarget).data('codigo');
+	var codigoProduto = getCodigo(e);
 	addProdutoNoCarrinho(codigoProduto);
+};
+
+var removeCarrinho = function(e) {
+	var codigoProduto = getCodigo(e);
+	removeProdutoNoCarrinho(codigoProduto);
+	location.reload();
 };
 
 Array.prototype.sum = function(prop) {
