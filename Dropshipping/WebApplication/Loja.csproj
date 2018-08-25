@@ -238,6 +238,7 @@
     <Compile Include="Areas\Administracao\Models\Produto\ProdutoViewModel.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\VitrineController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Infrastructure\Attributes\CustomValidationCPFAttribute.cs" />
@@ -1298,6 +1299,7 @@
     <Content Include="Views\Login\Registrar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

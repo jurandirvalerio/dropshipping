@@ -1,7 +1,10 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using Entidades;
 using Loja.Infrastructure.Authentication;
 using Loja.Models.Login;
 using Microsoft.AspNet.Identity;
@@ -29,15 +32,17 @@ namespace Loja.Controllers
 		[AllowAnonymous]
 		public ActionResult Login(string returnUrl)
 		{
-			ViewBag.ReturnUrl = returnUrl;
+			TempData["ReturnUrl"] = returnUrl;
 			return View();
 		}
 
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+		public async Task<ActionResult> Login(LoginViewModel model)
 		{
+			var returnUrl = (string)TempData["ReturnUrl"];
+
 			if (!ModelState.IsValid)
 			{
 				return View(model);
@@ -79,6 +84,9 @@ namespace Loja.Controllers
 				var result = await UserManager.CreateAsync(applicationUser, registroViewModel.Password);
 				if (result.Succeeded)
 				{
+					var cliente = Mapper.Map<Cliente>(registroViewModel);
+					cliente.Guid = new Guid(applicationUser.Id);
+					_clienteService.Cadastrar(cliente);
 					await SignInManager.SignInAsync(applicationUser, isPersistent: false, rememberBrowser: false);
 					return RedirectToAction("Index", "vitrine");
 				}
