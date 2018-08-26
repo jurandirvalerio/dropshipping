@@ -66,6 +66,8 @@
     <Compile Include="ClienteService.cs" />
     <Compile Include="FornecedorMapper.cs" />
     <Compile Include="FornecedorService.cs" />
+    <Compile Include="PedidoMapper.cs" />
+    <Compile Include="PedidoService.cs" />
     <Compile Include="ProdutoFornecedorService.cs" />
     <Compile Include="ProdutoMapper.cs" />
     <Compile Include="ProdutoService.cs" />

@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201808212352491_RenomeandoColunaQuantidadeParaEstoque.Designer.cs">
       <DependentUpon>201808212352491_RenomeandoColunaQuantidadeParaEstoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808261358137_Pedido.cs" />
+    <Compile Include="Migrations\201808261358137_Pedido.Designer.cs">
+      <DependentUpon>201808261358137_Pedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808212352491_RenomeandoColunaQuantidadeParaEstoque.resx">
       <DependentUpon>201808212352491_RenomeandoColunaQuantidadeParaEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808261358137_Pedido.resx">
+      <DependentUpon>201808261358137_Pedido.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

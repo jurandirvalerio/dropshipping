@@ -6,6 +6,10 @@ function setCarrinho(carrinho) {
 	localStorage.setItem("carrinho", JSON.stringify(carrinho));
 };
 
+function removeCarrinho() {
+	localStorage.removeItem("carrinho");
+}
+
 var popProdutoDoCarrinho = function(codigoProduto, carrinho) {
 	var busca = carrinho.filter(e => e.Codigo === codigoProduto);
 	if (busca.length === 1) {

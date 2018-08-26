@@ -44,6 +44,8 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Entidade.cs" />
     <Compile Include="Fornecedor.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="PedidoItem.cs" />
     <Compile Include="ProdutoFornecedor.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

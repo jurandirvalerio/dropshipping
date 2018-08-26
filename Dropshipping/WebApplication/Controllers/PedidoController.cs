@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Loja.Models.Pedido;
 
 namespace Loja.Controllers
 {
@@ -9,5 +10,11 @@ namespace Loja.Controllers
         {
             return View();
         }
+
+	    [HttpPost]
+	    public JsonResult Confirmar(PedidoViewModel pedidoViewModel)
+	    {
+		    return Json(true);
+	    }
     }
 }

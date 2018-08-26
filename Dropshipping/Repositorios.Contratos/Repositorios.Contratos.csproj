@@ -45,6 +45,7 @@
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="IClienteRepository.cs" />
     <Compile Include="IFornecedorRepository.cs" />
+    <Compile Include="IPedidoRepository.cs" />
     <Compile Include="IProdutoFornecedorRepository.cs" />
     <Compile Include="IProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

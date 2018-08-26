@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="EntidadeDTO.cs" />
     <Compile Include="FornecedorDTO.cs" />
+    <Compile Include="ItemPedidoDTO.cs" />
+    <Compile Include="PedidoDTO.cs" />
     <Compile Include="ProdutoCadastroDTO.cs" />
     <Compile Include="ProdutoDTO.cs" />
     <Compile Include="ProdutoFornecedorDTO.cs" />

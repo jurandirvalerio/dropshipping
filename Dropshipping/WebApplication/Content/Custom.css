@@ -102,3 +102,11 @@ a.excecao:hover {
 #produtos > li > a {
 	line-height: 30px;
 }
+
+#confirmarPedido {
+	color: #fff;
+}
+
+#confirmarPedido:hover {
+	color: #202020;
+}

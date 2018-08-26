@@ -18,6 +18,7 @@ namespace Dados
 		public DbSet<UrlImagem> UrlImagemSet { get; set; }
 		public DbSet<Fornecedor> FornecedorSet { get; set; }
 		public DbSet<Cliente> ClienteSet { get; set; }
+		public DbSet<Pedido> PedidoSet { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

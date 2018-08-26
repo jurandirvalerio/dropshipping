@@ -254,6 +254,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Login\ApplicationUser.cs" />
     <Compile Include="Models\Login\LoginViewModel.cs" />
+    <Compile Include="Models\Pedido\ItemPedidoViewModel.cs" />
+    <Compile Include="Models\Pedido\PedidoViewModel.cs" />
     <Compile Include="Models\Produtos\ProdutoViewModel.cs" />
     <Compile Include="Models\Login\RegistroViewModel.cs" />
     <Compile Include="Models\Produtos\UrlImagemViewModel.cs" />

@@ -21,6 +21,9 @@ namespace SimpleInjectorBootstrapPackage
 			container.Register<IApiFornecedorRepository, ApiFornecedorRepository>();
 		    container.Register<IProdutoFornecedorRepository, ProdutoFornecedorRepository>();
 		    container.Register<IProdutoFornecedorService, ProdutoFornecedorService>();
+		    container.Register<IPedidoService, PedidoService>();
+		    container.Register<IPedidoRepository, PedidoRepository>();
+			container.Register<IPedidoMapper, PedidoMapper>();
 		}
 	}
 }
