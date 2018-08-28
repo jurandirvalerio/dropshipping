@@ -8,7 +8,16 @@ namespace Servicos.Implementacoes
 	{
 		public Pedido Map(PedidoDTO pedidoDto)
 		{
-			throw new System.NotImplementedException();
+			return new Pedido
+			{
+				Bairro = pedidoDto.Bairro,
+				CEP = pedidoDto.CEP,
+				CPF = pedidoDto.CPF,
+				Endereco = pedidoDto.Endereco,
+				Cidade = pedidoDto.Cidade,
+				Nome = pedidoDto.Nome,
+				Telefone = pedidoDto.Telefone
+			};
 		}
 	}
 }

@@ -6,7 +6,7 @@
 		{
 			@Html.AntiForgeryToken()
 
-			<li class="custom_header_social"><a href="@Url.Action("Index", "Cliente")"><i class="fa fa-user"></i> @User.Identity.Name </a></li>
+			<li class="custom_header_social"><i class="fa fa-user"></i> @User.Identity.Name </li>
 			<li><a class="sair" href="javascript:document.getElementById('logoutForm').submit()">Sair</a></li>
 
 		}

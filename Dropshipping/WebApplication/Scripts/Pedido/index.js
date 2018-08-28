@@ -42,8 +42,7 @@ var getValueById = function(id) { return $('#' + id).val(); };
 var confirmarPedido = function() {
 
 	var pedido = {
-		PrimeiroNome: getValueById('PrimeiroNome'),
-		Sobrenome: getValueById('Sobrenome'),
+		PrimeiroNome: getValueById('Nome'),
 		CPF: getValueById('CPF'),
 		Telefone: getValueById('Telefone'),
 		Endereco: getValueById('Endereco'),

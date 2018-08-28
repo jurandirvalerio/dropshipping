@@ -3,6 +3,7 @@ using DTOs;
 using Entidades;
 using Loja.Areas.Administracao.Models.Fornecedor;
 using Loja.Models.Login;
+using Loja.Models.Pedido;
 using Loja.Models.Produtos;
 
 namespace Loja.Infrastructure.Mappers
@@ -16,6 +17,7 @@ namespace Loja.Infrastructure.Mappers
 			CreateMap<FornecedorDTO, FornecedorViewModel>();
 			CreateMap<ProdutoCadastroDTO, ProdutoViewModel>();
 			CreateMap<FornecedorViewModel, FornecedorDTO>();
+			CreateMap<PedidoViewModel, PedidoDTO>();
 		}
 	}
 }

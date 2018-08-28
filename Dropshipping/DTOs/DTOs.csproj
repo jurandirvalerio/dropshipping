@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientePedidoFornecedorDTO.cs" />
+    <Compile Include="EnderecoPedidoFornecedorDTO.cs" />
     <Compile Include="EntidadeDTO.cs" />
     <Compile Include="FornecedorDTO.cs" />
     <Compile Include="ItemPedidoDTO.cs" />
+    <Compile Include="ItemPedidoFornecedorDTO.cs" />
     <Compile Include="PedidoDTO.cs" />
+    <Compile Include="PedidoFornecedorDTO.cs" />
     <Compile Include="ProdutoCadastroDTO.cs" />
     <Compile Include="ProdutoDTO.cs" />
     <Compile Include="ProdutoFornecedorDTO.cs" />

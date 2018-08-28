@@ -4,8 +4,7 @@ namespace DTOs
 {
 	public class PedidoDTO
 	{
-		public string PrimeiroNome { get; set; }
-		public string Sobrenome { get; set; }
+		public string Nome { get; set; }
 		public string CPF { get; set; }
 		public string Telefone { get; set; }
 		public string Endereco { get; set; }
@@ -13,5 +12,6 @@ namespace DTOs
 		public string Cidade { get; set; }
 		public string CEP { get; set; }
 		public List<ItemPedidoDTO> ItensPedido { get; set; }
+		public string GuidCliente { get; set; }
 	}
 }

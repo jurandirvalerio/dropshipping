@@ -1,6 +1,8 @@
-﻿namespace Repositorios.Contratos
+﻿using Entidades;
+
+namespace Repositorios.Contratos
 {
-	public interface IPedidoRepository
+	public interface IPedidoRepository : IBaseRepository<Pedido>
 	{
 	}
 }
