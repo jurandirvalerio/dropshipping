@@ -40,107 +40,81 @@
 </head>
 <body>
 
-	<!--================Header Menu Area =================-->
-	<header class="header_area">
-		<div class="top_menu row m0">
-			<div class="container">
-				<div class="float-left">
-				</div>
-				<div class="float-right">
-					@Html.Partial("_LoginPartial")
-				</div>
-			</div>
-		</div>
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light main_box">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="@Url.Action("Index", "Vitrine")"><img src="~/Content/img/CHEF.png" alt=""></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="@Url.Action("Index", "Vitrine")">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Produtos")">Produtos</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item">
-								<a href="@Url.Action("Index", "Carrinho")" class="cart"><i class="lnr lnr lnr-cart"></i></a>
-								<label class="numeroCarrinho"></label>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-	<!--================Header Menu Area =================-->
-
-	@RenderBody()
-
-	<!--================ start footer Area  =================-->
-	<footer class="footer-area">
+<!--================Header Menu Area =================-->
+<header class="header_area">
+	<div class="top_menu row m0">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
+			<div class="float-left">
 			</div>
-			<div class="row footer-bottom d-flex justify-content-between align-items-center">
-				<p class="col-lg-12 footer-text text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright ©<script>document.write(new Date().getFullYear());</script>2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			<div class="float-right">
+				@Html.Partial("_LoginPartial")
 			</div>
 		</div>
-	</footer>
-	<!--================ End footer Area  =================-->
-	<script>
-		@{ var url = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/"; }
-		var serviceBaseUrl = '@url';
-	</script>
-	<script src="~/Content/js/jquery-3.2.1.min.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script src="~/Content/js/popper.js"></script>
-	<script src="~/Content/js/bootstrap.min.js"></script>
-	<script src="~/Content/js/stellar.js"></script>
-	<script src="~/Content/vendors/lightbox/simpleLightbox.min.js"></script>
-	<script src="~/Content/vendors/nice-select/js/jquery.nice-select.min.js"></script>
-	<script src="~/Content/vendors/isotope/imagesloaded.pkgd.min.js"></script>
-	<script src="~/Content/vendors/isotope/isotope-min.js"></script>
-	<script src="~/Content/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
-	<script src="~/Content/vendors/counter-up/jquery.waypoints.min.js"></script>
-	<script src="~/Content/vendors/counter-up/jquery.counterup.js"></script>
-	<script src="~/Content/js/mail-script.js"></script>
-	<script src="~/Content/js/theme.js"></script>
-	<script src="~/Scripts/loja.js"></script>
-	<script src="~/Scripts/carrinho.js"></script>
+	</div>
+	<div class="main_menu">
+		<nav class="navbar navbar-expand-lg navbar-light main_box">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand logo_h" href="@Url.Action("Index", "Vitrine")"><img src="~/Content/img/CHEF.png" alt=""></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+					<ul class="nav navbar-nav menu_nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="@Url.Action("Index", "Vitrine")">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Produtos")">Produtos</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav-item">
+							<a href="@Url.Action("Index", "Carrinho")" class="cart"><i class="lnr lnr lnr-cart"></i></a>
+							<label class="numeroCarrinho"></label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+<!--================Header Menu Area =================-->
 
-	@RenderSection("scripts", required: false)
+@RenderBody()
+
+<!--================ start footer Area  =================-->
+<footer class="footer-area">
+	<div class="container">
+		<div class="row footer-bottom d-flex justify-content-between align-items-center">
+			<p class="col-lg-12 footer-text text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				Copyright ©<script>document.write(new Date().getFullYear());</script>2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+		</div>
+	</div>
+</footer>
+<!--================ End footer Area  =================-->
+<script>
+	@{ var url = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/"; }
+	var serviceBaseUrl = '@url';
+</script>
+<script src="~/Content/js/jquery-3.2.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Content/js/popper.js"></script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script src="~/Content/js/stellar.js"></script>
+<script src="~/Content/vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="~/Content/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="~/Content/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="~/Content/vendors/isotope/isotope-min.js"></script>
+<script src="~/Content/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
+<script src="~/Content/vendors/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/Content/vendors/counter-up/jquery.counterup.js"></script>
+<script src="~/Content/js/mail-script.js"></script>
+<script src="~/Content/js/theme.js"></script>
+<script src="~/Scripts/loja.js"></script>
+<script src="~/Scripts/carrinho.js"></script>
+
+@RenderSection("scripts", required: false)
 </body>
 </html>

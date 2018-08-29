@@ -6,7 +6,7 @@ function setCarrinho(carrinho) {
 	localStorage.setItem("carrinho", JSON.stringify(carrinho));
 };
 
-function removeCarrinho() {
+function limparCarrinho() {
 	localStorage.removeItem("carrinho");
 }
 

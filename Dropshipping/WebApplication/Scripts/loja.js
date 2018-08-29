@@ -1,11 +1,11 @@
 ﻿function exibirCarregando() {
-	$(".preloader").css('opacity', '0.5');
-	$(".preloader").fadeIn();
+	$body = $("body");
+	$body.addClass("modal");
 }
 
 function ocultarCarregando() {
-	$(".preloader").css('opacity', '1');
-	$(".preloader").fadeOut();
+	$body = $("body");
+	$body.removeClass("modal");
 }
 
 function numberToReal(numero) {

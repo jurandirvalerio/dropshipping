@@ -14,17 +14,19 @@ namespace Servicos.Implementacoes
 		private readonly IPedidoMapper _pedidoMapper;
 		private readonly IClienteRepository _clienteRepository;
 		private readonly IProdutoFornecedorRepository _produtoFornecedorRepository;
+		private readonly IApiFornecedorRepository _apiFornecedorRepository;
 
 		public PedidoService(IPedidoRepository pedidoRepository, IPedidoMapper pedidoMapper, IClienteRepository clienteRepository,
-			IProdutoFornecedorRepository produtoFornecedorRepository)
+			IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository)
 		{
 			_pedidoRepository = pedidoRepository;
 			_pedidoMapper = pedidoMapper;
 			_clienteRepository = clienteRepository;
 			_produtoFornecedorRepository = produtoFornecedorRepository;
+			_apiFornecedorRepository = apiFornecedorRepository;
 		}
 
-		public void Confirmar(PedidoDTO pedidoDto)
+		public void Confirmar(PedidoDTO pedidoDto, out int numeroPedido)
 		{
 			var pedido = _pedidoMapper.Map(pedidoDto);
 			pedido.CodigoCliente = ObterCodigoCliente(pedidoDto);
@@ -33,23 +35,30 @@ namespace Servicos.Implementacoes
 			_pedidoRepository.Save();
 
 			NotificarFornecedor(pedido);
+			numeroPedido = pedido.Codigo;
+		}
+
+		public PedidoDTO Obter(int codigo)
+		{
+			var pedido = _pedidoRepository.FindBy(p => p.Codigo == codigo, p => p.PedidoItemSet.Select(pi => pi.Produto)).FirstOrDefault();
+			return _pedidoMapper.Map(pedido);
 		}
 
 		private void NotificarFornecedor(Pedido pedido)
 		{
-			var codigoFornecedorSet = pedido.PedidoItemSet.Select(pi => pi.CodigoFornecedor);
+			var codigoFornecedorSet = pedido.PedidoItemSet.Select(pi => pi.CodigoFornecedor).Distinct();
 			var clientePedidoFornecedorDto = ObterClientePedidoFornecedorDto(pedido);
 			var enderecoPedidoFornecedorDto = ObterEnderecoPedidoFornecedorDto(pedido);
 			foreach (var codigoFornecedor in codigoFornecedorSet)
 			{
 				var pedidoFornecedorDto = new PedidoFornecedorDTO
 				{
-					ClientePedidoFornecedorDto = clientePedidoFornecedorDto,
-					EnderecoPedidoFornecedorDto = enderecoPedidoFornecedorDto,
+					Cliente = clientePedidoFornecedorDto,
+					EnderecoCliente = enderecoPedidoFornecedorDto,
 					ItensPedido = ObterPedidoItemSet(pedido, codigoFornecedor)
 				};
 
-				// TODO - Enviar para fornecedor
+				_apiFornecedorRepository.RealizarPedido(pedidoFornecedorDto, codigoFornecedor);
 			}
 		}
 

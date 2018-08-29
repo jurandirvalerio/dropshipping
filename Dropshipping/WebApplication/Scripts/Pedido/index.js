@@ -41,8 +41,10 @@ var getValueById = function(id) { return $('#' + id).val(); };
 
 var confirmarPedido = function() {
 
+	exibirCarregando();
+
 	var pedido = {
-		PrimeiroNome: getValueById('Nome'),
+		Nome: getValueById('Nome'),
 		CPF: getValueById('CPF'),
 		Telefone: getValueById('Telefone'),
 		Endereco: getValueById('Endereco'),
@@ -52,10 +54,11 @@ var confirmarPedido = function() {
 		ItensPedido: getCarrinho()
 	};
 
-	if (pedido.ItensPedido.length > 1) {
+	if (pedido.ItensPedido.length > 0) {
 		$.post(serviceBaseUrl + '/pedido/confirmar', pedido).done(function (data) {
-			//removeCarrinho();
-			window.location = serviceBaseUrl + '/pedido/sucesso';
+			limparCarrinho();
+			window.location = serviceBaseUrl + '/pedido/detalhes?pedido=' + data;
+			ocultarCarregando();
 		});
 	}
 };

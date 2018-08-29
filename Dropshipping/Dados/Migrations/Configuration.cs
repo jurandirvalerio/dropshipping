@@ -29,7 +29,7 @@ namespace Dados.Migrations
 				UsuarioApi = "chefsuser",
 				SenhaApi = "chefspassword",
 				DataCriacao = DateTime.Now,
-				UrlEndpointApi = "http://localhost/fornecedor/api",
+				UrlEndpointApi = "http://localhost/fornecedorapi/api",
 				Visivel = true
 			});
 		}

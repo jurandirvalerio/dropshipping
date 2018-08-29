@@ -4,8 +4,8 @@ namespace DTOs
 {
 	public class PedidoFornecedorDTO
 	{
-		public ClientePedidoFornecedorDTO ClientePedidoFornecedorDto { get; set; }
-		public EnderecoPedidoFornecedorDTO EnderecoPedidoFornecedorDto { get; set; }
+		public ClientePedidoFornecedorDTO Cliente { get; set; }
+		public EnderecoPedidoFornecedorDTO EnderecoCliente { get; set; }
 		public List<ItemPedidoFornecedorDTO> ItensPedido { get; set; }
 	}
 }

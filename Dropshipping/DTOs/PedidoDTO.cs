@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DTOs
 {
 	public class PedidoDTO
 	{
+		public int Codigo { get; set; }
+		public DateTime? Data { get; set; }
 		public string Nome { get; set; }
 		public string CPF { get; set; }
 		public string Telefone { get; set; }

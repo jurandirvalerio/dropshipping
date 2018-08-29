@@ -924,6 +924,7 @@
     <Content Include="Content\favicon\ms-icon-310x310.png" />
     <Content Include="Content\favicon\ms-icon-70x70.png" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\banner\banner-2.jpg" />
     <Content Include="Content\img\banner\banner.jpg" />
     <Content Include="Content\img\banner\helmat.png" />
@@ -1302,6 +1303,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
     <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

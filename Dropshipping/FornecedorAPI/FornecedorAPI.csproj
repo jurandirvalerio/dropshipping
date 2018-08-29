@@ -208,6 +208,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\SubscribeController.cs" />
@@ -215,6 +216,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\EnderecoCliente.cs" />
+    <Compile Include="Models\ItemPedido.cs" />
+    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\PublisherSubscriber.cs" />
     <Compile Include="ProdutoFakeRepository.cs" />
@@ -301,6 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -333,7 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTOs\DTOs.csproj">
-      <Project>{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}</Project>
+      <Project>{297f6a3b-3bc9-4071-a94b-4caf0ed72766}</Project>
       <Name>DTOs</Name>
     </ProjectReference>
   </ItemGroup>

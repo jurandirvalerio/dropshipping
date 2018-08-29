@@ -1,0 +1,79 @@
+﻿@model Loja.Models.Pedido.PedidoViewModel
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="container">
+			<div class="banner_content text-center">
+				<h2>Detalhes do pedido</h2>
+				<div class="page_link">
+					@Html.ActionLink("Home", "Index", new { controller = "Vitrine" })
+					<a href="#">Pedido</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Order Details Area =================-->
+<section class="order_details p_120">
+	<div class="container">
+		@if (TempData["Mensagem"] != null)
+		{
+			<h3 class="title_confirmation">@TempData["Mensagem"]</h3>
+		}
+		<div class="row order_d_inner">
+			<div class="col-lg-4">
+				<div class="details_item">
+					<h4>Dados do pedido</h4>
+					<ul class="list">
+						<li><a href="#"><span>Código</span> @Model.Codigo</a></li>
+						<li><a href="#"><span>Data</span> @Model.Data</a></li>
+						<li><a href="#"><span>Total</span> @Model.TotalExibicao</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				<div class="details_item">
+					<h4>Endereço para entrega</h4>
+					<ul class="list">
+						<li><a href="#"><span>Endereço</span> @Model.Endereco</a></li>
+						<li><a href="#"><span>Bairro</span> @Model.Bairro</a></li>
+						<li><a href="#"><span>Cidade</span> @Model.Cidade</a></li>
+						<li><a href="#"><span>CEP</span> @Model.CEP</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="order_details_table">
+			<h2>Itens do pedido</h2>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Produto</th>
+							<th scope="col">Quantidade</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach (var item in Model.ItensPedido)
+					{
+						<tr>
+							<td>
+								<p>@item.Nome</p>
+							</td>
+							<td>
+								<h5>x @item.Quantidade</h5>
+							</td>
+							<td>
+								<p>@item.PrecoExibicao</p>
+							</td>
+						</tr>
+					}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Order Details Area =================-->

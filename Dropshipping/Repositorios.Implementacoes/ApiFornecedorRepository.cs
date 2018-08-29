@@ -32,7 +32,6 @@ namespace Repositorios.Implementacoes
 				client.DefaultRequestHeaders.Accept.Clear();
 				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-				//setup login data
 				var formContent = new FormUrlEncodedContent(new[]
 				{
 					new KeyValuePair<string, string>("grant_type", "password"),
@@ -83,9 +82,9 @@ namespace Repositorios.Implementacoes
 			PublishSubscribe(produtoFornecedor, "/unsubscribe");
 		}
 
-		private Fornecedor ObterFornecedor(ProdutoFornecedor produtoFornecedor)
+		private Fornecedor ObterFornecedor(int codigoFornecedor)
 		{
-			return _fornecedorRepository.FindBy(f => f.Codigo == produtoFornecedor.CodigoFornecedor).First();
+			return _fornecedorRepository.FindBy(f => f.Codigo == codigoFornecedor).First();
 		}
 
 		private static SubscricaoDTO ObterDto(ProdutoFornecedor produtoFornecedor)
@@ -111,11 +110,24 @@ namespace Repositorios.Implementacoes
 		{
 			using (var client = new HttpClient())
 			{
-				var fornecedor = ObterFornecedor(produtoFornecedor);
+				var fornecedor = ObterFornecedor(produtoFornecedor.CodigoFornecedor);
 				var uri = ObterUri(fornecedor, client);
 				var json = JsonConvert.SerializeObject(ObterDto(produtoFornecedor));
 				var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 				var response = client.PostAsync($"{uri.LocalPath}{method}", stringContent).GetAwaiter().GetResult();
+				response.EnsureSuccessStatusCode();
+			}
+		}
+
+		public void RealizarPedido(PedidoFornecedorDTO pedidoFornecedorDto, int codigoFornecedor)
+		{
+			using (var client = new HttpClient())
+			{
+				var fornecedor = ObterFornecedor(codigoFornecedor);
+				var uri = ObterUri(fornecedor, client);
+				var json = JsonConvert.SerializeObject(pedidoFornecedorDto);
+				var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+				var response = client.PostAsync($"{uri.LocalPath}/pedido", stringContent).GetAwaiter().GetResult();
 				response.EnsureSuccessStatusCode();
 			}
 		}

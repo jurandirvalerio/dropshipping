@@ -22,13 +22,20 @@ namespace Loja.Controllers
 			return View();
 		}
 
+		public ActionResult Detalhes(int pedido)
+		{
+			var pedidoDTO = _pedidoService.Obter(pedido);
+			return View(Mapper.Map<PedidoViewModel>(pedidoDTO));
+		}
+
 		[HttpPost]
 		public JsonResult Confirmar(PedidoViewModel pedidoViewModel)
 		{
 			var pedidoDTO = Mapper.Map<PedidoDTO>(pedidoViewModel);
 			pedidoDTO.GuidCliente = User.Identity.GetUserId();
-			_pedidoService.Confirmar(pedidoDTO);
-		    return Json(true);
+			_pedidoService.Confirmar(pedidoDTO, out var numeroPedido);
+			TempData["Mensage"] = "Seu pedido foi gerado com sucesso!";
+			return Json(numeroPedido);
 	    }
     }
 }
