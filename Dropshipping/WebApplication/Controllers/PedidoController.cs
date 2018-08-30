@@ -34,7 +34,7 @@ namespace Loja.Controllers
 			var pedidoDTO = Mapper.Map<PedidoDTO>(pedidoViewModel);
 			pedidoDTO.GuidCliente = User.Identity.GetUserId();
 			_pedidoService.Confirmar(pedidoDTO, out var numeroPedido);
-			TempData["Mensage"] = "Seu pedido foi gerado com sucesso!";
+			TempData["Mensagem"] = "Seu pedido foi gerado com sucesso!";
 			return Json(numeroPedido);
 	    }
     }

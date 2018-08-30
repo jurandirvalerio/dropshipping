@@ -5,7 +5,7 @@ using Servicos.Contratos;
 
 namespace Servicos.Implementacoes
 {
-	public class PedidoMapper :IPedidoMapper
+	public class PedidoMapper : IPedidoMapper
 	{
 		public Pedido Map(PedidoDTO pedidoDto)
 		{
@@ -19,6 +19,18 @@ namespace Servicos.Implementacoes
 				Nome = pedidoDto.Nome,
 				Telefone = pedidoDto.Telefone
 			};
+		}
+
+		public List<PedidoDTO> Map(List<Pedido> pedidoSet)
+		{
+			var pedidoDtoSet = new List<PedidoDTO>();
+
+			foreach (var pedido in pedidoSet)
+			{
+				pedidoDtoSet.Add(Map(pedido));
+			}
+
+			return pedidoDtoSet;
 		}
 
 		public PedidoDTO Map(Pedido pedido)

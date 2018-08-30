@@ -2,7 +2,6 @@
 var templateFooter = '<li><a href="#">Total <span>[[SUBTOTALCARRINHO]]</span></a></li>';
 
 var montarListaProdutos = function() {
-	exibirCarregando();
 
 	var carrinho = getCarrinho();
 	var produtos = carrinho.map(e => e.Codigo);
@@ -32,7 +31,6 @@ var montarListaProdutos = function() {
 			template = template.replace("[[URLHOME]]", serviceBaseUrl);
 			template = template.replace("[[URLCHECKOUT]]", serviceBaseUrl + '/pedido');
 			$('#subtotal').append(template);
-			ocultarCarregando();
 		});
 	}
 };

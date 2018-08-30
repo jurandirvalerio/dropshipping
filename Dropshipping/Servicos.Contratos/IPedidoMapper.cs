@@ -1,4 +1,5 @@
-﻿using DTOs;
+﻿using System.Collections.Generic;
+using DTOs;
 using Entidades;
 
 namespace Servicos.Contratos
@@ -7,5 +8,6 @@ namespace Servicos.Contratos
 	{
 		Pedido Map(PedidoDTO pedidoDto);
 		PedidoDTO Map(Pedido pedido);
+		List<PedidoDTO> Map(List<Pedido> pedidoSet);
 	}
 }

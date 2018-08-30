@@ -6,5 +6,6 @@ namespace Servicos.Contratos
 	{
 		void Cadastrar(Cliente cliente);
 		string ObterNomeCliente(string email);
+		int ObterCodigoCliente(string email);
 	}
 }

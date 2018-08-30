@@ -44,6 +44,16 @@ namespace Servicos.Implementacoes
 			return _pedidoMapper.Map(pedido);
 		}
 
+		public List<PedidoDTO> Listar(int codigoCliente)
+		{
+			var pedidoSet = _pedidoRepository
+				.FindBy(p => p.CodigoCliente == codigoCliente, p => p.PedidoItemSet.Select(pi => pi.Produto))
+				.OrderByDescending(p => p.DataCriacao)
+				.ToList();
+
+			return _pedidoMapper.Map(pedidoSet);
+		}
+
 		private void NotificarFornecedor(Pedido pedido)
 		{
 			var codigoFornecedorSet = pedido.PedidoItemSet.Select(pi => pi.CodigoFornecedor).Distinct();
