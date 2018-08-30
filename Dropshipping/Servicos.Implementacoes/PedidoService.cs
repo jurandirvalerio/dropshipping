@@ -29,6 +29,7 @@ namespace Servicos.Implementacoes
 		public void Confirmar(PedidoDTO pedidoDto, out int numeroPedido)
 		{
 			var pedido = _pedidoMapper.Map(pedidoDto);
+			pedido.Guid = Guid.NewGuid();
 			pedido.CodigoCliente = ObterCodigoCliente(pedidoDto);
 			pedido.PedidoItemSet = ObterPedidoItemSet(pedidoDto);
 			_pedidoRepository.Add(pedido);
@@ -63,6 +64,7 @@ namespace Servicos.Implementacoes
 			{
 				var pedidoFornecedorDto = new PedidoFornecedorDTO
 				{
+					Guid = pedido.Guid,
 					Cliente = clientePedidoFornecedorDto,
 					EnderecoCliente = enderecoPedidoFornecedorDto,
 					ItensPedido = ObterPedidoItemSet(pedido, codigoFornecedor)

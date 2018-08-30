@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DTOs
 {
@@ -7,5 +8,6 @@ namespace DTOs
 		public ClientePedidoFornecedorDTO Cliente { get; set; }
 		public EnderecoPedidoFornecedorDTO EnderecoCliente { get; set; }
 		public List<ItemPedidoFornecedorDTO> ItensPedido { get; set; }
+		public Guid Guid { get; set; }
 	}
 }

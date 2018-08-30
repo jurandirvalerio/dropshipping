@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entidades
 {
 	public class Pedido : Entidade
 	{
+		public Guid Guid { get; set; }
 		[ForeignKey("Cliente")]
 		public int CodigoCliente { get; set; }
 		public Cliente Cliente { get; set; }

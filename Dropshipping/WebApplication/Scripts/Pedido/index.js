@@ -29,7 +29,7 @@ var montarListaProdutos = function() {
 			var template = templateFooter;
 			template = template.replace("[[SUBTOTALCARRINHO]]", numberToReal(subtotal));
 			template = template.replace("[[URLHOME]]", serviceBaseUrl);
-			template = template.replace("[[URLCHECKOUT]]", serviceBaseUrl + '/pedido');
+			template = template.replace("[[URLCHECKOUT]]", serviceBaseUrl + 'pedido');
 			$('#subtotal').append(template);
 		});
 	}
@@ -39,8 +39,7 @@ var getValueById = function(id) { return $('#' + id).val(); };
 
 var confirmarPedido = function() {
 
-	exibirCarregando();
-
+	debugger;
 	var pedido = {
 		Nome: getValueById('Nome'),
 		CPF: getValueById('CPF'),
@@ -53,10 +52,9 @@ var confirmarPedido = function() {
 	};
 
 	if (pedido.ItensPedido.length > 0) {
-		$.post(serviceBaseUrl + '/pedido/confirmar', pedido).done(function (data) {
+		$.post(serviceBaseUrl + 'pedido/confirmar', pedido).done(function (data) {
 			limparCarrinho();
-			window.location = serviceBaseUrl + '/pedido/detalhes?pedido=' + data;
-			ocultarCarregando();
+			window.location = serviceBaseUrl + 'pedido/detalhes?pedido=' + data;
 		});
 	}
 };

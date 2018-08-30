@@ -31,7 +31,7 @@ $(document).ready(function () {
 			var template = templateFooter;
 			template = template.replace("[[SUBTOTALCARRINHO]]", numberToReal(subtotal));
 			template = template.replace("[[URLHOME]]", serviceBaseUrl);
-			template = template.replace("[[URLCHECKOUT]]", serviceBaseUrl + '/pedido');
+			template = template.replace("[[URLCHECKOUT]]", serviceBaseUrl + 'pedido');
 			$('.corpoTabelaCarrinho').append(template);
 			ocultarCarregando();
 		});

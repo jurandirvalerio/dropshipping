@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FornecedorAPI.Models
 {
@@ -7,6 +8,10 @@ namespace FornecedorAPI.Models
 	/// </summary>
 	public class Pedido
 	{
+		/// <summary>
+		/// Identificador do pedido
+		/// </summary>
+		public Guid Guid { get; set; }
 		/// <summary>
 		/// Cliente para quem será enviado o pedido
 		/// </summary>
