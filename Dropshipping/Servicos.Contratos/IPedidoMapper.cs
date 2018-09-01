@@ -9,5 +9,7 @@ namespace Servicos.Contratos
 		Pedido Map(PedidoDTO pedidoDto);
 		PedidoDTO Map(Pedido pedido);
 		List<PedidoDTO> Map(List<Pedido> pedidoSet);
+		List<PedidoHistorico> MapPedidoHistorico(List<PedidoDTO> pedidos);
+		List<ItemPedidoHistorico> MapItemPedidoHistorico(List<PedidoDTO> pedidos);
 	}
 }

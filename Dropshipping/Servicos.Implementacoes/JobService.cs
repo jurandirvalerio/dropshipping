@@ -15,8 +15,8 @@ namespace Servicos.Implementacoes
 		public void Agendar()
 		{
 			RecurringJob.AddOrUpdate(() => _relatorioGerencialService.Ok(), Cron.Minutely());
-			// Agenda a geração diariamente a 1h da manhã.
-			RecurringJob.AddOrUpdate(() => _relatorioGerencialService.GerarDadosGerenciaisParaEnvio(), () => "0 1 * * *");
+			// Agenda a geração diariamente às 3h da manhã.
+			RecurringJob.AddOrUpdate(() => _relatorioGerencialService.GerarDadosGerenciaisParaEnvio(), () => "0 3 * * *");
 		}
 	}
 }

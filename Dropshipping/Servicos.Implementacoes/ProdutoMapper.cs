@@ -24,14 +24,29 @@ namespace Servicos.Implementacoes
 
 		public List<ProdutoDTO> Map(List<Produto> produtoSet)
 		{
-			var produtoDTOSet = new List<ProdutoDTO>();
+			return produtoSet.Select(Map).ToList();
+		}
 
-			foreach (var produto in produtoSet)
+		public ProdutoHistorico Map(ProdutoCadastroDTO produtoCadastroDto)
+		{
+			return new ProdutoHistorico
 			{
-				produtoDTOSet.Add(Map(produto));
-			}
+				Fornecedor = produtoCadastroDto.Fornecedor,
+				Nome = produtoCadastroDto.Nome,
+				Codigo = produtoCadastroDto.Codigo,
+				DataCriacao = produtoCadastroDto.DataCriacao,
+				Visivel = produtoCadastroDto.Visivel,
+				DataAtualizacao = produtoCadastroDto.DataAtualizacao,
+				Descricao = produtoCadastroDto.Descricao,
+				PrecoVenda = produtoCadastroDto.PrecoVenda,
+				Ativo = produtoCadastroDto.Ativo,
+				PrecoCompra = produtoCadastroDto.PrecoCompra
+			};
+		}
 
-			return produtoDTOSet;
+		public List<ProdutoHistorico> Map(List<ProdutoCadastroDTO> produtoCadastroDtoSet)
+		{
+			return produtoCadastroDtoSet.Select(Map).ToList();
 		}
 	}
 }

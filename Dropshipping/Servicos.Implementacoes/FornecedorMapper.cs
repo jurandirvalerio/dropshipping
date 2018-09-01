@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DTOs;
 using Entidades;
 using Servicos.Contratos;
@@ -38,14 +39,7 @@ namespace Servicos.Implementacoes
 
 		public List<FornecedorDTO> Map(List<Fornecedor> fornecedorSet)
 		{
-			var fornecedorDTOSet = new List<FornecedorDTO>();
-
-			foreach (var fornecedor in fornecedorSet)
-			{
-				fornecedorDTOSet.Add(Map(fornecedor));
-			}
-
-			return fornecedorDTOSet;
+			return fornecedorSet.Select(Map).ToList();
 		}
 	}
 }

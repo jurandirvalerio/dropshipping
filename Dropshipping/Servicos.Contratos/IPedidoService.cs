@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DTOs;
+using Entidades;
 
 namespace Servicos.Contratos
 {
@@ -9,5 +10,8 @@ namespace Servicos.Contratos
 		PedidoDTO Obter(int codigo);
 		List<PedidoDTO> Listar(int codigoCliente);
 		List<PedidoDTO> ListarPedidosRealizadosOntem();
+		void CadastrarHistorico(PedidoHistorico pedidoHistorico);
+		void CadastrarHistorico(ItemPedidoHistorico itemPedidoHistorico);
+		bool JaEnviouDadosAoBIHoje();
 	}
 }

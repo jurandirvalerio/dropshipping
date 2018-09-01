@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IClienteMapper.cs" />
     <Compile Include="IClienteService.cs" />
     <Compile Include="IFornecedorMapper.cs" />
     <Compile Include="IFornecedorService.cs" />

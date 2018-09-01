@@ -16,15 +16,19 @@ namespace Servicos.Implementacoes
 		private readonly IClienteRepository _clienteRepository;
 		private readonly IProdutoFornecedorRepository _produtoFornecedorRepository;
 		private readonly IApiFornecedorRepository _apiFornecedorRepository;
+		private readonly IPedidoHistoricoRepository _pedidoHistoricoRepository;
+		private readonly IItemPedidoHistoricoRepository _itemPedidoHistoricoRepository;
 
 		public PedidoService(IPedidoRepository pedidoRepository, IPedidoMapper pedidoMapper, IClienteRepository clienteRepository,
-			IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository)
+			IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository, IPedidoHistoricoRepository pedidoHistoricoRepository, IItemPedidoHistoricoRepository itemPedidoHistoricoRepository)
 		{
 			_pedidoRepository = pedidoRepository;
 			_pedidoMapper = pedidoMapper;
 			_clienteRepository = clienteRepository;
 			_produtoFornecedorRepository = produtoFornecedorRepository;
 			_apiFornecedorRepository = apiFornecedorRepository;
+			_pedidoHistoricoRepository = pedidoHistoricoRepository;
+			_itemPedidoHistoricoRepository = itemPedidoHistoricoRepository;
 		}
 
 		public void Confirmar(PedidoDTO pedidoDto, out int numeroPedido)
@@ -59,13 +63,25 @@ namespace Servicos.Implementacoes
 		public List<PedidoDTO> ListarPedidosRealizadosOntem()
 		{
 			var ontem = DateTime.Today.AddDays(-1).Date;
-			var pedidoSet = _pedidoRepository.FindBy(p => p.DataCriacao.HasValue &&p.DataCriacao.Value == ontem)
+			var pedidoSet = _pedidoRepository.FindBy(p => p.DataCriacao.HasValue && DbFunctions.TruncateTime(p.DataCriacao.Value) == ontem)
 				.Include(p => p.PedidoItemSet.Select(pi => pi.Produto))
 				.Include(p => p.PedidoItemSet.Select(pi => pi.Fornecedor))
 				.OrderByDescending(p => p.DataCriacao)
 				.ToList();
 
 			return _pedidoMapper.Map(pedidoSet);
+		}
+
+		public void CadastrarHistorico(PedidoHistorico pedidoHistorico)
+		{
+			_pedidoHistoricoRepository.Add(pedidoHistorico);
+			_pedidoHistoricoRepository.Save();
+		}
+
+		public void CadastrarHistorico(ItemPedidoHistorico itemPedidoHistorico)
+		{
+			_itemPedidoHistoricoRepository.Add(itemPedidoHistorico);
+			_itemPedidoHistoricoRepository.Save();
 		}
 
 		private void NotificarFornecedor(Pedido pedido)
@@ -153,5 +169,12 @@ namespace Servicos.Implementacoes
 			return _clienteRepository.FindBy(c => c.Guid == new Guid(pedidoDto.GuidCliente))
 				.Select(c => c.Codigo).FirstOrDefault();
 		}
+
+
+		public bool JaEnviouDadosAoBIHoje()
+		{
+			return _pedidoHistoricoRepository.FindBy(h => DbFunctions.TruncateTime(h.DataCriacao) == DateTime.Today.Date).Any();
+		}
+
 	}
 }

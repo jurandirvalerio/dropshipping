@@ -1,8 +1,7 @@
 ﻿namespace DTOs
 {
-	public class ProdutoCadastroDTO
+	public class ProdutoCadastroDTO : EntidadeDTO
 	{
-		public int Codigo { get; set; }
 		public string Nome { get; set; }
 		public string Descricao { get; set; }
 		public decimal PrecoCompra { get; set; }

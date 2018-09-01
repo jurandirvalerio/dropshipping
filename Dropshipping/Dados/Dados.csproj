@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201808300056101_GuidPedido.Designer.cs">
       <DependentUpon>201808300056101_GuidPedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809012221500_DadosHistoricos.cs" />
+    <Compile Include="Migrations\201809012221500_DadosHistoricos.Designer.cs">
+      <DependentUpon>201809012221500_DadosHistoricos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808300056101_GuidPedido.resx">
       <DependentUpon>201808300056101_GuidPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809012221500_DadosHistoricos.resx">
+      <DependentUpon>201809012221500_DadosHistoricos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

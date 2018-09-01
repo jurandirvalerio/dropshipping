@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Entidades;
-using Fornecedor = Entidades.Fornecedor;
 
 namespace Dados
 {
 	using System.Data.Entity;
 
-	public partial class LojaDbContext : DbContext
+	public class LojaDbContext : DbContext
 	{
 		public LojaDbContext()
 			: base("name=LojaDbContext")
@@ -15,10 +14,14 @@ namespace Dados
 		}
 
 		public DbSet<Produto> ProdutoSet { get; set; }
+		public DbSet<ProdutoHistorico> ProdutoHistoricoSet { get; set; }
 		public DbSet<UrlImagem> UrlImagemSet { get; set; }
 		public DbSet<Fornecedor> FornecedorSet { get; set; }
 		public DbSet<Cliente> ClienteSet { get; set; }
+		public DbSet<ClienteHistorico> ClienteHistoricoSet { get; set; }
 		public DbSet<Pedido> PedidoSet { get; set; }
+		public DbSet<PedidoHistorico> PedidoHistoricoSet { get; set; }
+		public DbSet<ItemPedidoHistorico> ItemPedidoHistoricoSet { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

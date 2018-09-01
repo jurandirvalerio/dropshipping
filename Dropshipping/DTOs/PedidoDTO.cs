@@ -4,9 +4,8 @@ using System.Linq;
 
 namespace DTOs
 {
-	public class PedidoDTO
+	public class PedidoDTO : EntidadeDTO
 	{
-		public int Codigo { get; set; }
 		public DateTime? Data { get; set; }
 		public string Nome { get; set; }
 		public string CPF { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DTOs;
+using Entidades;
 
 namespace Servicos.Contratos
 {
@@ -14,5 +15,7 @@ namespace Servicos.Contratos
 		void Alterar(ProdutoCadastroDTO produtoCadastroDto);
 		List<ProdutoCadastroDTO> ListarTodosProdutos();
 		List<ProdutoCadastroDTO> ListarProdutosCadastradosOntem();
+		void CadastrarHistorico(ProdutoHistorico produtoHistorico);
+		bool JaEnviouDadosAoBIHoje();
 	}
 }

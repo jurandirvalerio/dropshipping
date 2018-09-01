@@ -18,20 +18,66 @@ namespace Servicos.Implementacoes
 				Endereco = pedidoDto.Endereco,
 				Cidade = pedidoDto.Cidade,
 				Nome = pedidoDto.Nome,
-				Telefone = pedidoDto.Telefone
+				Telefone = pedidoDto.Telefone,
+				Codigo = pedidoDto.Codigo,
+				DataCriacao = pedidoDto.DataCriacao,
+				DataAtualizacao = pedidoDto.DataAtualizacao,
+				Visivel = pedidoDto.Visivel
 			};
 		}
 
 		public List<PedidoDTO> Map(List<Pedido> pedidoSet)
 		{
-			var pedidoDtoSet = new List<PedidoDTO>();
+			return pedidoSet.Select(Map).ToList();
+		}
 
-			foreach (var pedido in pedidoSet)
+		public PedidoHistorico MapPedidoHistorico(PedidoDTO pedidoDto)
+		{
+			return new PedidoHistorico
 			{
-				pedidoDtoSet.Add(Map(pedido));
-			}
+				Nome = pedidoDto.Nome,
+				Codigo = pedidoDto.Codigo,
+				DataCriacao = pedidoDto.DataCriacao,
+				Visivel = pedidoDto.Visivel,
+				DataAtualizacao = pedidoDto.DataAtualizacao,
+				CPF = pedidoDto.CPF,
+				Endereco = pedidoDto.Endereco,
+				Bairro = pedidoDto.Bairro,
+				CEP = pedidoDto.CEP,
+				Cidade = pedidoDto.Cidade,
+				Telefone = pedidoDto.Telefone,
+				Total = pedidoDto.Total,
+				TotalFornecedor = pedidoDto.TotalFornecedor,
+				Data = pedidoDto.Data,
+				GuidCliente = pedidoDto.GuidCliente,
+				LucroLiquido = pedidoDto.LucroLiquido
+			};
+		}
 
-			return pedidoDtoSet;
+		public List<PedidoHistorico> MapPedidoHistorico(List<PedidoDTO> pedidos)
+		{
+			return pedidos.Select(MapPedidoHistorico).ToList();
+		}
+
+		public ItemPedidoHistorico MapItemPedidoHistorico(ItemPedidoDTO itemPedidoDto)
+		{
+			return new ItemPedidoHistorico
+			{
+				Fornecedor = itemPedidoDto.Fornecedor,
+				Nome = itemPedidoDto.Nome,
+				Codigo = itemPedidoDto.Codigo,
+				DataCriacao = itemPedidoDto.DataCriacao,
+				Visivel = itemPedidoDto.Visivel,
+				DataAtualizacao = itemPedidoDto.DataAtualizacao,
+				Preco = itemPedidoDto.Preco,
+				Quantidade = itemPedidoDto.Quantidade,
+				PrecoFornecedor = itemPedidoDto.PrecoFornecedor
+			};
+		}
+
+		public List<ItemPedidoHistorico> MapItemPedidoHistorico(List<PedidoDTO> pedidos)
+		{
+			return pedidos.SelectMany(p => p.ItensPedido).Select(MapItemPedidoHistorico).ToList();
 		}
 
 		public PedidoDTO Map(Pedido pedido)
@@ -47,7 +93,10 @@ namespace Servicos.Implementacoes
 				Telefone = pedido.Telefone,
 				Data = pedido.DataCriacao,
 				Codigo = pedido.Codigo,
-				ItensPedido = Map(pedido.PedidoItemSet)
+				ItensPedido = Map(pedido.PedidoItemSet),
+				DataCriacao = pedido.DataCriacao,
+				DataAtualizacao = pedido.DataAtualizacao,
+				Visivel = pedido.Visivel
 			};
 		}
 
@@ -60,7 +109,10 @@ namespace Servicos.Implementacoes
 				Preco = pedidoItem.PrecoCliente,
 				Quantidade = pedidoItem.Quantidade,
 				PrecoFornecedor = pedidoItem.PrecoFornecedor,
-				Fornecedor = pedidoItem.Fornecedor?.Nome
+				Fornecedor = pedidoItem.Fornecedor?.Nome,
+				DataCriacao = pedidoItem.DataCriacao,
+				Visivel = pedidoItem.Visivel,
+				DataAtualizacao = pedidoItem.DataAtualizacao
 			}).ToList();
 		}
 	}

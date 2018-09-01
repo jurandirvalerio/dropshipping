@@ -2,7 +2,7 @@
 
 namespace DTOs
 {
-	public class ClienteDTO
+	public class ClienteDTO : EntidadeDTO
 	{
 		public Guid Guid { get; set; }
 		public string Nome { get; set; }

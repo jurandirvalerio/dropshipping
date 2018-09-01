@@ -53,17 +53,21 @@
   <ItemGroup>
     <Compile Include="ApiFornecedorRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="ClienteHistoricoRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="FornecedorRepository.cs" />
+    <Compile Include="ItemPedidoHistoricoRepository.cs" />
+    <Compile Include="PedidoHistoricoRepository.cs" />
     <Compile Include="PedidoRepository.cs" />
     <Compile Include="ProdutoFornecedorRepository.cs" />
+    <Compile Include="ProdutoHistoricoRepository.cs" />
     <Compile Include="ProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dados\DadosLoja.csproj">
+    <ProjectReference Include="..\Dados\Dados.csproj">
       <Project>{29ED2EC0-5F1E-4143-8091-02175CF098AA}</Project>
-      <Name>DadosLoja</Name>
+      <Name>Dados</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTOs\DTOs.csproj">
       <Project>{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}</Project>

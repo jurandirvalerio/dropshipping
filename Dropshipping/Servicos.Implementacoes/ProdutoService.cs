@@ -15,13 +15,15 @@ namespace Servicos.Implementacoes
 		private readonly IProdutoRepository _produtoRepository;
 		private readonly IProdutoMapper _produtoMapper;
 		private readonly IApiFornecedorRepository _apiFornecedorRepository;
+		private readonly IProdutoHistoricoRepository _produtoHistoricoRepository;
 
-		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper, IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository)
+		public ProdutoService(IProdutoRepository produtoRepository, IProdutoMapper produtoMapper, IProdutoFornecedorRepository produtoFornecedorRepository, IApiFornecedorRepository apiFornecedorRepository, IProdutoHistoricoRepository produtoHistoricoRepository)
 		{
 			_produtoRepository = produtoRepository;
 			_produtoMapper = produtoMapper;
 			_produtoFornecedorRepository = produtoFornecedorRepository;
 			_apiFornecedorRepository = apiFornecedorRepository;
+			_produtoHistoricoRepository = produtoHistoricoRepository;
 		}
 
 		public ProdutoDTO Obter(int codigo)
@@ -114,7 +116,7 @@ namespace Servicos.Implementacoes
 		{
 			var ontem = DateTime.Today.AddDays(-1).Date;
 			return _produtoFornecedorRepository
-				.FindBy(p => p.DataCriacao.HasValue && p.DataCriacao.Value.Date == ontem)
+				.FindBy(p => p.DataCriacao.HasValue && DbFunctions.TruncateTime(p.DataCriacao.Value) == ontem)
 				.Include(pf => pf.Produto)
 				.Include(pf => pf.Fornecedor)
 				.OrderByDescending(p => p.DataCriacao)
@@ -127,10 +129,18 @@ namespace Servicos.Implementacoes
 						Descricao = pf.Produto.Descricao,
 						PrecoCompra = pf.PrecoFornecedor,
 						PrecoVenda = pf.PrecoVenda,
-						Ativo = pf.Produto.Visivel
+						Ativo = pf.Produto.Visivel,
+						DataCriacao = pf.DataCriacao,
+						DataAtualizacao = pf.DataAtualizacao
 					}
 				)
 				.ToList();
+		}
+
+		public void CadastrarHistorico(ProdutoHistorico produtoHistorico)
+		{
+			_produtoHistoricoRepository.Add(produtoHistorico);
+			_produtoHistoricoRepository.Save();
 		}
 
 		public void Incluir(ProdutoFornecedorDTO produtoFornecedorDto)
@@ -190,5 +200,11 @@ namespace Servicos.Implementacoes
 				.Include(p => p.UrlImagemDetalheSet)
 				.Include(p => p.PrecoProdutoFornecedorSet);
 		}
+
+		public bool JaEnviouDadosAoBIHoje()
+		{
+			return _produtoHistoricoRepository.FindBy(h => DbFunctions.TruncateTime(h.DataCriacao) == DateTime.Today.Date).Any();
+		}
+
 	}
 }

@@ -26,6 +26,11 @@ namespace SimpleInjectorBootstrapPackage
 			container.Register<IPedidoMapper, PedidoMapper>();
 		    container.Register<IRelatorioGerencialService, RelatorioGerencialService>();
 			container.Register<IJobService, JobService>();
+		    container.Register<IClienteHistoricoRepository, ClienteHistoricoRepository>();
+		    container.Register<IItemPedidoHistoricoRepository, ItemPedidoHistoricoRepository>();
+		    container.Register<IPedidoHistoricoRepository, PedidoHistoricoRepository>();
+		    container.Register<IProdutoHistoricoRepository, ProdutoHistoricoRepository>();
+		    container.Register<IClienteMapper, ClienteMapper>();
 	    }
 	}
 }
