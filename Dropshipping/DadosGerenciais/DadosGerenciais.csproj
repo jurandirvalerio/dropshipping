@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C98F8AAF-3A3A-4EAE-B188-CAFF76E97D11}</ProjectGuid>
+    <ProjectGuid>{02045B22-7C75-439C-91B2-3E2DD703BD9E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleInjectorBootstrapPackage</RootNamespace>
-    <AssemblyName>SimpleInjectorBootstrapPackage</AssemblyName>
+    <RootNamespace>DadosGerenciais</RootNamespace>
+    <AssemblyName>DadosGerenciais</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,30 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootstrapperPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Repositorios.Contratos\Repositorios.Contratos.csproj">
-      <Project>{FE9B92FB-AFEC-411C-9D06-3D44FB88C924}</Project>
-      <Name>Repositorios.Contratos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repositorios.Implementacoes\Repositorios.Implementacoes.csproj">
-      <Project>{5D8338B8-338A-41D1-878E-2DC6E50DB109}</Project>
-      <Name>Repositorios.Implementacoes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servicos.Contratos\Servicos.Contratos.csproj">
-      <Project>{A74DA7CC-4930-45C6-BE0E-6BD29C071266}</Project>
-      <Name>Servicos.Contratos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servicos.Implementacoes\Servicos.Implementacoes.csproj">
-      <Project>{7743153D-5419-43A3-AC24-87238BA8D13D}</Project>
-      <Name>Servicos.Implementacoes</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

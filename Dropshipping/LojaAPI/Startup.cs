@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Web.Http;
+using Hangfire;
+using LojaAPI.App_Start;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.OAuth;
@@ -24,10 +25,16 @@ namespace LojaAPI
 
 			app.UseCors(CorsOptions.AllowAll);
 			AtivandoAccessToken(app);
-			//app.UseWebApi(config);
+
+			Hangfire.GlobalConfiguration.Configuration.UseSqlServerStorage("DadosGerenciais");
+			Hangfire.GlobalConfiguration.Configuration.UseActivator(new SimpleInjectorJobActivator(SimpleInjectorWebApiInitializer.Container));
+			Hangfire.GlobalJobFilters.Filters.Add(new SimpleInjectorAsyncScopeFilterAttribute(SimpleInjectorWebApiInitializer.Container));
+			app.UseHangfireDashboard("/dashboard");
+			app.UseHangfireServer();
+
 		}
 
-		private void AtivandoAccessToken(IAppBuilder app)
+		private static void AtivandoAccessToken(IAppBuilder app)
 		{
 			var opcoesConfiguracaoToken = new OAuthAuthorizationServerOptions()
 			{

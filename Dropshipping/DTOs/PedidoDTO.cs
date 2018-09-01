@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DTOs
 {
@@ -15,6 +16,9 @@ namespace DTOs
 		public string Cidade { get; set; }
 		public string CEP { get; set; }
 		public List<ItemPedidoDTO> ItensPedido { get; set; }
+		public decimal Total => ItensPedido.Sum(ip => ip.Preco);
+		public decimal TotalFornecedor => ItensPedido.Sum(ip => ip.PrecoFornecedor);
+		public decimal LucroLiquido => Total - TotalFornecedor;
 		public string GuidCliente { get; set; }
 	}
 }

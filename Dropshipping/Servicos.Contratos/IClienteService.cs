@@ -1,4 +1,6 @@
-﻿using Entidades;
+﻿using System.Collections.Generic;
+using DTOs;
+using Entidades;
 
 namespace Servicos.Contratos
 {
@@ -7,5 +9,6 @@ namespace Servicos.Contratos
 		void Cadastrar(Cliente cliente);
 		string ObterNomeCliente(string email);
 		int ObterCodigoCliente(string email);
+		List<ClienteDTO> ListarClientesCadastradosOntem();
 	}
 }

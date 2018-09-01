@@ -8,5 +8,6 @@ namespace Servicos.Contratos
 		void Confirmar(PedidoDTO pedidoDto, out int numeroPedido);
 		PedidoDTO Obter(int codigo);
 		List<PedidoDTO> Listar(int codigoCliente);
+		List<PedidoDTO> ListarPedidosRealizadosOntem();
 	}
 }

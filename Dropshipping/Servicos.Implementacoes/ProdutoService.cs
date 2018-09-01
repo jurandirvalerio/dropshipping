@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using DTOs;
@@ -109,6 +110,29 @@ namespace Servicos.Implementacoes
 				).ToList();
 		}
 
+		public List<ProdutoCadastroDTO> ListarProdutosCadastradosOntem()
+		{
+			var ontem = DateTime.Today.AddDays(-1).Date;
+			return _produtoFornecedorRepository
+				.FindBy(p => p.DataCriacao.HasValue && p.DataCriacao.Value.Date == ontem)
+				.Include(pf => pf.Produto)
+				.Include(pf => pf.Fornecedor)
+				.OrderByDescending(p => p.DataCriacao)
+				.Select(pf =>
+					new ProdutoCadastroDTO
+					{
+						Codigo = pf.Codigo,
+						Fornecedor = pf.Fornecedor.Nome,
+						Nome = pf.Produto.Nome,
+						Descricao = pf.Produto.Descricao,
+						PrecoCompra = pf.PrecoFornecedor,
+						PrecoVenda = pf.PrecoVenda,
+						Ativo = pf.Produto.Visivel
+					}
+				)
+				.ToList();
+		}
+
 		public void Incluir(ProdutoFornecedorDTO produtoFornecedorDto)
 		{
 			var produtoFornecedor = new ProdutoFornecedor
@@ -134,7 +158,7 @@ namespace Servicos.Implementacoes
 
 		private int CriarProduto(ProdutoFornecedorDTO produtoFornecedorDto)
 		{
-			var produto = new Produto()
+			var produto = new Produto
 			{
 				Nome = produtoFornecedorDto.Nome,
 				Descricao = produtoFornecedorDto.Descricao,

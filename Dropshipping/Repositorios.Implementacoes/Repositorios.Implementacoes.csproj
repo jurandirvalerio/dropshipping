@@ -61,9 +61,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dados\Dados.csproj">
+    <ProjectReference Include="..\Dados\DadosLoja.csproj">
       <Project>{29ED2EC0-5F1E-4143-8091-02175CF098AA}</Project>
-      <Name>Dados</Name>
+      <Name>DadosLoja</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTOs\DTOs.csproj">
       <Project>{297F6A3B-3BC9-4071-A94B-4CAF0ED72766}</Project>

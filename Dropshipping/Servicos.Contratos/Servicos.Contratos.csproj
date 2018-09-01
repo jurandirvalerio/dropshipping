@@ -43,11 +43,13 @@
     <Compile Include="IClienteService.cs" />
     <Compile Include="IFornecedorMapper.cs" />
     <Compile Include="IFornecedorService.cs" />
+    <Compile Include="IJobService.cs" />
     <Compile Include="IPedidoMapper.cs" />
     <Compile Include="IPedidoService.cs" />
     <Compile Include="IProdutoFornecedorService.cs" />
     <Compile Include="IProdutoMapper.cs" />
     <Compile Include="IProdutoService.cs" />
+    <Compile Include="IRelatorioGerencialService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

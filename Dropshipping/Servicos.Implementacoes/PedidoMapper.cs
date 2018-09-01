@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DTOs;
 using Entidades;
 using Servicos.Contratos;
@@ -50,21 +51,17 @@ namespace Servicos.Implementacoes
 			};
 		}
 
-		private List<ItemPedidoDTO> Map(ICollection<PedidoItem> pedidoItemSet)
+		private static List<ItemPedidoDTO> Map(IEnumerable<PedidoItem> pedidoItemSet)
 		{
-			var itemPedidoSet = new List<ItemPedidoDTO>();
-			foreach (var pedidoItem in pedidoItemSet)
+			return pedidoItemSet.Select(pedidoItem => new ItemPedidoDTO
 			{
-				itemPedidoSet.Add(new ItemPedidoDTO
-				{
-					Codigo = pedidoItem.CodigoProduto,
-					Nome = pedidoItem.Produto.Nome,
-					Preco = pedidoItem.PrecoCliente,
-					Quantidade = pedidoItem.Quantidade
-				});
-			}
-
-			return itemPedidoSet;
+				Codigo = pedidoItem.CodigoProduto,
+				Nome = pedidoItem.Produto?.Nome,
+				Preco = pedidoItem.PrecoCliente,
+				Quantidade = pedidoItem.Quantidade,
+				PrecoFornecedor = pedidoItem.PrecoFornecedor,
+				Fornecedor = pedidoItem.Fornecedor?.Nome
+			}).ToList();
 		}
 	}
 }

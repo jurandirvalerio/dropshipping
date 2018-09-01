@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DTOs;
 using Entidades;
 using Repositorios.Contratos;
 using Servicos.Contratos;
@@ -26,6 +29,23 @@ namespace Servicos.Implementacoes
 			return _clienteRepository
 				.FindBy(c => c.Email.ToUpper() == email.ToUpper()).Select(c => c.Codigo)
 				.FirstOrDefault();
+		}
+
+		public List<ClienteDTO> ListarClientesCadastradosOntem()
+		{
+			var ontem = DateTime.Today.AddDays(-1).Date;
+			return _clienteRepository.FindBy(c => c.DataCriacao.HasValue && c.DataCriacao.Value == ontem)
+				.OrderByDescending(p => p.DataCriacao)
+				.Select(c =>
+					new ClienteDTO
+					{
+						Guid = c.Guid,
+						Nome = c.Nome,
+						Email = c.Email,
+						CPF = c.CPF
+					}
+				)
+				.ToList();
 		}
 
 		public void Cadastrar(Cliente cliente)

@@ -10,20 +10,23 @@ namespace LojaAPI.App_Start
     
     public static class SimpleInjectorWebApiInitializer
     {
-        /// <summary>Initialize the container and register it as Web API Dependency Resolver.</summary>
+
+	    public static Container Container;
+
+	    /// <summary>Initialize the container and register it as Web API Dependency Resolver.</summary>
         public static void Initialize()
         {
-            var container = new Container();
-			container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-			InitializeContainer(container);
-            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
-            container.Verify();
-            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+	        Container = new Container();
+	        Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+			InitializeContainer(Container);
+	        Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+	        Container.Verify();
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(Container);
         }
      
         private static void InitializeContainer(Container container)
         {
 			SimpleInjectorBootstrapPackage.BootstrapperPackage.RegisterServices(container);
-        }
+		}
     }
 }

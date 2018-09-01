@@ -13,5 +13,6 @@ namespace Servicos.Contratos
 		void Incluir(ProdutoFornecedorDTO produtoFornecedorDto);
 		void Alterar(ProdutoCadastroDTO produtoCadastroDto);
 		List<ProdutoCadastroDTO> ListarTodosProdutos();
+		List<ProdutoCadastroDTO> ListarProdutosCadastradosOntem();
 	}
 }

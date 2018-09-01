@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using DTOs;
 using Entidades;
@@ -49,6 +50,18 @@ namespace Servicos.Implementacoes
 		{
 			var pedidoSet = _pedidoRepository
 				.FindBy(p => p.CodigoCliente == codigoCliente, p => p.PedidoItemSet.Select(pi => pi.Produto))
+				.OrderByDescending(p => p.DataCriacao)
+				.ToList();
+
+			return _pedidoMapper.Map(pedidoSet);
+		}
+
+		public List<PedidoDTO> ListarPedidosRealizadosOntem()
+		{
+			var ontem = DateTime.Today.AddDays(-1).Date;
+			var pedidoSet = _pedidoRepository.FindBy(p => p.DataCriacao.HasValue &&p.DataCriacao.Value == ontem)
+				.Include(p => p.PedidoItemSet.Select(pi => pi.Produto))
+				.Include(p => p.PedidoItemSet.Select(pi => pi.Fornecedor))
 				.OrderByDescending(p => p.DataCriacao)
 				.ToList();
 
