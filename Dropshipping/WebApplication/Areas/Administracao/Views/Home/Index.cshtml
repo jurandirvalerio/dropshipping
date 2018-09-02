@@ -1,1 +1,133 @@
-﻿
+﻿@using Loja.Areas.Administracao.Models.Home
+@model DashboardViewModel
+<!-- Bread crumb -->
+<div class="row page-titles">
+	<div class="col-md-5 align-self-center">
+		<h3 class="text-primary">Dashboard</h3>
+	</div>
+	<div class="col-md-7 align-self-center">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="@Url.Action("Index", "Home", new {area = "Administracao"})">Home</a></li>
+			<li class="breadcrumb-item active">Dashboard</li>
+		</ol>
+	</div>
+</div>
+<!-- End Bread crumb -->
+<!-- Container fluid  -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.NumeroDeVendas</h2>
+						<p class="m-b-0">Vendas</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-gift f-s-40 color-warning"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.NumeroProdutos</h2>
+						<p class="m-b-0">Produtos</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-user f-s-40 color-danger"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.NumeroClientes</h2>
+						<p class="m-b-0">Clientes</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.TotalEmVendasExibicao</h2>
+						<p class="m-b-0">Total vendido</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.TotalPagoAoFornecedorExibicao</h2>
+						<p class="m-b-0">Total pago aos fornecedores</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-30">
+				<div class="media">
+					<div class="media-left meida media-middle">
+						<span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+					</div>
+					<div class="media-body media-text-right">
+						<h2>@Model.TotalLiquidoExibicao</h2>
+						<p class="m-b-0">Total líquido</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@if (Model.VendaDashboardViewModelSet.Count > 0)
+	{
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-title">
+						<h4>Vendas recentes</h4>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Data</th>
+										<th>Produto</th>
+										<th>Fornecedor</th>
+										<th>Quantidade</th>
+										<th>Pago pelo cliente (UN)</th>
+										<th>Pago ao fornecedor (UN)</th>
+									</tr>
+								</thead>
+								<tbody>
+								@foreach (var venda in Model.VendaDashboardViewModelSet)
+								{
+									@Html.Partial("_Venda", venda)
+								}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>

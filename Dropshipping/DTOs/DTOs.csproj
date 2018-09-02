@@ -47,6 +47,7 @@
     <Compile Include="FornecedorDTO.cs" />
     <Compile Include="ItemPedidoDTO.cs" />
     <Compile Include="ItemPedidoFornecedorDTO.cs" />
+    <Compile Include="ItemPedidoHistoricoDTO.cs" />
     <Compile Include="PedidoDTO.cs" />
     <Compile Include="PedidoFornecedorDTO.cs" />
     <Compile Include="ProdutoCadastroDTO.cs" />

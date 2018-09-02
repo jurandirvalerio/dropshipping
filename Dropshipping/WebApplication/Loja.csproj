@@ -235,6 +235,8 @@
     <Compile Include="Areas\Administracao\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administracao\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Administracao\Models\Fornecedor\FornecedorViewModel.cs" />
+    <Compile Include="Areas\Administracao\Models\Home\DashboardViewModel.cs" />
+    <Compile Include="Areas\Administracao\Models\Home\VendaDashboardViewModel.cs" />
     <Compile Include="Areas\Administracao\Models\Produto\ProdutoViewModel.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\MeusPedidosController.cs" />
@@ -1275,6 +1277,7 @@
     <Content Include="Areas\Administracao\Views\Fornecedor\Produtos.cshtml" />
     <Content Include="Areas\Administracao\Views\Produto\Alterar.cshtml" />
     <Content Include="Areas\Administracao\Views\Produto\_Cadastro.cshtml" />
+    <Content Include="Areas\Administracao\Views\Home\_Venda.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

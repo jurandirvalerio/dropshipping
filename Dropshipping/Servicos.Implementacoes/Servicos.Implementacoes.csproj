@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="ClienteMapper.cs" />
     <Compile Include="ClienteService.cs" />
+    <Compile Include="DashboardService.cs" />
     <Compile Include="FornecedorMapper.cs" />
     <Compile Include="FornecedorService.cs" />
     <Compile Include="JobService.cs" />
