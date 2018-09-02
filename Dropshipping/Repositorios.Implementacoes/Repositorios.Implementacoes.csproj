@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiBiRepository.cs" />
     <Compile Include="ApiFornecedorRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="ClienteHistoricoRepository.cs" />

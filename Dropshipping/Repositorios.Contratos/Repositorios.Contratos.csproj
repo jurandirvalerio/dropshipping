@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IApiBiRepository.cs" />
     <Compile Include="IApiFornecedorRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="IClienteHistoricoRepository.cs" />

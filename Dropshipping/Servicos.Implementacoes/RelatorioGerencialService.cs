@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using DTOs;
+using Repositorios.Contratos;
 using Servicos.Contratos;
 
 namespace Servicos.Implementacoes
@@ -14,8 +14,9 @@ namespace Servicos.Implementacoes
 		private readonly IClienteMapper _clienteMapper;
 		private readonly IProdutoMapper _produtoMapper;
 		private readonly IPedidoMapper _pedidoMapper;
+		private readonly IApiBiRepository _apiBiRepository;
 
-		public RelatorioGerencialService(IClienteService clienteService, IProdutoService produtoService, IPedidoService pedidoService, IClienteMapper clienteMapper, IProdutoMapper produtoMapper, IPedidoMapper pedidoMapper)
+		public RelatorioGerencialService(IClienteService clienteService, IProdutoService produtoService, IPedidoService pedidoService, IClienteMapper clienteMapper, IProdutoMapper produtoMapper, IPedidoMapper pedidoMapper, IApiBiRepository apiBiRepository)
 		{
 			_clienteService = clienteService;
 			_produtoService = produtoService;
@@ -23,6 +24,7 @@ namespace Servicos.Implementacoes
 			_clienteMapper = clienteMapper;
 			_produtoMapper = produtoMapper;
 			_pedidoMapper = pedidoMapper;
+			_apiBiRepository = apiBiRepository;
 		}
 
 		public void GerarDadosGerenciaisParaEnvio()
@@ -84,16 +86,16 @@ namespace Servicos.Implementacoes
 
 		private void Enviar(List<ClienteDTO> clientesCadastradosOntem)
 		{
-			throw new NotImplementedException();
+			_apiBiRepository.Enviar(clientesCadastradosOntem);
 		}
 		private void Enviar(List<ProdutoCadastroDTO> produtosCadastradosOntem)
 		{
-			throw new NotImplementedException();
+			_apiBiRepository.Enviar(produtosCadastradosOntem);
 		}
 
 		private void Enviar(List<PedidoDTO> pedidosRealizadosOntem)
 		{
-			throw new NotImplementedException();
+			_apiBiRepository.Enviar(pedidosRealizadosOntem);
 		}
 
 		public void Ok()
