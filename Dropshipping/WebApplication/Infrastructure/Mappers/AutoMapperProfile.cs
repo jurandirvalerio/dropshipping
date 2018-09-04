@@ -18,6 +18,7 @@ namespace Loja.Infrastructure.Mappers
 			CreateMap<ProdutoCadastroDTO, ProdutoViewModel>();
 			CreateMap<FornecedorViewModel, FornecedorDTO>();
 			CreateMap<PedidoViewModel, PedidoDTO>();
+			CreateMap<ItemPedidoViewModel, ItemPedidoDTO>();
 		}
 	}
 }
