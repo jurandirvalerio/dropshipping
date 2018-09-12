@@ -29,7 +29,7 @@ namespace Dados.Migrations
 				UsuarioApi = "chefsuser",
 				SenhaApi = "chefspassword",
 				DataCriacao = DateTime.Now,
-				UrlEndpointApi = "http://localhost/fornecedorapi/api",
+				UrlEndpointApi = "http://lojaapipoc.azurewebsites.net/api",
 				Visivel = true
 			});
 		}

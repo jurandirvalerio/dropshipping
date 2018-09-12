@@ -29,7 +29,10 @@ namespace LojaAPI
 			Hangfire.GlobalConfiguration.Configuration.UseSqlServerStorage("DadosGerenciais");
 			Hangfire.GlobalConfiguration.Configuration.UseActivator(new SimpleInjectorJobActivator(SimpleInjectorWebApiInitializer.Container));
 			Hangfire.GlobalJobFilters.Filters.Add(new SimpleInjectorAsyncScopeFilterAttribute(SimpleInjectorWebApiInitializer.Container));
-			app.UseHangfireDashboard("/dashboard");
+			app.UseHangfireDashboard("/dashboard", new DashboardOptions()
+			{
+				Authorization = new[] { new HangFireAuthorizationFilter() }
+			});
 			app.UseHangfireServer();
 
 		}

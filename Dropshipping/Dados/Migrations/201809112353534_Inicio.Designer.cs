@@ -7,13 +7,13 @@ namespace Dados.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class GuidPedido : IMigrationMetadata
+    public sealed partial class Inicio : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(GuidPedido));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inicio));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808300056101_GuidPedido"; }
+            get { return "201809112353534_Inicio"; }
         }
         
         string IMigrationMetadata.Source

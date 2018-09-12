@@ -167,7 +167,7 @@ namespace Servicos.Implementacoes
 		private int ObterCodigoCliente(PedidoDTO pedidoDto)
 		{
 			return _clienteRepository.FindBy(c => c.Guid == new Guid(pedidoDto.GuidCliente))
-				.Select(c => c.Codigo).FirstOrDefault();
+				.Select(c => c.Codigo).Single();
 		}
 
 

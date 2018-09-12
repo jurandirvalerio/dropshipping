@@ -50,41 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LojaDbContext.cs" />
-    <Compile Include="Migrations\201807282149288_Inicio.cs" />
-    <Compile Include="Migrations\201807282149288_Inicio.Designer.cs">
-      <DependentUpon>201807282149288_Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808092303374_Clientes.cs" />
-    <Compile Include="Migrations\201808092303374_Clientes.Designer.cs">
-      <DependentUpon>201808092303374_Clientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808112034142_fornecedores.cs" />
-    <Compile Include="Migrations\201808112034142_fornecedores.Designer.cs">
-      <DependentUpon>201808112034142_fornecedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808160000364_produtoFornecedor.cs" />
-    <Compile Include="Migrations\201808160000364_produtoFornecedor.Designer.cs">
-      <DependentUpon>201808160000364_produtoFornecedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808212352491_RenomeandoColunaQuantidadeParaEstoque.cs" />
-    <Compile Include="Migrations\201808212352491_RenomeandoColunaQuantidadeParaEstoque.Designer.cs">
-      <DependentUpon>201808212352491_RenomeandoColunaQuantidadeParaEstoque.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808261358137_Pedido.cs" />
-    <Compile Include="Migrations\201808261358137_Pedido.Designer.cs">
-      <DependentUpon>201808261358137_Pedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808280049430_NomeCliente.cs" />
-    <Compile Include="Migrations\201808280049430_NomeCliente.Designer.cs">
-      <DependentUpon>201808280049430_NomeCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808300056101_GuidPedido.cs" />
-    <Compile Include="Migrations\201808300056101_GuidPedido.Designer.cs">
-      <DependentUpon>201808300056101_GuidPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809012221500_DadosHistoricos.cs" />
-    <Compile Include="Migrations\201809012221500_DadosHistoricos.Designer.cs">
-      <DependentUpon>201809012221500_DadosHistoricos.cs</DependentUpon>
+    <Compile Include="Migrations\201809112353534_Inicio.cs" />
+    <Compile Include="Migrations\201809112353534_Inicio.Designer.cs">
+      <DependentUpon>201809112353534_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,32 +71,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807282149288_Inicio.resx">
-      <DependentUpon>201807282149288_Inicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808092303374_Clientes.resx">
-      <DependentUpon>201808092303374_Clientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808112034142_fornecedores.resx">
-      <DependentUpon>201808112034142_fornecedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808160000364_produtoFornecedor.resx">
-      <DependentUpon>201808160000364_produtoFornecedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808212352491_RenomeandoColunaQuantidadeParaEstoque.resx">
-      <DependentUpon>201808212352491_RenomeandoColunaQuantidadeParaEstoque.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808261358137_Pedido.resx">
-      <DependentUpon>201808261358137_Pedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808280049430_NomeCliente.resx">
-      <DependentUpon>201808280049430_NomeCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808300056101_GuidPedido.resx">
-      <DependentUpon>201808300056101_GuidPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809012221500_DadosHistoricos.resx">
-      <DependentUpon>201809012221500_DadosHistoricos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809112353534_Inicio.resx">
+      <DependentUpon>201809112353534_Inicio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
